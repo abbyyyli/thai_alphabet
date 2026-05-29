@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Thai Alphabet Handbook｜Appendix 1｜Romanization Quick Map</title>
+<style>
+:root{
+  --text:#1f2937; --muted:#7a6f63; --line:rgba(88,63,35,.16);
+  --card:rgba(255,255,255,.9); --orange:#f2a35d; --orange-soft:#fff1df;
+  --green:#78b887; --green-soft:#edf8ef; --blue:#6ea8d6; --blue-soft:#eef7ff;
+  --red:#dc776f; --red-soft:#fff0ef; --purple:#8873c9; --purple-soft:#f3efff;
+  --shadow:0 12px 28px rgba(74,45,18,.08); --thai-font:"Noto Sans Thai","Tahoma","Leelawadee UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei","Noto Sans Thai",sans-serif;
+  background:radial-gradient(circle at top left,rgba(242,163,93,.16),transparent 36%),
+             radial-gradient(circle at top right,rgba(110,168,214,.14),transparent 38%),
+             linear-gradient(135deg,#fffaf4 0%,#fbfffb 55%,#f7fbff 100%);
+  line-height:1.7; padding:56px 24px 24px;
+}
+.page{max-width:1240px;margin:auto}
+.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.hero{padding:26px;border-radius:24px}
+.card{padding:18px;margin:16px 0}
+h1{font-size:28px;margin:0 0 8px;line-height:1.3}
+h2{font-size:22px;margin:24px 0 12px}
+h3{font-size:18px;margin:18px 0 10px}
+.subtitle{font-size:14px;color:var(--muted)}
+.tabs{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;position:sticky;top:0;z-index:10;background:transparent;backdrop-filter:none}
+.tab-btn{border:1px solid var(--line);background:rgba(255,255,255,.78);color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:800;font-size:13px}
+.tab-btn.active{background:#1f2937;color:#fff;border-color:#1f2937}
+.tab{display:none}.tab.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px;vertical-align:top}
+th{background:#fff1df;color:#5d4030;font-size:12px;text-align:left}
+tr:nth-child(even) td{background:#fffdf9}
+.thai{font-family:var(--thai-font);font-size:18px;font-weight:800;color:#111827}
+.thai-lg{font-family:var(--thai-font);font-size:22px;font-weight:900;color:#111827}
+.carrier{color:#b8ada2;font-weight:700}
+.vmark{color:#315f82;font-weight:900}
+.rom{font-family:var(--mono);color:#6b7280;font-size:12.5px}
+.eng{font-size:13px;color:#374151}
+.tts{border:1px solid rgba(242,163,93,.45);background:#fff1df;color:#9a5b24;border-radius:999px;padding:2px 7px;margin-left:5px;cursor:pointer;font-size:12px}
+.tts:hover{background:#ffe1bd}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(80,120,80,.22);background:#f7fff8;color:#2d6d3d;border-radius:13px;padding:6px 9px;cursor:pointer;font-size:12px;margin:4px}
+.pill:hover{background:#eaf8ec}
+.pill .thai{font-size:15px}.pill .rom{font-size:12px}
+.pill.orange{background:var(--orange-soft);color:#9a5b24;border-color:#f4c899}
+.pill.blue{background:var(--blue-soft);color:#315f82;border-color:#c9e0f2}
+.pill.purple{background:var(--purple-soft);color:#5f4c9b;border-color:#d8cff7}
+.base-pill{background:var(--blue-soft);color:#315f82;border-color:#c9e0f2;font-weight:900}
+.note{background:#fffaf4;border:1px solid rgba(242,163,93,.25);border-radius:14px;padding:12px 14px;margin:12px 0;font-size:14px}
+.warn{background:var(--red-soft);border:1px solid #f1c2be;border-radius:14px;padding:12px 14px;margin:12px 0}
+.badge{display:inline-flex;font-size:12px;padding:3px 9px;border-radius:999px;font-weight:800;margin:4px;background:var(--blue-soft);color:#315f82;border:1px solid #c9e0f2}
+.compare-card{border-left:5px solid var(--orange);background:#fff;border-radius:16px;border:1px solid var(--line);padding:14px;margin:14px 0}
+.quick-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+
+.pattern-cell{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  flex-wrap:wrap;
+  line-height:1.55;
+}
+.slot{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:26px;
+  padding:2px 5px;
+  border-radius:8px;
+  background:#fff;
+  border:1px solid rgba(110,168,214,.22);
+  font-family:var(--thai-font);
+  font-weight:900;
+}
+.slot .carrier{color:#c9bdb1;font-weight:800}
+.slot .vmark{color:#315f82;font-weight:950}
+.plus{color:#9a5b24;font-weight:900}
+.empty-cell{color:#b8ada2;font-size:13px}
+
+@media(max-width:920px){body{padding:24px 14px 14px}.grid,.grid3{grid-template-columns:1fr}th,td{padding:8px}}
+
+
+/* v2: search + colored badges + complete consonants */
+.badge.orange{background:var(--orange-soft);color:#9a5b24;border-color:#f4c899}
+.badge.green{background:var(--green-soft);color:#3d6f48;border-color:#cde8d3}
+.badge.blue{background:var(--blue-soft);color:#315f82;border-color:#c9e0f2}
+.badge.red{background:var(--red-soft);color:#9b3f38;border-color:#f1c2be}
+.badge.purple{background:var(--purple-soft);color:#5f4c9b;border-color:#d8cff7}
+.search-card{
+  margin-top:16px;
+  background:rgba(255,255,255,.84);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px 14px;
+}
+.search-card label{
+  display:block;
+  font-size:12px;
+  font-weight:900;
+  color:#3b3128;
+  margin-bottom:6px;
+}
+.search-input{
+  width:100%;
+  border:1px solid rgba(88,63,35,.18);
+  background:#fff;
+  border-radius:13px;
+  padding:10px 12px;
+  font-size:14px;
+  color:var(--text);
+  outline:none;
+}
+.search-input:focus{
+  border-color:rgba(110,168,214,.65);
+  box-shadow:0 0 0 3px rgba(110,168,214,.16);
+}
+.search-count{margin-top:6px;font-size:12px;color:var(--muted)}
+.hidden-by-search{display:none!important}
+.class-label{
+  display:inline-flex;
+  align-items:center;
+  padding:3px 8px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+}
+.class-label.mid{background:var(--orange-soft);color:#9a5b24;border:1px solid #f4c899}
+.class-label.high{background:var(--blue-soft);color:#315f82;border:1px solid #c9e0f2}
+.class-label.low{background:var(--green-soft);color:#3d6f48;border:1px solid #cde8d3}
+
+/* v3 no-search cleanup */
+.search-card{display:none!important}
+</style>
+</head>
+<body>
+<div class="page">
+<section class="hero">
+<h1>Thai Alphabet Handbook｜Appendix 1｜Romanization Quick Map</h1>
+<div class="subtitle">有聲音的速查表：快速查母音、子音、尾音、聲調標記、固定高頻拼法與容易混淆的 Romanization。點 Thai script / pill / 🔊 可以播放。</div>
+<div><span class="badge orange">Quick Map</span><span class="badge blue">Audio Pills</span><span class="badge green">Fixed Spellings</span><span class="badge purple">Confusing Vowels</span></div>
+<nav class="tabs">
+<button class="tab-btn active" data-tab="overview">Overview</button>
+<button class="tab-btn" data-tab="vowels">Vowels</button>
+<button class="tab-btn" data-tab="consonants">Consonants</button>
+<button class="tab-btn" data-tab="finals">Finals</button>
+<button class="tab-btn" data-tab="tones">Tone Marks</button>
+<button class="tab-btn" data-tab="fixed">Fixed Spellings</button>
+<button class="tab-btn" data-tab="confusing">Confusing Pairs</button>
+</nav>
+</section>
+<section class="tab active" id="overview">
+<div class="card">
+<h2>Overview｜3 秒查拼音</h2>
+<div class="note">這份不是完整教學，而是 Daily Notes 寫作與複習時用的速查表。需要規則細節請回 Part 1–4。</div>
+<h3>最常用固定拼法</h3>
+<div class="quick-row">
+<button class="pill orange" data-say="ได้"><span class="thai">ได้</span><span class="rom">dâai</span></button>
+<button class="pill orange" data-say="ก็"><span class="thai">ก็</span><span class="rom">gɔ̂ɔ</span></button>
+<button class="pill orange" data-say="แล้ว"><span class="thai">แล้ว</span><span class="rom">lɛ́ɛw</span></button>
+<button class="pill orange" data-say="เลย"><span class="thai">เลย</span><span class="rom">ləəy</span></button>
+<button class="pill orange" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span></button>
+<button class="pill orange" data-say="ต้อง"><span class="thai">ต้อง</span><span class="rom">dtɔ̂ng</span></button>
+<button class="pill orange" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span></button>
+<button class="pill orange" data-say="ค่อย"><span class="thai">ค่อย</span><span class="rom">khɔ̂i</span></button>
+<button class="pill orange" data-say="เงิน"><span class="thai">เงิน</span><span class="rom">ngoen</span></button>
+</div>
+</div>
+</section>
+<section class="tab" id="vowels">
+<div class="card">
+<h2>Vowels Quick Map｜母音速查</h2>
+<div class="note">
+      左邊母音本身可播放，右邊例字也可播放。為避免 <span class="rom">เ-ือ</span> 在手機上顯示成多條橫線，本表不使用 hyphen 佔位；改用淡色承載字母 <span class="carrier thai">อ</span> + 藍色母音符號 <span class="vmark thai">เ ื อ</span> 顯示。
+    </div>
+<table>
+<tr>
+<th>Sound family</th>
+<th>Short vowel sound</th>
+<th>Long vowel sound</th>
+<th>With final / common shape</th>
+<th>Audio examples</th>
+</tr>
+<tr>
+<td><span class="rom">a / aa</span></td>
+<td><button class="pill base-pill" data-say="อะ"><span class="thai"><span class="carrier">อ</span><span class="vmark">ะ</span></span><span class="rom">a</span></button></td>
+<td><button class="pill base-pill" data-say="อา"><span class="thai"><span class="carrier">อ</span><span class="vmark">า</span></span><span class="rom">aa</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="carrier">ก</span><span class="vmark">ั</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+<span class="rom">a + final</span>
+</span>
+</td>
+<td><button class="pill" data-say="จะ"><span class="thai">จะ</span><span class="rom">jà</span></button><button class="pill" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span></button><button class="pill" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">i / ii</span></td>
+<td><button class="pill base-pill" data-say="อิ"><span class="thai"><span class="carrier">อ</span><span class="vmark">ิ</span></span><span class="rom">i</span></button></td>
+<td><button class="pill base-pill" data-say="อี"><span class="thai"><span class="carrier">อ</span><span class="vmark">ี</span></span><span class="rom">ii</span></button></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span></button><button class="pill" data-say="ดี"><span class="thai">ดี</span><span class="rom">dii</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ʉ / ʉʉ</span></td>
+<td><button class="pill base-pill" data-say="อึ"><span class="thai"><span class="carrier">อ</span><span class="vmark">ึ</span></span><span class="rom">ʉ</span></button></td>
+<td><button class="pill base-pill" data-say="อือ"><span class="thai"><span class="carrier">อ</span><span class="vmark">ือ</span></span><span class="rom">ʉʉ</span></button></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill" data-say="ถึง"><span class="thai">ถึง</span><span class="rom">thʉ̌ng</span></button><button class="pill" data-say="ชื่อ"><span class="thai">ชื่อ</span><span class="rom">chʉ̂ʉ</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">u / uu</span></td>
+<td><button class="pill base-pill" data-say="อุ"><span class="thai"><span class="carrier">อ</span><span class="vmark">ุ</span></span><span class="rom">u</span></button></td>
+<td><button class="pill base-pill" data-say="อู"><span class="thai"><span class="carrier">อ</span><span class="vmark">ู</span></span><span class="rom">uu</span></button></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill" data-say="สุข"><span class="thai">สุข</span><span class="rom">sùk</span></button><button class="pill" data-say="ดู"><span class="thai">ดู</span><span class="rom">duu</span></button><button class="pill" data-say="ถูก"><span class="thai">ถูก</span><span class="rom">thùuk</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">e / ee</span></td>
+<td><button class="pill base-pill" data-say="เอะ"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span><span class="vmark">ะ</span></span><span class="rom">e</span></button></td>
+<td><button class="pill base-pill" data-say="เอ"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span></span><span class="rom">ee</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">็</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+<span class="rom">e + final</span>
+</span>
+</td>
+<td><button class="pill" data-say="เตะ"><span class="thai">เตะ</span><span class="rom">dtè</span></button><button class="pill" data-say="เก"><span class="thai">เก</span><span class="rom">gee</span></button><button class="pill" data-say="เด็ก"><span class="thai">เด็ก</span><span class="rom">dèk</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ɛ / ɛɛ</span></td>
+<td><button class="pill base-pill" data-say="แอะ"><span class="thai"><span class="vmark">แ</span><span class="carrier">อ</span><span class="vmark">ะ</span></span><span class="rom">ɛ</span></button></td>
+<td><button class="pill base-pill" data-say="แอ"><span class="thai"><span class="vmark">แ</span><span class="carrier">อ</span></span><span class="rom">ɛɛ</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="vmark">แ</span><span class="carrier">ก</span><span class="vmark">็</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+<span class="rom">ɛ + final</span>
+</span>
+</td>
+<td><button class="pill" data-say="แปะ"><span class="thai">แปะ</span><span class="rom">bpɛ̀</span></button><button class="pill" data-say="แม่"><span class="thai">แม่</span><span class="rom">mɛ̂ɛ</span></button><button class="pill" data-say="แฟน"><span class="thai">แฟน</span><span class="rom">fɛɛn</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">o / oo</span></td>
+<td><button class="pill base-pill" data-say="โอะ"><span class="thai"><span class="vmark">โ</span><span class="carrier">อ</span><span class="vmark">ะ</span></span><span class="rom">o</span></button></td>
+<td><button class="pill base-pill" data-say="โอ"><span class="thai"><span class="vmark">โ</span><span class="carrier">อ</span></span><span class="rom">oo</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="vmark">โ</span><span class="carrier">ก</span><span class="vmark">ะ</span></span>
+<span class="rom">or</span>
+<span class="slot"><span class="vmark">โ</span><span class="carrier">ก</span><span class="vmark">็</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+</span>
+</td>
+<td><button class="pill" data-say="โต"><span class="thai">โต</span><span class="rom">dtoo</span></button><button class="pill" data-say="โอน"><span class="thai">โอน</span><span class="rom">oon</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ɔ / ɔɔ</span></td>
+<td><button class="pill base-pill" data-say="เอาะ"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span><span class="vmark">าะ</span></span><span class="rom">ɔ</span></button></td>
+<td><button class="pill base-pill" data-say="ออ"><span class="thai"><span class="carrier">อ</span><span class="vmark">อ</span></span><span class="rom">ɔɔ</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="carrier">ก</span><span class="vmark">็อ</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+<span class="rom">ɔ + final</span>
+</span>
+<br/>
+<span class="pattern-cell">
+<span class="slot"><span class="carrier">ก</span><span class="vmark">อ</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+<span class="rom">ɔɔ + final</span>
+</span>
+</td>
+<td><button class="pill" data-say="เกาะ"><span class="thai">เกาะ</span><span class="rom">gɔ̀</span></button><button class="pill" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span></button><button class="pill" data-say="ห้อง"><span class="thai">ห้อง</span><span class="rom">hɔ̂ng</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ə / əə</span></td>
+<td><button class="pill base-pill" data-say="เออะ"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span><span class="vmark">อะ</span></span><span class="rom">ə</span></button></td>
+<td><button class="pill base-pill" data-say="เออ"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span></span><span class="rom">əə</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ิ</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+<span class="rom">əə / oe + final</span>
+</span>
+</td>
+<td><button class="pill" data-say="เยอะ"><span class="thai">เยอะ</span><span class="rom">yə́</span></button><button class="pill" data-say="เจอ"><span class="thai">เจอ</span><span class="rom">jəə</span></button><button class="pill" data-say="เงิน"><span class="thai">เงิน</span><span class="rom">ngoen</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">iia / ia</span></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill base-pill" data-say="เอีย"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span><span class="vmark">ีย</span></span><span class="rom">iia</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ีย</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+</span>
+</td>
+<td><button class="pill" data-say="เรียน"><span class="thai">เรียน</span><span class="rom">rian</span></button><button class="pill" data-say="เปลี่ยน"><span class="thai">เปลี่ยน</span><span class="rom">bplìian</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ʉa</span></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill base-pill" data-say="เอือ"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span><span class="vmark">ือ</span></span><span class="rom">ʉa</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ือ</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+</span>
+</td>
+<td><button class="pill" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span></button><button class="pill" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ua</span></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill base-pill" data-say="อัว"><span class="thai"><span class="carrier">อ</span><span class="vmark">ัว</span></span><span class="rom">ua</span></button></td>
+<td>
+<span class="pattern-cell">
+<span class="slot"><span class="carrier">ก</span><span class="vmark">ว</span></span>
+<span class="plus">+</span>
+<span class="slot"><span class="carrier">final</span></span>
+<span class="rom">ua + final</span>
+</span>
+</td>
+<td><button class="pill" data-say="กลัว"><span class="thai">กลัว</span><span class="rom">glua</span></button><button class="pill" data-say="ส่วน"><span class="thai">ส่วน</span><span class="rom">sùan</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ai</span></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill base-pill" data-say="ไอ"><span class="thai"><span class="vmark">ไ</span><span class="carrier">อ</span></span><span class="rom">ai</span></button><button class="pill base-pill" data-say="ใอ"><span class="thai"><span class="vmark">ใ</span><span class="carrier">อ</span></span><span class="rom">ai</span></button></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill" data-say="ได้"><span class="thai">ได้</span><span class="rom">dâai</span></button><button class="pill" data-say="ให้"><span class="thai">ให้</span><span class="rom">hâi</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">ao</span></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill base-pill" data-say="เอา"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span><span class="vmark">า</span></span><span class="rom">ao</span></button></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill" data-say="เอา"><span class="thai">เอา</span><span class="rom">ao</span></button><button class="pill" data-say="เรา"><span class="thai">เรา</span><span class="rom">rao</span></button></td>
+</tr>
+<tr>
+<td><span class="rom">aaw</span></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill base-pill" data-say="อาว"><span class="thai"><span class="carrier">อ</span><span class="vmark">าว</span></span><span class="rom">aaw</span></button></td>
+<td><span class="empty-cell">—</span></td>
+<td><button class="pill" data-say="ขาว"><span class="thai">ขาว</span><span class="rom">khǎaw</span></button><button class="pill" data-say="ข้าว"><span class="thai">ข้าว</span><span class="rom">khâaw</span></button></td>
+</tr>
+<tr><td><span class="rom">am</span></td><td><span class="empty-cell">—</span></td><td><button class="pill base-pill" data-say="อำ"><span class="thai">อำ</span><span class="rom">am</span></button></td><td><span class="empty-cell">—</span></td><td><button class="pill" data-say="ทำ"><span class="thai">ทำ</span><span class="rom">tham</span></button><button class="pill" data-say="จำ"><span class="thai">จำ</span><span class="rom">jam</span></button></td></tr><tr><td><span class="rom">əəy</span></td><td><span class="empty-cell">—</span></td><td><button class="pill base-pill" data-say="เอย"><span class="thai">เอย</span><span class="rom">əəy</span></button></td><td><span class="empty-cell">—</span></td><td><button class="pill" data-say="เลย"><span class="thai">เลย</span><span class="rom">ləəy</span></button><button class="pill" data-say="เคย"><span class="thai">เคย</span><span class="rom">khəəy</span></button></td></tr><tr><td><span class="rom">uai / ʉai</span></td><td><span class="empty-cell">—</span></td><td><button class="pill base-pill" data-say="อวย"><span class="thai">อวย / เอือย</span><span class="rom">uai / ʉai</span></button></td><td><span class="empty-cell">—</span></td><td><button class="pill" data-say="ช่วย"><span class="thai">ช่วย</span><span class="rom">chûai</span></button><button class="pill" data-say="เหนื่อย"><span class="thai">เหนื่อย</span><span class="rom">nʉ̀ai</span></button></td></tr><tr><td><span class="rom">iao</span></td><td><span class="empty-cell">—</span></td><td><button class="pill base-pill" data-say="เอียว"><span class="thai">เอียว</span><span class="rom">iao</span></button></td><td><span class="empty-cell">—</span></td><td><button class="pill" data-say="เดียว"><span class="thai">เดียว</span><span class="rom">diao</span></button><button class="pill" data-say="เกี่ยว"><span class="thai">เกี่ยว</span><span class="rom">gìao</span></button></td></tr><tr><td><span class="rom">rʉ / rʉʉ</span></td><td><span class="empty-cell">—</span></td><td><button class="pill base-pill" data-say="ฤ"><span class="thai">ฤ / ฤๅ</span><span class="rom">rʉ / rʉʉ</span></button></td><td><span class="empty-cell">—</span></td><td><button class="pill" data-say="ฤดู"><span class="thai">ฤดู</span><span class="rom">rʉ́-duu</span></button><button class="pill" data-say="ฤๅษี"><span class="thai">ฤๅษี</span><span class="rom">rʉʉ-sǐi</span></button></td></tr></table>
+</div>
+</section>
+<section class="tab" id="consonants"><div class="card"><h2>Consonants Quick Map｜44 子音速查</h2><div class="note">完整 44 子音依中音 / 高音 / 低音排序。子音本身可播放；TTS 播放使用常見承載音或子音名。</div><table><tr><th>Class</th><th>Thai consonants</th><th>Romanization</th><th>Audio examples</th></tr><tr><td><span class="class-label mid">中音字母</span></td><td><button class="pill base-pill" data-say="กอ"><span class="thai">ก</span><span class="rom">g</span></button><button class="pill base-pill" data-say="จอ"><span class="thai">จ</span><span class="rom">j</span></button><button class="pill base-pill" data-say="ฎอ"><span class="thai">ฎ</span><span class="rom">d</span></button><button class="pill base-pill" data-say="ฏอ"><span class="thai">ฏ</span><span class="rom">dt</span></button><button class="pill base-pill" data-say="ดอ"><span class="thai">ด</span><span class="rom">d</span></button><button class="pill base-pill" data-say="ตอ"><span class="thai">ต</span><span class="rom">dt</span></button><button class="pill base-pill" data-say="บอ"><span class="thai">บ</span><span class="rom">b</span></button><button class="pill base-pill" data-say="ปอ ปลา"><span class="thai">ป</span><span class="rom">bp</span></button><button class="pill base-pill" data-say="ออ"><span class="thai">อ</span><span class="rom">carrier / ɔɔ</span></button></td><td>b / bp / carrier / ɔɔ / d / dt / g / j</td><td><button class="pill" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span></button><button class="pill" data-say="เจอ"><span class="thai">เจอ</span><span class="rom">jəə</span></button><button class="pill" data-say="ฎีกา"><span class="thai">ฎีกา</span><span class="rom">dii-gaa</span></button><button class="pill" data-say="ปฏิ"><span class="thai">ปฏิ</span><span class="rom">bpà-dtì</span></button><button class="pill" data-say="เดิน"><span class="thai">เดิน</span><span class="rom">dəən</span></button><button class="pill" data-say="ต้อง"><span class="thai">ต้อง</span><span class="rom">dtɔ̂ng</span></button></td></tr><tr><td><span class="class-label high">高音字母</span></td><td><button class="pill base-pill" data-say="ขอ"><span class="thai">ข</span><span class="rom">kh</span></button><button class="pill base-pill" data-say="ฃอ"><span class="thai">ฃ</span><span class="rom">kh</span></button><button class="pill base-pill" data-say="ฉอ"><span class="thai">ฉ</span><span class="rom">ch</span></button><button class="pill base-pill" data-say="ฐอ"><span class="thai">ฐ</span><span class="rom">th</span></button><button class="pill base-pill" data-say="ถอ"><span class="thai">ถ</span><span class="rom">th</span></button><button class="pill base-pill" data-say="ผอ"><span class="thai">ผ</span><span class="rom">ph</span></button><button class="pill base-pill" data-say="ฝอ"><span class="thai">ฝ</span><span class="rom">f</span></button><button class="pill base-pill" data-say="ศอ"><span class="thai">ศ</span><span class="rom">s</span></button><button class="pill base-pill" data-say="ษอ"><span class="thai">ษ</span><span class="rom">s</span></button><button class="pill base-pill" data-say="สอ"><span class="thai">ส</span><span class="rom">s</span></button><button class="pill base-pill" data-say="หอ"><span class="thai">ห</span><span class="rom">h</span></button></td><td>ch / f / h / kh / ph / s / th</td><td><button class="pill" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span></button><button class="pill" data-say="ฃวด"><span class="thai">ฃวด</span><span class="rom">khùat</span></button><button class="pill" data-say="ฉัน"><span class="thai">ฉัน</span><span class="rom">chǎn</span></button><button class="pill" data-say="ฐาน"><span class="thai">ฐาน</span><span class="rom">thǎan</span></button><button class="pill" data-say="ถึง"><span class="thai">ถึง</span><span class="rom">thʉ̌ng</span></button><button class="pill" data-say="ผิด"><span class="thai">ผิด</span><span class="rom">phìt</span></button></td></tr><tr><td><span class="class-label low">低音字母</span></td><td><button class="pill base-pill" data-say="คอ"><span class="thai">ค</span><span class="rom">kh</span></button><button class="pill base-pill" data-say="ฅอ"><span class="thai">ฅ</span><span class="rom">kh</span></button><button class="pill base-pill" data-say="ฆอ"><span class="thai">ฆ</span><span class="rom">kh</span></button><button class="pill base-pill" data-say="งอ"><span class="thai">ง</span><span class="rom">ng</span></button><button class="pill base-pill" data-say="ชอ"><span class="thai">ช</span><span class="rom">ch</span></button><button class="pill base-pill" data-say="ซอ"><span class="thai">ซ</span><span class="rom">s</span></button><button class="pill base-pill" data-say="ฌอ"><span class="thai">ฌ</span><span class="rom">ch</span></button><button class="pill base-pill" data-say="ญอ"><span class="thai">ญ</span><span class="rom">y</span></button><button class="pill base-pill" data-say="ฑอ"><span class="thai">ฑ</span><span class="rom">th</span></button><button class="pill base-pill" data-say="ฒอ"><span class="thai">ฒ</span><span class="rom">th</span></button><button class="pill base-pill" data-say="ณอ"><span class="thai">ณ</span><span class="rom">n</span></button><button class="pill base-pill" data-say="ทอ"><span class="thai">ท</span><span class="rom">th</span></button><button class="pill base-pill" data-say="ธอ"><span class="thai">ธ</span><span class="rom">th</span></button><button class="pill base-pill" data-say="นอ"><span class="thai">น</span><span class="rom">n</span></button><button class="pill base-pill" data-say="พอ"><span class="thai">พ</span><span class="rom">ph</span></button><button class="pill base-pill" data-say="ฟอ"><span class="thai">ฟ</span><span class="rom">f</span></button><button class="pill base-pill" data-say="ภอ"><span class="thai">ภ</span><span class="rom">ph</span></button><button class="pill base-pill" data-say="มอ"><span class="thai">ม</span><span class="rom">m</span></button><button class="pill base-pill" data-say="ยอ"><span class="thai">ย</span><span class="rom">y</span></button><button class="pill base-pill" data-say="รอ"><span class="thai">ร</span><span class="rom">r</span></button><button class="pill base-pill" data-say="ลอ"><span class="thai">ล</span><span class="rom">l</span></button><button class="pill base-pill" data-say="วอ"><span class="thai">ว</span><span class="rom">w</span></button><button class="pill base-pill" data-say="ฬอ"><span class="thai">ฬ</span><span class="rom">l</span></button><button class="pill base-pill" data-say="ฮอ"><span class="thai">ฮ</span><span class="rom">h</span></button></td><td>ch / f / h / kh / l / m / n / ng / ph / r / s / th / w / y</td><td><button class="pill" data-say="คน"><span class="thai">คน</span><span class="rom">khon</span></button><button class="pill" data-say="ฅน"><span class="thai">ฅน</span><span class="rom">khon</span></button><button class="pill" data-say="ฆ่า"><span class="thai">ฆ่า</span><span class="rom">khâa</span></button><button class="pill" data-say="เงิน"><span class="thai">เงิน</span><span class="rom">ngoen</span></button><button class="pill" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span></button><button class="pill" data-say="ซื้อ"><span class="thai">ซื้อ</span><span class="rom">sʉ́ʉ</span></button></td></tr></table></div></section>
+<section class="tab" id="finals">
+<div class="card">
+<h2>Final Sounds Quick Map｜尾音速查</h2>
+<table>
+<tr><th>Final</th><th>Thai letters</th><th>Audio examples</th></tr>
+<tr><td><span class="rom">-k</span></td><td><span class="thai">ก ข ค ฆ</span></td><td><button class="pill" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span></button><button class="pill" data-say="ถูก"><span class="thai">ถูก</span><span class="rom">thùuk</span></button></td></tr>
+<tr><td><span class="rom">-t</span></td><td><span class="thai">จ ช ซ ฎ ฏ ฐ ฑ ฒ ด ต ถ ท ธ ศ ษ ส</span></td><td><button class="pill" data-say="คิด"><span class="thai">คิด</span><span class="rom">khít</span></button><button class="pill" data-say="ผิด"><span class="thai">ผิด</span><span class="rom">phìt</span></button></td></tr>
+<tr><td><span class="rom">-p</span></td><td><span class="thai">บ ป พ ภ ฟ</span></td><td><button class="pill" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span></button><button class="pill" data-say="ภาพ"><span class="thai">ภาพ</span><span class="rom">phâap</span></button></td></tr>
+<tr><td><span class="rom">-m</span></td><td><span class="thai">ม</span></td><td><button class="pill" data-say="ลืม"><span class="thai">ลืม</span><span class="rom">lʉʉm</span></button></td></tr>
+<tr><td><span class="rom">-n</span></td><td><span class="thai">น ญ ณ ร ล ฬ</span></td><td><button class="pill" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span></button><button class="pill" data-say="เดิน"><span class="thai">เดิน</span><span class="rom">dəən</span></button></td></tr>
+<tr><td><span class="rom">-ng</span></td><td><span class="thai">ง</span></td><td><button class="pill" data-say="ห้อง"><span class="thai">ห้อง</span><span class="rom">hɔ̂ng</span></button><button class="pill" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span></button></td></tr>
+<tr><td><span class="rom">-y</span></td><td><span class="thai">ย</span></td><td><button class="pill" data-say="เลย"><span class="thai">เลย</span><span class="rom">ləəy</span></button></td></tr>
+<tr><td><span class="rom">-w</span></td><td><span class="thai">ว</span></td><td><button class="pill" data-say="แล้ว"><span class="thai">แล้ว</span><span class="rom">lɛ́ɛw</span></button><button class="pill" data-say="ข้าว"><span class="thai">ข้าว</span><span class="rom">khâaw</span></button></td></tr>
+</table>
+</div>
+</section>
+<section class="tab" id="tones">
+<div class="card">
+<h2>Tone Marks Quick Map｜聲調符號速查</h2>
+<table>
+<tr><th>Tone</th><th>Accent</th><th>Example</th></tr>
+<tr><td>mid / 平聲</td><td><span class="rom">no mark</span></td><td><button class="pill" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span></button></td></tr>
+<tr><td>low / 一聲</td><td><span class="rom">à</span></td><td><button class="pill" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span></button></td></tr>
+<tr><td>falling / 二聲</td><td><span class="rom">â</span></td><td><button class="pill" data-say="ได้"><span class="thai">ได้</span><span class="rom">dâai</span></button></td></tr>
+<tr><td>high / 三聲</td><td><span class="rom">á</span></td><td><button class="pill" data-say="ซื้อ"><span class="thai">ซื้อ</span><span class="rom">sʉ́ʉ</span></button></td></tr>
+<tr><td>rising / 四聲</td><td><span class="rom">ǎ</span></td><td><button class="pill" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span></button></td></tr>
+</table>
+</div>
+</section>
+<section class="tab" id="fixed">
+<div class="card">
+<h2>Fixed Spellings｜固定高頻拼法</h2>
+<div class="quick-row">
+<button class="pill orange" data-say="ได้"><span class="thai">ได้</span><span class="rom">dâai</span><span class="eng">can; get</span></button>
+<button class="pill orange" data-say="ก็"><span class="thai">ก็</span><span class="rom">gɔ̂ɔ</span><span class="eng">then; also</span></button>
+<button class="pill orange" data-say="แล้ว"><span class="thai">แล้ว</span><span class="rom">lɛ́ɛw</span><span class="eng">already</span></button>
+<button class="pill orange" data-say="แต่"><span class="thai">แต่</span><span class="rom">dtɛ̀ɛ</span><span class="eng">but</span></button>
+<button class="pill orange" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></button>
+<button class="pill orange" data-say="ต้อง"><span class="thai">ต้อง</span><span class="rom">dtɔ̂ng</span><span class="eng">must</span></button>
+<button class="pill orange" data-say="ค่อย"><span class="thai">ค่อย</span><span class="rom">khɔ̂i</span><span class="eng">later</span></button>
+<button class="pill orange" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span><span class="eng">before</span></button>
+<button class="pill orange" data-say="เลย"><span class="thai">เลย</span><span class="rom">ləəy</span><span class="eng">so; at all</span></button>
+<button class="pill orange" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span><span class="eng">ask for</span></button>
+<button class="pill orange" data-say="ข้อความ"><span class="thai">ข้อความ</span><span class="rom">khɔ̂ɔ-khwaam</span><span class="eng">message</span></button>
+<button class="pill orange" data-say="ห้อง"><span class="thai">ห้อง</span><span class="rom">hɔ̂ng</span><span class="eng">room</span></button>
+<button class="pill orange" data-say="หนังสือ"><span class="thai">หนังสือ</span><span class="rom">nǎng-sʉ̌ʉ</span><span class="eng">book</span></button>
+<button class="pill orange" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span><span class="eng">city</span></button>
+<button class="pill orange" data-say="ชื่อ"><span class="thai">ชื่อ</span><span class="rom">chʉ̂ʉ</span><span class="eng">name</span></button>
+<button class="pill orange" data-say="เดิน"><span class="thai">เดิน</span><span class="rom">dəən</span><span class="eng">walk</span></button>
+<button class="pill orange" data-say="ซื้อ"><span class="thai">ซื้อ</span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></button>
+<button class="pill orange" data-say="เงิน"><span class="thai">เงิน</span><span class="rom">ngoen</span><span class="eng">money</span></button>
+<button class="pill orange" data-say="เจอ"><span class="thai">เจอ</span><span class="rom">jəə</span><span class="eng">meet</span></button>
+<button class="pill orange" data-say="เพิ่ง"><span class="thai">เพิ่ง</span><span class="rom">phə̂ng</span><span class="eng">just</span></button>
+<button class="pill orange" data-say="เริ่ม"><span class="thai">เริ่ม</span><span class="rom">rə̂əm</span><span class="eng">start</span></button>
+<button class="pill orange" data-say="ออก"><span class="thai">ออก</span><span class="rom">ɔ̀ɔk</span><span class="eng">out</span></button>
+<button class="pill orange" data-say="ถูก"><span class="thai">ถูก</span><span class="rom">thùuk</span><span class="eng">correct; cheap</span></button>
+<button class="pill orange" data-say="ถึง"><span class="thai">ถึง</span><span class="rom">thʉ̌ng</span><span class="eng">arrive; to</span></button>
+<button class="pill orange" data-say="สอง"><span class="thai">สอง</span><span class="rom">sɔ̌ɔng</span><span class="eng">two</span></button>
+<button class="pill orange" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span><span class="eng">like</span></button>
+<button class="pill orange" data-say="ลอง"><span class="thai">ลอง</span><span class="rom">lɔɔng</span><span class="eng">try</span></button>
+<button class="pill orange" data-say="ครั้ง"><span class="thai">ครั้ง</span><span class="rom">khráng</span><span class="eng">time</span></button>
+</div>
+</div>
+</section>
+<section class="tab" id="confusing">
+<div class="card">
+<h2>Confusing Pairs｜容易混淆母音對照</h2>
+<div class="note">這裡把短音、長音、有尾音變形一起比較。比單純列 <span class="rom">ao vs aaw</span> 更實用。</div>
+<div class="compare-card">
+<h3>1. a / aa / a + final</h3>
+<table>
+<tr><th>Type</th><th>Thai form</th><th>Romanization</th><th>Examples</th></tr>
+<tr><td>short open</td><td><span class="thai">อะ</span></td><td><span class="rom">a</span></td><td><button class="pill" data-say="จะ"><span class="thai">จะ</span><span class="rom">jà</span></button></td></tr>
+<tr><td>long open</td><td><span class="thai">อา</span></td><td><span class="rom">aa</span></td><td><button class="pill" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span></button></td></tr>
+<tr><td>short + final</td><td><span class="thai">-ั + final</span></td><td><span class="rom">a + final</span></td><td><button class="pill" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span></button><button class="pill" data-say="กัน"><span class="thai">กัน</span><span class="rom">gan</span></button></td></tr>
+</table>
+</div>
+<div class="compare-card">
+<h3>2. e / ee / e + final</h3>
+<table>
+<tr><th>Type</th><th>Thai form</th><th>Romanization</th><th>Examples</th></tr>
+<tr><td>short open</td><td><span class="thai">เอะ</span></td><td><span class="rom">e</span></td><td><button class="pill" data-say="เตะ"><span class="thai">เตะ</span><span class="rom">dtè</span></button></td></tr>
+<tr><td>long open</td><td><span class="thai">เอ</span></td><td><span class="rom">ee</span></td><td><button class="pill" data-say="เก"><span class="thai">เก</span><span class="rom">gee</span></button></td></tr>
+<tr><td>short + final</td><td><span class="thai">เ-็ + final</span></td><td><span class="rom">e + final</span></td><td><button class="pill" data-say="เด็ก"><span class="thai">เด็ก</span><span class="rom">dèk</span></button><button class="pill" data-say="เป็น"><span class="thai">เป็น</span><span class="rom">bpen</span></button></td></tr>
+</table>
+</div>
+<div class="compare-card">
+<h3>3. ɛ / ɛɛ / ɛɛ + final</h3>
+<table>
+<tr><th>Type</th><th>Thai form</th><th>Romanization</th><th>Examples</th></tr>
+<tr><td>short open</td><td><span class="thai">แอะ</span></td><td><span class="rom">ɛ</span></td><td><button class="pill" data-say="แปะ"><span class="thai">แปะ</span><span class="rom">bpɛ̀</span></button></td></tr>
+<tr><td>long open</td><td><span class="thai">แอ</span></td><td><span class="rom">ɛɛ</span></td><td><button class="pill" data-say="แม่"><span class="thai">แม่</span><span class="rom">mɛ̂ɛ</span></button></td></tr>
+<tr><td>with final</td><td><span class="thai">แ- + final</span></td><td><span class="rom">ɛɛ + final</span></td><td><button class="pill" data-say="แฟน"><span class="thai">แฟน</span><span class="rom">fɛɛn</span></button><button class="pill" data-say="แค่นี้"><span class="thai">แค่นี้</span><span class="rom">khɛ̂ɛ níi</span></button></td></tr>
+</table>
+</div>
+<div class="compare-card">
+<h3>4. ɔ / ɔɔ / ɔɔ + final</h3>
+<table>
+<tr><th>Type</th><th>Thai form</th><th>Romanization</th><th>Examples</th></tr>
+<tr><td>short open</td><td><span class="thai">เอาะ</span></td><td><span class="rom">ɔ</span></td><td><button class="pill" data-say="เกาะ"><span class="thai">เกาะ</span><span class="rom">gɔ̀</span></button></td></tr>
+<tr><td>long open</td><td><span class="thai">ออ</span></td><td><span class="rom">ɔɔ</span></td><td><button class="pill" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span></button></td></tr>
+<tr><td>with final</td><td><span class="thai">อ + final</span></td><td><span class="rom">ɔɔ + final</span></td><td><button class="pill" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span></button><button class="pill" data-say="ห้อง"><span class="thai">ห้อง</span><span class="rom">hɔ̂ng</span></button><button class="pill" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span></button></td></tr>
+</table>
+</div>
+<div class="compare-card">
+<h3>4b. o / oo vs ɔ / ɔɔ</h3>
+<table>
+<tr><th>Sound</th><th>Thai form</th><th>Romanization</th><th>Examples</th></tr>
+<tr><td>rounded closed o</td><td><span class="thai">โอะ / โอ</span></td><td><span class="rom">o / oo</span></td><td><button class="pill" data-say="โต"><span class="thai">โต</span><span class="rom">dtoo</span></button><button class="pill" data-say="โอน"><span class="thai">โอน</span><span class="rom">oon</span></button></td></tr>
+<tr><td>open ɔ</td><td><span class="thai">เอาะ / ออ</span></td><td><span class="rom">ɔ / ɔɔ</span></td><td><button class="pill" data-say="เกาะ"><span class="thai">เกาะ</span><span class="rom">gɔ̀</span></button><button class="pill" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span></button></td></tr>
+</table>
+<div class="note"><span class="rom">o / oo</span> 嘴型比較圓、收；<span class="rom">ɔ / ɔɔ</span> 嘴型比較開。這組比 <span class="rom">u vs ʉ</span> 更值得放在主要混淆區。</div>
+</div>
+<div class="compare-card">
+<h3>5. ə / əə / เ-ิ + final</h3>
+<table>
+<tr><th>Type</th><th>Thai form</th><th>Romanization</th><th>Examples</th></tr>
+<tr><td>short open</td><td><span class="thai">เออะ</span></td><td><span class="rom">ə</span></td><td><button class="pill" data-say="เยอะ"><span class="thai">เยอะ</span><span class="rom">yə́</span></button></td></tr>
+<tr><td>long open</td><td><span class="thai">เออ</span></td><td><span class="rom">əə</span></td><td><button class="pill" data-say="เจอ"><span class="thai">เจอ</span><span class="rom">jəə</span></button></td></tr>
+<tr><td>with final</td><td><span class="thai">เ-ิ + final</span></td><td><span class="rom">əə / oe + final</span></td><td><button class="pill" data-say="เดิน"><span class="thai">เดิน</span><span class="rom">dəən</span></button><button class="pill" data-say="เงิน"><span class="thai">เงิน</span><span class="rom">ngoen</span></button><button class="pill" data-say="เพิ่ง"><span class="thai">เพิ่ง</span><span class="rom">phə̂ng</span></button></td></tr>
+</table>
+</div>
+<div class="compare-card">
+<h3>6. iia / ia vs ʉa</h3>
+<table>
+<tr><th>Thai form</th><th>Romanization</th><th>Examples</th><th>Note</th></tr>
+<tr><td><span class="thai">เอีย</span></td><td><span class="rom">iia / ia</span></td><td><button class="pill" data-say="เรียน"><span class="thai">เรียน</span><span class="rom">rian</span></button><button class="pill" data-say="เปลี่ยน"><span class="thai">เปลี่ยน</span><span class="rom">bplìian</span></button></td><td>偏 i + a，常見 <span class="thai">เรียน / เขียน / เปลี่ยน</span></td></tr>
+<tr><td><span class="thai">เอือ</span></td><td><span class="rom">ʉa</span></td><td><button class="pill" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span></button><button class="pill" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span></button></td><td>偏 ʉ + a，常見 <span class="thai">เรื่อง / เมือง / เครื่อง</span></td></tr>
+</table>
+</div>
+<div class="compare-card">
+<h3>7. ao vs aaw</h3>
+<table>
+<tr><th>Thai form</th><th>Romanization</th><th>Examples</th><th>Note</th></tr>
+<tr><td><span class="thai">เอา</span></td><td><span class="rom">ao</span></td><td><button class="pill" data-say="เอา"><span class="thai"><span class="vmark">เ</span><span class="carrier">อ</span><span class="vmark">า</span></span><span class="rom">ao</span></button><button class="pill" data-say="เรา"><span class="thai">เรา</span><span class="rom">rao</span></button></td><td>母音組合 ao，不寫成 aaw。</td></tr>
+<tr><td><span class="thai">อาว / -าว</span></td><td><span class="rom">aaw</span></td><td><button class="pill" data-say="ขาว"><span class="thai">ขาว</span><span class="rom">khǎaw</span></button><button class="pill" data-say="ข้าว"><span class="thai">ข้าว</span><span class="rom">khâaw</span></button></td><td>尾音是 <span class="rom">w</span> 時要標出 w。</td></tr>
+</table>
+</div>
+<div class="compare-card">
+<h3>8. 次要混淆：u vs ʉ</h3>
+<div class="note">這組對你來說不太容易混，所以放在次要區，但仍保留快速對照。</div>
+<table>
+<tr><th>Thai</th><th>Romanization</th><th>Examples</th></tr>
+<tr><td><span class="thai">อุ / อู</span></td><td><span class="rom">u / uu</span></td><td><button class="pill" data-say="สุข"><span class="thai">สุข</span><span class="rom">sùk</span></button><button class="pill" data-say="ดู"><span class="thai">ดู</span><span class="rom">duu</span></button></td></tr>
+<tr><td><span class="thai">อึ / อือ</span></td><td><span class="rom">ʉ / ʉʉ</span></td><td><button class="pill" data-say="ถึง"><span class="thai">ถึง</span><span class="rom">thʉ̌ng</span></button><button class="pill" data-say="ซื้อ"><span class="thai">ซื้อ</span><span class="rom">sʉ́ʉ</span></button></td></tr>
+</table>
+</div>
+</div>
+</section>
+</div>
+<script>
+const THAI_RATE = 0.86;
+
+function speakThai(text){
+  if(!text || !("speechSynthesis" in window)){return;}
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "th-TH";
+  u.rate = THAI_RATE;
+  window.speechSynthesis.speak(u);
+}
+
+document.addEventListener("click", e=>{
+  const ttsBtn = e.target.closest(".tts");
+  if(ttsBtn){
+    e.preventDefault();
+    speakThai(ttsBtn.dataset.say || ttsBtn.textContent.trim());
+    return;
+  }
+
+  const pill = e.target.closest(".pill");
+  if(pill){
+    e.preventDefault();
+    speakThai(pill.dataset.say || pill.textContent.trim());
+    return;
+  }
+
+  const tabBtn = e.target.closest(".tab-btn");
+  if(tabBtn){
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    tabBtn.classList.add("active");
+    document.getElementById(tabBtn.dataset.tab).classList.add("active");
+  }
+});
+
+if(!("speechSynthesis" in window)){
+  const warn = document.createElement("div");
+  warn.className = "warn";
+  warn.textContent = "此瀏覽器可能不支援泰文 TTS，建議使用 Chrome / Edge。";
+  document.querySelector(".hero").appendChild(warn);
+}
+</script>
+</body>
+</html>
