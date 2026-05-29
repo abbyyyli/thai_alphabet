@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰文學習系統｜泰文字母與拼讀手冊</title>
+  <style>
+    :root {
+      --bg: #fffaf4;
+      --text: #1f2937;
+      --muted: #7a6f63;
+      --line: rgba(88,63,35,.16);
+      --card: rgba(255,255,255,.9);
+      --orange: #f2a35d;
+      --orange-soft: #fff1df;
+      --green: #78b887;
+      --green-soft: #eef9f1;
+      --blue: #6ea8d6;
+      --blue-soft: #eef7ff;
+      --red: #dc776f;
+      --red-soft: #fff0ef;
+      --purple: #8873c9;
+      --purple-soft: #f6f1ff;
+      --shadow: 0 12px 28px rgba(74,45,18,.08);
+      --shadow-hover: 0 20px 40px rgba(74,45,18,.13);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Noto Sans Thai", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(242,163,93,.16), transparent 36%),
+        radial-gradient(circle at top right, rgba(110,168,214,.14), transparent 38%),
+        linear-gradient(135deg,#fffaf4 0%,#fbfffb 55%,#f7fbff 100%);
+      color: var(--text);
+      padding: 52px 20px 72px;
+      line-height: 1.68;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 980px; margin: 0 auto; }
+
+    .header { margin-bottom: 44px; }
+
+    .eyebrow {
+      font-size: 11.5px;
+      font-weight: 760;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #3d6f48;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 860;
+      letter-spacing: -.03em;
+      line-height: 1.16;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 720px;
+      line-height: 1.72;
+      margin-bottom: 22px;
+    }
+
+    .header-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .header-tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 4px 11px;
+      background: var(--green-soft);
+      color: #2f7948;
+      border: 1px solid #b2dfbd;
+    }
+
+    .header-tag.orange { background: var(--orange-soft); color: #9f5216; border-color: #f2c18f; }
+    .header-tag.blue { background: var(--blue-soft); color: #276f9f; border-color: #acd4ef; }
+    .header-tag.purple { background: var(--purple-soft); color: #6a55a5; border-color: #d8ccff; }
+
+    .progress-bar {
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .progress-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex: 1;
+      min-width: 128px;
+    }
+
+    .progress-item + .progress-item {
+      border-left: 1px solid var(--line);
+      padding-left: 20px;
+    }
+
+    .progress-num {
+      font-size: 1.26rem;
+      font-weight: 820;
+      color: #3d6f48;
+      line-height: 1.2;
+    }
+
+    .progress-label {
+      font-size: 0.81rem;
+      color: var(--muted);
+      font-weight: 560;
+    }
+
+    .section-title {
+      font-size: 0.82rem;
+      font-weight: 780;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 38px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      min-height: 176px;
+    }
+
+    a.card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(120,184,135,.34);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--green), var(--blue));
+      opacity: .95;
+    }
+
+    .card.locked {
+      opacity: .72;
+      background: rgba(255,255,255,.68);
+    }
+
+    .card.locked::before {
+      background: linear-gradient(90deg, #d8d0c8, #e6ded6);
+    }
+
+    .card-rank {
+      font-size: 0.74rem;
+      font-weight: 820;
+      color: #3d6f48;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge-new {
+      background: var(--orange-soft);
+      color: #9f5216;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 760;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .badge-soon {
+      background: #f4f1ed;
+      color: #6a5f55;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 760;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .card-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 7px;
+      letter-spacing: -.01em;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.58;
+      flex-grow: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-size: 0.74rem;
+      background: #f4f1ed;
+      color: #5f5449;
+      padding: 3px 8px;
+      border-radius: 7px;
+      font-weight: 650;
+      border: 1px solid #e1d6cc;
+    }
+
+    .tag.orange { background: var(--orange-soft); color: #9f5216; border-color: #f2c18f; }
+    .tag.green { background: var(--green-soft); color: #2f7948; border-color: #b2dfbd; }
+    .tag.blue { background: var(--blue-soft); color: #276f9f; border-color: #acd4ef; }
+    .tag.purple { background: var(--purple-soft); color: #6a55a5; border-color: #d8ccff; }
+
+    .note-card {
+      background: rgba(255,255,255,.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+
+    .note-card h2 {
+      font-size: 1.06rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .note-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-note { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+    .footer-links { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .footer-link {
+      font-size: 0.81rem;
+      font-weight: 660;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      transition: all .18s ease;
+    }
+
+    .footer-link:hover {
+      color: #3d6f48;
+      border-color: rgba(120,184,135,.35);
+      background: var(--green-soft);
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 34px 14px 56px; }
+      h1 { font-size: 1.9rem; }
+      .progress-bar { flex-direction: column; gap: 12px; align-items: stretch; }
+      .progress-item + .progress-item { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 12px; }
+      .grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="eyebrow">Thai Reading Guide</div>
+      <h1>泰文字母與拼讀手冊</h1>
+      <div class="subtitle">
+        這裡整理泰文母音、子音、尾音與聲調規則，使用發音導向 Romanization，搭配高頻例字與 TTS 音頻，作為 Daily Thai Notes 之外的長期查詢手冊。
+      </div>
+      <div class="header-tags">
+        <span class="header-tag orange">Thai Alphabet</span>
+        <span class="header-tag">Reading System</span>
+        <span class="header-tag blue">TTS Audio</span>
+        <span class="header-tag purple">Romanization Guide</span>
+      </div>
+    </header>
+
+    <section class="progress-bar">
+      <div class="progress-item">
+        <div class="progress-num">4 Guides</div>
+        <div class="progress-label">目前已完成手冊</div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-num">4 Parts</div>
+        <div class="progress-label">母音 / 子音 / 尾音 / 聲調</div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-num">TTS Audio</div>
+        <div class="progress-label">支援泰文發音複習</div>
+      </div>
+    </section>
+
+    <div class="section-title">Core Handbook</div>
+    <section class="grid">
+      <a href="Thai Reading Guide｜Part 1｜母音系統 Vowels.html" class="card">
+        <div class="card-rank">Part 1 <span class="badge-new">已完成</span></div>
+        <div class="card-title">母音系統 Vowels</div>
+        <div class="card-desc">
+          整理短音、長音、前置母音、複合母音、母音遇尾音的變形，以及 ao / aaw、ləəy、lɛ́ɛw 等高頻拼讀規則。
+        </div>
+        <div class="card-tags">
+          <span class="tag orange">#母音變形</span>
+          <span class="tag green">#尾音收尾</span>
+          <span class="tag blue">#TTS音頻</span>
+          <span class="tag purple">#拼讀規則</span>
+        </div>
+      </a>
+
+      <a href="Thai Alphabet Handbook｜Part 2｜子音系統 Consonants.html" class="card">
+        <div class="card-rank">Part 2 <span class="badge-new">已完成</span></div>
+        <div class="card-title">子音系統 Consonants</div>
+        <div class="card-desc">
+          詳細整理 44 個泰文子音，依中子音、高子音、低子音排序，包含 initial sound、final sound、常見例字、同音家族與聲調學習提醒。
+        </div>
+        <div class="card-tags">
+          <span class="tag">#中高低音</span>
+          <span class="tag green">#初音尾音</span>
+          <span class="tag blue">#例字音頻</span>
+          <span class="tag purple">#同音家族</span>
+        </div>
+      </a>
+
+      <a href="Thai Alphabet Handbook｜Part 3｜拼讀系統 Reading System.html" class="card">
+        <div class="card-rank">Part 3 <span class="badge-new">已完成</span></div>
+        <div class="card-title">拼讀系統 Reading System</div>
+        <div class="card-desc">
+          把母音與子音真正串起來，練習「看到泰文字 → 找主子音 → 找母音 → 找尾音 → 組合 Romanization → 讀出來」，包含常見 pattern、高頻字拆解與閱讀練習。
+        </div>
+        <div class="card-tags">
+          <span class="tag orange">#拼讀流程</span>
+          <span class="tag green">#Pattern拆解</span>
+          <span class="tag blue">#閱讀訓練</span>
+          <span class="tag purple">#高頻字</span>
+        </div>
+      </a>
+
+      <a href="Thai Alphabet Handbook｜Part 4｜聲調系統 Tone Rules.html" class="card">
+        <div class="card-rank">Part 4 <span class="badge-new">最新完成</span></div>
+        <div class="card-title">聲調系統 Tone Rules</div>
+        <div class="card-desc">
+          整理泰文五個聲調、聲調符號、中高低子音、長短音、死活音節，以及高頻字的聲調判讀流程與練習。
+        </div>
+        <div class="card-tags">
+          <span class="tag purple">#聲調規則</span>
+          <span class="tag orange">#長短音</span>
+          <span class="tag green">#死活音節</span>
+          <span class="tag blue">#判讀流程</span>
+        </div>
+      </a>
+    </section>
+
+    <div class="section-title">Reference Tools</div>
+    <section class="grid">
+      <div class="card locked">
+        <div class="card-rank">Appendix</div>
+        <div class="card-title">Romanization Quick Map</div>
+        <div class="card-desc">
+          預計整理 Daily Thai Notes 固定使用的拼音對照，例如 rʉ̂ang、dtɔ̂ng、gɔ̀ɔn、ləəy、lɛ́ɛw、ngoen。
+        </div>
+        <div class="card-tags">
+          <span class="tag blue">#Romanization</span>
+          <span class="tag">#快速查詢</span>
+        </div>
+      </div>
+
+      <div class="card locked">
+        <div class="card-rank">Appendix</div>
+        <div class="card-title">常見混淆字形</div>
+        <div class="card-desc">
+          預計整理容易看錯的字母與母音，例如 ao / aaw、u / ʉ、e / ɛ、o / ɔ，以及字形相近的子音。
+        </div>
+        <div class="card-tags">
+          <span class="tag orange">#常見錯誤</span>
+          <span class="tag green">#字形辨認</span>
+        </div>
+      </div>
+
+      <div class="card locked">
+        <div class="card-rank">Practice</div>
+        <div class="card-title">拼讀練習題庫</div>
+        <div class="card-desc">
+          預計收錄看字拼音、聽音選字、母音變形判斷、尾音分類等練習，配合手冊逐步複習。
+        </div>
+        <div class="card-tags">
+          <span class="tag purple">#Practice</span>
+          <span class="tag blue">#Shadowing</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="note-card">
+      <h2>使用方式</h2>
+      <p>建議順序：先讀 Part 1 母音系統，再讀 Part 2 子音系統，接著用 Part 3 拼讀系統練習真正看字讀音，最後用 Part 4 聲調系統補上聲調判讀。</p>
+      <p>Reference Tools 會保留作為之後的快速對照表、常見混淆字形與拼讀題庫。</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-note">Thai Reading Guide · Alphabet / Vowels / Consonants / Finals / Tones · Created for ABBY.</div>
+      <div class="footer-links">
+        <a href="https://abbyyyli.github.io/thai-index/" class="footer-link">← 學習入口</a>
+        <a href="https://abbyyyli.github.io/thai-notes_daily/" class="footer-link">Daily Notes</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
