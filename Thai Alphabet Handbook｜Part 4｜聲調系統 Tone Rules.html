@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thai Alphabet Handbook｜Part 4｜聲調系統 Tone Rules</title>
+<style>
+:root{
+  --text:#1f2937;
+  --muted:#7a6f63;
+  --line:rgba(88,63,35,.16);
+  --card:rgba(255,255,255,.9);
+  --orange:#f2a35d;
+  --orange-soft:#fff1df;
+  --green:#78b887;
+  --green-soft:#edf8ef;
+  --blue:#6ea8d6;
+  --blue-soft:#eef7ff;
+  --red:#dc776f;
+  --red-soft:#fff0ef;
+  --purple:#8873c9;
+  --purple-soft:#f3efff;
+  --shadow:0 12px 28px rgba(74,45,18,.08);
+  --radius:18px;
+  --thai-font:"Noto Sans Thai","Tahoma","Leelawadee UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei","Noto Sans Thai",sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(242,163,93,.16), transparent 36%),
+    radial-gradient(circle at top right, rgba(110,168,214,.14), transparent 38%),
+    linear-gradient(135deg,#fffaf4 0%,#fbfffb 55%,#f7fbff 100%);
+  line-height:1.75;
+  padding:56px 24px 24px;
+}
+.page{max-width:1240px;margin:0 auto}
+.hero,.card,.rule-card,.tone-card,.flow-card,.practice-card,.mistake-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.hero{padding:26px;border-radius:24px}
+h1{font-size:28px;margin:0 0 8px;line-height:1.3}
+h2{font-size:22px;margin:28px 0 14px}
+h3{font-size:18px;margin:20px 0 10px}
+h4{font-size:15px;margin:16px 0 8px}
+.subtitle{font-size:14px;color:var(--muted);margin-bottom:14px}
+.tabs{
+  margin-top:18px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  border-bottom:1px solid var(--line);
+  padding-bottom:10px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:transparent;
+  backdrop-filter:none;
+}
+.tab-btn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.78);
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:13px;
+}
+.tab-btn.active{background:#1f2937;color:#fff;border-color:#1f2937}
+.tab{display:none}
+.tab.active{display:block}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge,.tag{
+  display:inline-flex;
+  align-items:center;
+  font-size:12px;
+  padding:3px 9px;
+  border-radius:999px;
+  font-weight:800;
+  border:1px solid transparent;
+}
+.orange{background:var(--orange-soft);color:#9a5b24;border-color:#f4c899}
+.green{background:var(--green-soft);color:#3d6f48;border-color:#cde8d3}
+.blue{background:var(--blue-soft);color:#315f82;border-color:#c9e0f2}
+.red{background:var(--red-soft);color:#9b3f38;border-color:#f1c2be}
+.purple{background:var(--purple-soft);color:#5f4c9b;border-color:#d8cff7}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card,.rule-card,.tone-card,.flow-card,.practice-card,.mistake-card{padding:18px;margin:14px 0}
+.rule-card{border-left:5px solid var(--orange)}
+.tone-card{border-left:5px solid var(--blue)}
+.flow-card{border-left:5px solid var(--green)}
+.practice-card{border-left:5px solid var(--purple)}
+.mistake-card{border-left:5px solid var(--red)}
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:rgba(255,255,255,.76);
+  border-radius:14px;
+  overflow:hidden;
+  font-size:14px;
+  margin:10px 0;
+}
+th,td{border:1px solid rgba(88,63,35,.16);padding:10px;vertical-align:top}
+th{background:#fff1df;font-size:12px;text-align:left;color:#5d4030}
+tr:nth-child(even) td{background:#fffdf9}
+.thai{font-family:var(--thai-font);font-size:15px;font-weight:750;color:#111827}
+.thai-lg{font-family:var(--thai-font);font-size:20px;font-weight:850;color:#111827}
+.thai-xl{font-family:var(--thai-font);font-size:34px;font-weight:900;color:#111827;line-height:1.2}
+.rom{font-family:var(--mono);color:#6b7280;font-size:12.5px}
+.eng{font-size:13px;color:#374151}
+.tts{
+  border:1px solid rgba(242,163,93,.45);
+  background:#fff1df;
+  color:#9a5b24;
+  border-radius:999px;
+  padding:2px 7px;
+  margin-left:5px;
+  cursor:pointer;
+  font-size:12px;
+}
+.tts:hover{background:#ffe1bd}
+.sound-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.sound-btn{
+  border:1px solid rgba(80,120,80,.22);
+  background:#f7fff8;
+  color:#2d6d3d;
+  border-radius:13px;
+  padding:6px 9px;
+  cursor:pointer;
+  font-size:12px;
+  text-align:left;
+}
+.sound-btn:hover{background:#eaf8ec}
+.sound-btn .thai{display:block;font-size:14px}
+.sound-btn .rom{display:block;font-size:12px}
+.sound-btn .eng{display:block;font-size:11px;color:#52645a}
+.note{
+  background:#fffaf4;
+  border:1px solid rgba(242,163,93,.25);
+  border-radius:14px;
+  padding:12px 14px;
+  margin:12px 0;
+  font-size:14px;
+}
+.warn{
+  background:var(--red-soft);
+  border:1px solid #f1c2be;
+  border-radius:14px;
+  padding:12px 14px;
+  margin:12px 0;
+}
+.class-pill,.tone-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:32px;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+}
+.class-pill.mid{background:var(--orange-soft);color:#9a5b24}
+.class-pill.high{background:var(--blue-soft);color:#315f82}
+.class-pill.low{background:var(--green-soft);color:#3d6f48}
+.tone-pill.mid{background:#f4f1ed;color:#5f5449;border:1px solid #e1d6cc}
+.tone-pill.low{background:var(--orange-soft);color:#9a5b24}
+.tone-pill.falling{background:var(--red-soft);color:#9b3f38}
+.tone-pill.high{background:var(--purple-soft);color:#5f4c9b}
+.tone-pill.rising{background:var(--blue-soft);color:#315f82}
+.formula{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin:10px 0;
+}
+.part{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:42px;
+  padding:7px 10px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fffaf4;
+  font-family:var(--thai-font);
+  font-weight:850;
+  font-size:18px;
+}
+.arrow{font-weight:900;color:#9a5b24}
+.result{
+  display:inline-flex;
+  flex-direction:column;
+  gap:1px;
+  padding:8px 12px;
+  border:1px solid rgba(110,168,214,.35);
+  background:var(--blue-soft);
+  border-radius:12px;
+}
+.step-num{
+  display:inline-flex;
+  margin-right:6px;
+  padding:2px 8px;
+  border-radius:999px;
+  background:var(--orange-soft);
+  color:#9a5b24;
+  font-size:12px;
+  font-weight:900;
+}
+.example{padding:9px 0;border-bottom:1px dashed rgba(88,63,35,.16)}
+.example:last-child{border-bottom:none}
+details{
+  background:rgba(255,255,255,.8);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 14px;
+  margin:10px 0;
+}
+summary{cursor:pointer;font-weight:900}
+.mini{font-size:12px;color:var(--muted)}
+
+.textbook-table th{
+  text-align:center;
+  background:#eef8f0;
+}
+.textbook-table td{
+  text-align:center;
+}
+.tone-symbol{
+  font-size:28px;
+  font-weight:900;
+  color:#111827;
+}
+.cn-tone{
+  font-weight:900;
+  color:#b45d42;
+}
+.tone-bridge{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0;
+}
+.bridge-chip{
+  border:1px solid var(--line);
+  background:#fffaf4;
+  border-radius:13px;
+  padding:7px 10px;
+  font-size:13px;
+}
+.bridge-chip b{color:#9a5b24}
+
+@media(max-width:920px){
+  body{padding:24px 14px 14px}
+  .grid,.grid3{grid-template-columns:1fr}
+  th,td{padding:8px}
+  .thai-xl{font-size:28px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <h1>Thai Alphabet Handbook｜Part 4｜聲調系統 Tone Rules</h1>
+    <div class="subtitle">
+      完整聲調判讀手冊：整理泰文五個聲調、聲調符號、中高低子音、長短母音、活音節、短死音節、長死音節，以及常見高頻字的判讀流程。這份是詳細學習版，之後可再做快速查表版。
+    </div>
+    <div class="badges">
+      <span class="badge orange">Tone Rules</span>
+      <span class="badge blue">字母類別 × 長短</span>
+      <span class="badge green">Live / Dead Syllables</span>
+      <span class="badge purple">Tone Marks</span>
+      <span class="badge red">Common Mistakes</span>
+    </div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="tones">Five Tones</button>
+      <button class="tab-btn" data-tab="bridge">Chinese Tone Bridge</button>
+      <button class="tab-btn" data-tab="marks">Tone Marks</button>
+      <button class="tab-btn" data-tab="live-dead">Live / Dead</button>
+      <button class="tab-btn" data-tab="matrix">字母類別 × 長短</button>
+      <button class="tab-btn" data-tab="rules">Rule Tables</button>
+      <button class="tab-btn" data-tab="flow">Decision Flow</button>
+      <button class="tab-btn" data-tab="examples">High-Frequency Examples</button>
+      <button class="tab-btn" data-tab="mistakes">Mistakes</button>
+      <button class="tab-btn" data-tab="practice">Practice</button>
+    </nav>
+  </section>
+
+  <section id="overview" class="tab active">
+    <h2>Overview｜聲調不是靠猜，是一套組合規則</h2>
+    <div class="grid">
+      <div class="rule-card">
+        <h3>判斷聲調需要 4 個資訊</h3>
+        <ol>
+          <li>主子音類別：<span class="class-pill mid">中音字母</span> <span class="class-pill high">高音字母</span> <span class="class-pill low">低音字母</span></li>
+          <li>有沒有聲調符號：<span class="thai">่ ้ ๊ ๋</span></li>
+          <li>音節是 live / 清尾音，還是 dead / 濁尾音。</li>
+          <li>如果是 dead syllable / 濁尾音，還要看母音是短母音還是長母音。</li>
+        </ol>
+        <div class="note">
+          順序：先找主子音，再看 tone mark，再看 live/dead，最後才查規則。
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <h3>示範：ก่อน</h3>
+        <div class="formula">
+          <span class="part">ก</span>
+          <span class="arrow">+</span>
+          <span class="part">ออ</span>
+          <span class="arrow">+</span>
+          <span class="part">น</span>
+          <span class="arrow">+</span>
+          <span class="part">่</span>
+          <span class="arrow">→</span>
+          <span class="result">
+            <span class="thai-lg">ก่อน <button class="tts" data-say="ก่อน">🔊</button></span>
+            <span class="rom">gɔ̀ɔn</span>
+            <span class="eng">before</span>
+          </span>
+        </div>
+        <p><span class="thai">ก</span> 是中子音，<span class="thai">น</span> 是 live final，有 <span class="thai">่</span>，所以是 low tone：<span class="rom">gɔ̀ɔn</span>。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>五個聲調符號在 Romanization 的標記</h3>
+      <table>
+        <tr><th>Tone</th><th>Symbol in notes</th><th>Example</th><th>Feeling</th></tr>
+        <tr><td><span class="tone-pill mid">Mid</span></td><td><span class="rom">no mark</span></td><td><span class="thai">มา</span> / <span class="rom">maa</span> / come</td><td>平穩</td></tr>
+        <tr><td><span class="tone-pill low">Low</span></td><td><span class="rom">à</span></td><td><span class="thai">ก่อน</span> / <span class="rom">gɔ̀ɔn</span> / before</td><td>低下去</td></tr>
+        <tr><td><span class="tone-pill falling">Falling</span></td><td><span class="rom">â</span></td><td><span class="thai">ได้</span> / <span class="rom">dâai</span> / can</td><td>先高後落</td></tr>
+        <tr><td><span class="tone-pill high">High</span></td><td><span class="rom">á</span></td><td><span class="thai">น้ำ</span> / <span class="rom">náam</span> / water</td><td>高而緊</td></tr>
+        <tr><td><span class="tone-pill rising">Rising</span></td><td><span class="rom">ǎ</span></td><td><span class="thai">ขอ</span> / <span class="rom">khɔ̌ɔ</span> / ask for</td><td>先低後升</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="tones" class="tab">
+    <h2>Five Tones｜泰文五個聲調</h2>
+    <div class="grid">
+      <div class="tone-card">
+        <h3><span class="tone-pill mid">Mid</span> Mid Tone｜平聲</h3>
+        <p>聲音平穩，不特別升降。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span><span class="eng">come</span></button>
+          <button class="sound-btn" data-say="กา"><span class="thai">กา</span><span class="rom">gaa</span><span class="eng">crow / kettle</span></button>
+          <button class="sound-btn" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span><span class="eng">eat</span></button>
+        </div>
+      </div>
+
+      <div class="tone-card">
+        <h3><span class="tone-pill low">Low</span> Low Tone｜低聲</h3>
+        <p>聲音低，通常不要拉太誇張，像往下壓住。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span><span class="eng">before</span></button>
+          <button class="sound-btn" data-say="ใหม่"><span class="thai">ใหม่</span><span class="rom">mài</span><span class="eng">new</span></button>
+          <button class="sound-btn" data-say="ผิด"><span class="thai">ผิด</span><span class="rom">phìt</span><span class="eng">wrong</span></button>
+        </div>
+      </div>
+
+      <div class="tone-card">
+        <h3><span class="tone-pill falling">Falling</span> Falling Tone｜降聲</h3>
+        <p>聲音有明顯下降感，很多高頻字都是 falling tone。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="ได้"><span class="thai">ได้</span><span class="rom">dâai</span><span class="eng">can; get</span></button>
+          <button class="sound-btn" data-say="ต้อง"><span class="thai">ต้อง</span><span class="rom">dtɔ̂ng</span><span class="eng">must</span></button>
+          <button class="sound-btn" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></button>
+        </div>
+      </div>
+
+      <div class="tone-card">
+        <h3><span class="tone-pill high">High</span> High Tone｜高聲</h3>
+        <p>聲音偏高，常有比較緊、短、亮的感覺。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="น้ำ"><span class="thai">น้ำ</span><span class="rom">náam</span><span class="eng">water</span></button>
+          <button class="sound-btn" data-say="ซื้อ"><span class="thai">ซื้อ</span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></button>
+          <button class="sound-btn" data-say="แล้ว"><span class="thai">แล้ว</span><span class="rom">lɛ́ɛw</span><span class="eng">already</span></button>
+        </div>
+      </div>
+
+      <div class="tone-card">
+        <h3><span class="tone-pill rising">Rising</span> Rising Tone｜升聲</h3>
+        <p>聲音從低往上走，不能只唸成高聲。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span><span class="eng">ask for</span></button>
+          <button class="sound-btn" data-say="สอง"><span class="thai">สอง</span><span class="rom">sɔ̌ɔng</span><span class="eng">two</span></button>
+          <button class="sound-btn" data-say="หนังสือ"><span class="thai">หนังสือ</span><span class="rom">nǎng-sʉ̌ʉ</span><span class="eng">book</span></button>
+        </div>
+      </div>
+
+      <div class="tone-card">
+        <h3>Mini Contrast｜用一組字聽差異</h3>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span><span class="eng">mid</span></button>
+          <button class="sound-btn" data-say="หมา"><span class="thai">หมา</span><span class="rom">mǎa</span><span class="eng">rising</span></button>
+          <button class="sound-btn" data-say="ม้า"><span class="thai">ม้า</span><span class="rom">máa</span><span class="eng">high</span></button>
+        </div>
+        <div class="note">這組很適合練：<span class="thai">มา</span> / <span class="thai">หมา</span> / <span class="thai">ม้า</span>。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bridge" class="tab">
+    <h2>Chinese Tone Bridge｜中文聲調對照表</h2>
+
+    <div class="card">
+      <h3>先把英文 tone 名稱換成你熟悉的中文聲調感</h3>
+      <p>這裡不是說泰文聲調等於中文聲調，而是用中文聲調當「記憶橋」。真正判讀還是要看泰文規則。</p>
+      <div class="tone-bridge">
+        <span class="bridge-chip"><b>平聲</b> = Mid tone = <span class="rom">no mark</span>，像穩穩平出去</span>
+        <span class="bridge-chip"><b>一聲</b> = Low tone = <span class="rom">à</span>，往低處壓</span>
+        <span class="bridge-chip"><b>二聲</b> = Falling tone = <span class="rom">â</span>，先高後落</span>
+        <span class="bridge-chip"><b>三聲</b> = High tone = <span class="rom">á</span>，高、短、亮</span>
+        <span class="bridge-chip"><b>四聲</b> = Rising tone = <span class="rom">ǎ</span>，先低後升</span>
+      </div>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="กา"><span class="thai">กา</span><span class="rom">gaa</span><span class="eng">平聲 / mid</span></button>
+        <button class="sound-btn" data-say="ก่า"><span class="thai">ก่า</span><span class="rom">gàa</span><span class="eng">一聲 / low</span></button>
+        <button class="sound-btn" data-say="ก้า"><span class="thai">ก้า</span><span class="rom">gâa</span><span class="eng">二聲 / falling</span></button>
+        <button class="sound-btn" data-say="ก๊า"><span class="thai">ก๊า</span><span class="rom">gáa</span><span class="eng">三聲 / high</span></button>
+        <button class="sound-btn" data-say="ก๋า"><span class="thai">ก๋า</span><span class="rom">gǎa</span><span class="eng">四聲 / rising</span></button>
+      </div>
+      <div class="warn">
+        這裡的「一二三四聲」是你教材裡用來對照泰文聲調的學習名稱，不是普通話聲調。之後 HTML 裡會同時保留：中文聲調名稱 + English tone name + Romanization accent。
+      </div>
+    <div class="note">
+        表格裡的「中音字母 / 高音字母 / 低音字母」指的是 <b>consonant class</b>；
+        「平聲 / 一聲 / 二聲 / 三聲 / 四聲」才是 <b>tone</b>。兩個不要混在一起。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>表一｜中音字母的聲調變化</h3>
+      <p>中音字母最像「標準表」。有聲調符號時，很適合先用它來記。</p>
+      <table class="textbook-table">
+        <tr>
+          <th>Condition</th>
+          <th>平聲<br><span class="rom">mid</span></th>
+          <th>一聲<br><span class="rom">low</span></th>
+          <th>二聲<br><span class="rom">falling</span></th>
+          <th>三聲<br><span class="rom">high</span></th>
+          <th>四聲<br><span class="rom">rising</span></th>
+        </tr>
+        <tr>
+          <td><span class="class-pill mid">中音 + 清尾音 / 長母音開音節</span></td>
+          <td><span class="tone-symbol">不標示</span><br><span class="thai">กา</span> / <span class="rom">gaa</span></td>
+          <td><span class="tone-symbol">่</span><br><span class="thai">ก่า</span> / <span class="rom">gàa</span></td>
+          <td><span class="tone-symbol">้</span><br><span class="thai">ก้า</span> / <span class="rom">gâa</span></td>
+          <td><span class="tone-symbol">๊</span><br><span class="thai">ก๊า</span> / <span class="rom">gáa</span></td>
+          <td><span class="tone-symbol">๋</span><br><span class="thai">ก๋า</span> / <span class="rom">gǎa</span></td>
+        </tr>
+        <tr>
+          <td><span class="class-pill mid">中音 + 短母音 / 濁尾音</span><br><span class="mini">dead syllable</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">不標示</span><br><span class="thai">จด</span> / <span class="rom">jòt</span><br><span class="thai">ปาก</span> / <span class="rom">bpàak</span></td>
+          <td><span class="tone-symbol">้</span></td>
+          <td><span class="tone-symbol">๊</span></td>
+          <td><span class="tone-symbol">๋</span></td>
+        </tr>
+      </table>
+      <div class="note">
+        中音字母無調號：活音節是平聲；死音節是一聲。這就是你教材裡「中音字母 + 短/長母音 + 濁尾音 → 無聲調符號 = 第一聲」的概念。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>表二｜高音字母的聲調變化</h3>
+      <p>高音字母沒有調號時，活音節會變成「四聲 / rising」，死音節則是「一聲 / low」。</p>
+      <table class="textbook-table">
+        <tr>
+          <th>Condition</th>
+          <th>平聲<br><span class="rom">mid</span></th>
+          <th>一聲<br><span class="rom">low</span></th>
+          <th>二聲<br><span class="rom">falling</span></th>
+          <th>三聲<br><span class="rom">high</span></th>
+          <th>四聲<br><span class="rom">rising</span></th>
+        </tr>
+        <tr>
+          <td><span class="class-pill high">高音 + 清尾音 / 長母音開音節</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">่</span><br><span class="thai">ข่า</span> / <span class="rom">khàa</span></td>
+          <td><span class="tone-symbol">้</span><br><span class="thai">ข้า</span> / <span class="rom">khâa</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">ไม่標示</span><br><span class="thai">ขา</span> / <span class="rom">khǎa</span><br><span class="thai">สอง</span> / <span class="rom">sɔ̌ɔng</span></td>
+        </tr>
+        <tr>
+          <td><span class="class-pill high">高音 + 短母音 / 濁尾音</span><br><span class="mini">dead syllable</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">ไม่標示</span><br><span class="thai">ผิด</span> / <span class="rom">phìt</span><br><span class="thai">สุข</span> / <span class="rom">sùk</span></td>
+          <td><span class="tone-symbol">้</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">×</span></td>
+        </tr>
+      </table>
+      <div class="note">
+        高音字母最常用的兩個無調號結果：活音節 → 四聲 rising；死音節 → 一聲 low。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>表三｜低音字母的聲調變化</h3>
+      <p>低音字母最難，因為死音節要分短母音和長母音。</p>
+      <table class="textbook-table">
+        <tr>
+          <th>Condition</th>
+          <th>平聲<br><span class="rom">mid</span></th>
+          <th>一聲<br><span class="rom">low</span></th>
+          <th>二聲<br><span class="rom">falling</span></th>
+          <th>三聲<br><span class="rom">high</span></th>
+          <th>四聲<br><span class="rom">rising</span></th>
+        </tr>
+        <tr>
+          <td><span class="class-pill low">低音 + 清尾音 / 長母音開音節</span></td>
+          <td><span class="tone-symbol">ไม่標示</span><br><span class="thai">มา</span> / <span class="rom">maa</span><br><span class="thai">คน</span> / <span class="rom">khon</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">่</span><br><span class="thai">ค่า</span> / <span class="rom">khâa</span></td>
+          <td><span class="tone-symbol">้</span><br><span class="thai">ค้า</span> / <span class="rom">kháa</span></td>
+          <td><span class="tone-symbol">+</span><br><span class="mini">少數詞 / 特殊標法</span></td>
+        </tr>
+        <tr>
+          <td><span class="class-pill low">低音 + 短母音 + 濁尾音</span><br><span class="mini">short dead</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">่</span></td>
+          <td><span class="tone-symbol">ไม่標示</span><br><span class="thai">รัก</span> / <span class="rom">rák</span><br><span class="thai">นัด</span> / <span class="rom">nát</span></td>
+          <td><span class="tone-symbol">+</span></td>
+        </tr>
+        <tr>
+          <td><span class="class-pill low">低音 + 長母音 + 濁尾音</span><br><span class="mini">long dead</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">×</span></td>
+          <td><span class="tone-symbol">ไม่標示</span><br><span class="thai">มาก</span> / <span class="rom">mâak</span><br><span class="thai">ชอบ</span> / <span class="rom">chɔ̂ɔp</span></td>
+          <td><span class="tone-symbol">้</span></td>
+          <td><span class="tone-symbol">+</span></td>
+        </tr>
+      </table>
+      <div class="warn">
+        低音字母請優先記三行：live no mark = 平聲；short dead no mark = 三聲 high；long dead no mark = 二聲 falling。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>清尾音 / 濁尾音對照</h3>
+      <p>你的教材用「清尾音 / 濁尾音」表示，這裡對照成我們前面學過的 live / dead。</p>
+      <table>
+        <tr><th>教材名稱</th><th>本手冊名稱</th><th>Final sounds</th><th>Thai final letters</th></tr>
+        <tr>
+          <td>清尾音</td>
+          <td>Live final</td>
+          <td><span class="rom">-m / -n / -ng / -y / -w</span></td>
+          <td><span class="thai">ม / น ญ ณ ร ล ฬ / ง / ย / ว</span></td>
+        </tr>
+        <tr>
+          <td>濁尾音</td>
+          <td>Dead final</td>
+          <td><span class="rom">-p / -t / -k</span></td>
+          <td><span class="thai">บ ป พ ฟ ภ / จ ช ซ ฎ ฏ ฐ ฑ ฒ ด ต ถ ท ธ ศ ษ ส / ก ข ค ฆ</span></td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+
+
+  <section id="marks" class="tab">
+    <h2>Tone Marks｜聲調符號</h2>
+
+    <div class="card">
+      <h3>四個聲調符號</h3>
+      <table>
+        <tr><th>Mark</th><th>Thai name</th><th>Common effect with 中音字母 consonants</th><th>Example</th></tr>
+        <tr><td><span class="thai-xl">่</span></td><td><span class="thai">ไม้เอก</span> / <span class="rom">mái èek</span></td><td>low tone</td><td><span class="thai">ก่า</span> / <span class="rom">gàa</span></td></tr>
+        <tr><td><span class="thai-xl">้</span></td><td><span class="thai">ไม้โท</span> / <span class="rom">mái thoo</span></td><td>falling tone</td><td><span class="thai">ก้า</span> / <span class="rom">gâa</span></td></tr>
+        <tr><td><span class="thai-xl">๊</span></td><td><span class="thai">ไม้ตรี</span> / <span class="rom">mái dtrii</span></td><td>high tone</td><td><span class="thai">ก๊า</span> / <span class="rom">gáa</span></td></tr>
+        <tr><td><span class="thai-xl">๋</span></td><td><span class="thai">ไม้จัตวา</span> / <span class="rom">mái jàt-dtà-waa</span></td><td>rising tone</td><td><span class="thai">ก๋า</span> / <span class="rom">gǎa</span></td></tr>
+      </table>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="กา"><span class="thai">กา</span><span class="rom">gaa</span><span class="eng">mid</span></button>
+        <button class="sound-btn" data-say="ก่า"><span class="thai">ก่า</span><span class="rom">gàa</span><span class="eng">low</span></button>
+        <button class="sound-btn" data-say="ก้า"><span class="thai">ก้า</span><span class="rom">gâa</span><span class="eng">falling</span></button>
+        <button class="sound-btn" data-say="ก๊า"><span class="thai">ก๊า</span><span class="rom">gáa</span><span class="eng">high</span></button>
+        <button class="sound-btn" data-say="ก๋า"><span class="thai">ก๋า</span><span class="rom">gǎa</span><span class="eng">rising</span></button>
+      </div>
+    </div>
+
+    <div class="warn">
+      注意：聲調符號不是永遠固定代表同一個聲調。它要和子音 子音類別一起看。上面的「ก」是中子音，所以規則最直覺。
+    </div>
+
+    <div class="grid">
+      <div class="rule-card">
+        <h3>中音字母 with marks</h3>
+        <table>
+          <tr><th>Thai</th><th>Romanization</th><th>Tone</th></tr>
+          <tr><td><span class="thai">กา</span></td><td><span class="rom">gaa</span></td><td>mid</td></tr>
+          <tr><td><span class="thai">ก่า</span></td><td><span class="rom">gàa</span></td><td>低音字母</td></tr>
+          <tr><td><span class="thai">ก้า</span></td><td><span class="rom">gâa</span></td><td>falling</td></tr>
+          <tr><td><span class="thai">ก๊า</span></td><td><span class="rom">gáa</span></td><td>高音字母</td></tr>
+          <tr><td><span class="thai">ก๋า</span></td><td><span class="rom">gǎa</span></td><td>rising</td></tr>
+        </table>
+      </div>
+      <div class="rule-card">
+        <h3>高音字母 / 低音字母 with marks</h3>
+        <p>高子音與低子音通常只常見部分 tone marks，效果要看表，不要直接照符號猜。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="ข่า"><span class="thai">ข่า</span><span class="rom">khàa</span><span class="eng">galangal</span></button>
+          <button class="sound-btn" data-say="ข้า"><span class="thai">ข้า</span><span class="rom">khâa</span><span class="eng">I; servant</span></button>
+          <button class="sound-btn" data-say="ค่า"><span class="thai">ค่า</span><span class="rom">khâa</span><span class="eng">value; fee</span></button>
+          <button class="sound-btn" data-say="ค้า"><span class="thai">ค้า</span><span class="rom">kháa</span><span class="eng">trade; polite particle variant</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="live-dead" class="tab">
+    <h2>Live / Dead Syllables｜死活音節詳細版</h2>
+
+    <div class="card">
+      <h3>一句話先記住</h3>
+      <div class="note">
+        <b>活音節</b>像聲音可以「延續」：長母音開音節、或尾音是 <span class="rom">-n / -m / -ng / -y / -w</span>。<br>
+        <b>死音節</b>像聲音被「切斷」：短母音開音節、或尾音是 <span class="rom">-k / -t / -p</span>。
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="flow-card">
+        <h3>Live syllable｜活音節 1：長母音開音節</h3>
+        <p>沒有尾音，而且母音是長音，通常算活音節。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span><span class="eng">come｜long open</span></button>
+          <button class="sound-btn" data-say="ดู"><span class="thai">ดู</span><span class="rom">duu</span><span class="eng">look｜long open</span></button>
+          <button class="sound-btn" data-say="มือ"><span class="thai">มือ</span><span class="rom">mʉʉ</span><span class="eng">hand｜long open</span></button>
+          <button class="sound-btn" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span><span class="eng">ask for｜long open</span></button>
+        </div>
+      </div>
+
+      <div class="flow-card">
+        <h3>Live syllable｜活音節 2：活尾音</h3>
+        <p>尾音是鼻音或滑音時，聲音可以自然延續，所以算活音節。</p>
+        <table>
+          <tr><th>Final</th><th>Thai final letters</th><th>Examples</th></tr>
+          <tr><td><span class="rom">-n</span></td><td><span class="thai">น ญ ณ ร ล ฬ</span></td><td><button class="sound-btn" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span></button> <button class="sound-btn" data-say="อาหาร"><span class="thai">อาหาร</span><span class="rom">aa-hǎan</span></button></td></tr>
+          <tr><td><span class="rom">-m</span></td><td><span class="thai">ม</span></td><td><button class="sound-btn" data-say="ลืม"><span class="thai">ลืม</span><span class="rom">lʉʉm</span></button> <button class="sound-btn" data-say="สาม"><span class="thai">สาม</span><span class="rom">sǎam</span></button></td></tr>
+          <tr><td><span class="rom">-ng</span></td><td><span class="thai">ง</span></td><td><button class="sound-btn" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span></button> <button class="sound-btn" data-say="ห้อง"><span class="thai">ห้อง</span><span class="rom">hɔ̂ng</span></button></td></tr>
+          <tr><td><span class="rom">-y</span></td><td><span class="thai">ย</span></td><td><button class="sound-btn" data-say="เลย"><span class="thai">เลย</span><span class="rom">ləəy</span></button> <button class="sound-btn" data-say="ช่วย"><span class="thai">ช่วย</span><span class="rom">chûai</span></button></td></tr>
+          <tr><td><span class="rom">-w</span></td><td><span class="thai">ว</span></td><td><button class="sound-btn" data-say="แล้ว"><span class="thai">แล้ว</span><span class="rom">lɛ́ɛw</span></button> <button class="sound-btn" data-say="ข้าว"><span class="thai">ข้าว</span><span class="rom">khâaw</span></button></td></tr>
+        </table>
+      </div>
+
+      <div class="flow-card">
+        <h3>Dead syllable｜死音節 1：短母音開音節</h3>
+        <p>沒有尾音，但是母音是短音，通常算死音節。聲音很短、很快被切斷。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="จะ"><span class="thai">จะ</span><span class="rom">jà</span><span class="eng">will; particle</span></button>
+          <button class="sound-btn" data-say="นะ"><span class="thai">นะ</span><span class="rom">ná</span><span class="eng">soft particle</span></button>
+          <button class="sound-btn" data-say="ค่ะ"><span class="thai">ค่ะ</span><span class="rom">khâ</span><span class="eng">polite particle</span></button>
+          <button class="sound-btn" data-say="เกาะ"><span class="thai">เกาะ</span><span class="rom">gɔ̀</span><span class="eng">island</span></button>
+        </div>
+      </div>
+
+      <div class="flow-card">
+        <h3>Dead syllable｜死音節 2：死尾音</h3>
+        <p>尾音是塞音 <span class="rom">-k / -t / -p</span> 時，算死音節。母音長短會影響低子音無調號時的聲調。</p>
+        <table>
+          <tr><th>Final</th><th>Thai final letters</th><th>Examples</th></tr>
+          <tr><td><span class="rom">-k</span></td><td><span class="thai">ก ข ค ฆ</span></td><td><button class="sound-btn" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span></button> <button class="sound-btn" data-say="มาก"><span class="thai">มาก</span><span class="rom">mâak</span></button></td></tr>
+          <tr><td><span class="rom">-t</span></td><td><span class="thai">จ ช ซ ฎ ฏ ฐ ฑ ฒ ด ต ถ ท ธ ศ ษ ส</span></td><td><button class="sound-btn" data-say="คิด"><span class="thai">คิด</span><span class="rom">khít</span></button> <button class="sound-btn" data-say="ผิด"><span class="thai">ผิด</span><span class="rom">phìt</span></button></td></tr>
+          <tr><td><span class="rom">-p</span></td><td><span class="thai">บ ป พ ฟ ภ</span></td><td><button class="sound-btn" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span></button> <button class="sound-btn" data-say="ภาพ"><span class="thai">ภาพ</span><span class="rom">phâap</span></button></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="warn">
+      你覺得「中低高子音 + 長短母音 + 活尾音死尾音」混亂，通常是因為把兩件事混在一起：<br>
+      1. 先判斷 live / dead；2. 如果是 dead，再看短母音或長母音。這兩步要分開。
+    </div>
+  </section>
+
+  <section id="matrix" class="tab">
+    <h2>字母類別 × 長短 Matrix｜中高低子音 × 長短母音 × 死活音節</h2>
+
+    <div class="card">
+      <h3>最重要總表：沒有聲調符號時</h3>
+      <p>這張表是 Part 4 的核心。先背「沒有聲調符號」的基本結果，再加上聲調符號會比較容易。</p>
+      <table>
+        <tr>
+          <th>子音類別</th>
+          <th>Live syllable<br><span class="mini">長母音開音節 / 活尾音</span></th>
+          <th>Short dead<br><span class="mini">短母音或短音 + -k/-t/-p</span></th>
+          <th>Long dead<br><span class="mini">長母音 + -k/-t/-p</span></th>
+        </tr>
+        <tr>
+          <td><span class="class-pill mid">中音字母</span><br><span class="thai">ก จ ด ต บ ป อ...</span></td>
+          <td><span class="tone-pill mid">mid</span><br>
+            <button class="sound-btn" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span><span class="eng">come</span></button>
+            <button class="sound-btn" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span><span class="eng">eat</span></button>
+          </td>
+          <td><span class="tone-pill low">low</span><br>
+            <button class="sound-btn" data-say="จด"><span class="thai">จด</span><span class="rom">jòt</span><span class="eng">write down</span></button>
+            <button class="sound-btn" data-say="ปิด"><span class="thai">ปิด</span><span class="rom">bpìt</span><span class="eng">close</span></button>
+          </td>
+          <td><span class="tone-pill low">low</span><br>
+            <button class="sound-btn" data-say="ปาก"><span class="thai">ปาก</span><span class="rom">bpàak</span><span class="eng">mouth</span></button>
+            <button class="sound-btn" data-say="บาป"><span class="thai">บาป</span><span class="rom">bàap</span><span class="eng">sin</span></button>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="class-pill high">高音字母</span><br><span class="thai">ข ฉ ถ ผ ฝ ส ห...</span></td>
+          <td><span class="tone-pill rising">rising</span><br>
+            <button class="sound-btn" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span><span class="eng">ask for</span></button>
+            <button class="sound-btn" data-say="สอง"><span class="thai">สอง</span><span class="rom">sɔ̌ɔng</span><span class="eng">two</span></button>
+          </td>
+          <td><span class="tone-pill low">low</span><br>
+            <button class="sound-btn" data-say="ผิด"><span class="thai">ผิด</span><span class="rom">phìt</span><span class="eng">wrong</span></button>
+            <button class="sound-btn" data-say="สด"><span class="thai">สด</span><span class="rom">sòt</span><span class="eng">fresh</span></button>
+          </td>
+          <td><span class="tone-pill low">low</span><br>
+            <button class="sound-btn" data-say="สุข"><span class="thai">สุข</span><span class="rom">sùk</span><span class="eng">happiness</span></button>
+            <button class="sound-btn" data-say="หาด"><span class="thai">หาด</span><span class="rom">hàat</span><span class="eng">beach</span></button>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="class-pill low">低音字母</span><br><span class="thai">ค ง ช ท น ม ร ล ว...</span></td>
+          <td><span class="tone-pill mid">mid</span><br>
+            <button class="sound-btn" data-say="คน"><span class="thai">คน</span><span class="rom">khon</span><span class="eng">person</span></button>
+            <button class="sound-btn" data-say="มือ"><span class="thai">มือ</span><span class="rom">mʉʉ</span><span class="eng">hand</span></button>
+          </td>
+          <td><span class="tone-pill high">high</span><br>
+            <button class="sound-btn" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span><span class="eng">love</span></button>
+            <button class="sound-btn" data-say="นัด"><span class="thai">นัด</span><span class="rom">nát</span><span class="eng">appointment</span></button>
+          </td>
+          <td><span class="tone-pill falling">falling</span><br>
+            <button class="sound-btn" data-say="มาก"><span class="thai">มาก</span><span class="rom">mâak</span><span class="eng">very</span></button>
+            <button class="sound-btn" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span><span class="eng">like</span></button>
+          </td>
+        </tr>
+      </table>
+      <div class="note">
+        最容易記錯的是低子音 dead syllable：<span class="thai">รัก</span> / <span class="rom">rák</span> 是短死 → high；<span class="thai">มาก</span> / <span class="rom">mâak</span> 是長死 → falling。
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="rule-card">
+        <h3>中音字母｜中子音無調號</h3>
+        <p>中子音無調號時，live 是 mid；dead 是 low。長死、短死都 low。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="กา"><span class="thai">กา</span><span class="rom">gaa</span><span class="eng">mid｜live</span></button>
+          <button class="sound-btn" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span><span class="eng">mid｜live</span></button>
+          <button class="sound-btn" data-say="จด"><span class="thai">จด</span><span class="rom">jòt</span><span class="eng">low｜short dead</span></button>
+          <button class="sound-btn" data-say="ปาก"><span class="thai">ปาก</span><span class="rom">bpàak</span><span class="eng">low｜long dead</span></button>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <h3>高音字母｜高子音無調號</h3>
+        <p>高子音無調號時，live 是 rising；dead 是 low。長死、短死都 low。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="ขา"><span class="thai">ขา</span><span class="rom">khǎa</span><span class="eng">rising｜live</span></button>
+          <button class="sound-btn" data-say="สอง"><span class="thai">สอง</span><span class="rom">sɔ̌ɔng</span><span class="eng">rising｜live</span></button>
+          <button class="sound-btn" data-say="ผิด"><span class="thai">ผิด</span><span class="rom">phìt</span><span class="eng">low｜short dead</span></button>
+          <button class="sound-btn" data-say="สุข"><span class="thai">สุข</span><span class="rom">sùk</span><span class="eng">low｜dead</span></button>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <h3>低音字母｜低子音無調號</h3>
+        <p>低子音無調號最需要分長短：live 是 mid；short dead 是 high；long dead 是 falling。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span><span class="eng">mid｜live</span></button>
+          <button class="sound-btn" data-say="คน"><span class="thai">คน</span><span class="rom">khon</span><span class="eng">mid｜live</span></button>
+          <button class="sound-btn" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span><span class="eng">high｜short dead</span></button>
+          <button class="sound-btn" data-say="มาก"><span class="thai">มาก</span><span class="rom">mâak</span><span class="eng">falling｜long dead</span></button>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <h3>為什麼長短母音重要？</h3>
+        <p>長短母音在「低子音 + 無調號 + 死音節」時最關鍵。</p>
+        <table>
+          <tr><th>Thai</th><th>子音類別</th><th>Length + final</th><th>Tone</th></tr>
+          <tr><td><span class="thai">รัก</span></td><td>低音字母</td><td>short + -k</td><td><span class="rom">rák</span> 高音字母</td></tr>
+          <tr><td><span class="thai">มาก</span></td><td>低音字母</td><td>long + -k</td><td><span class="rom">mâak</span> falling</td></tr>
+          <tr><td><span class="thai">นัด</span></td><td>低音字母</td><td>short + -t</td><td><span class="rom">nát</span> 高音字母</td></tr>
+          <tr><td><span class="thai">ชอบ</span></td><td>低音字母</td><td>long + -p</td><td><span class="rom">chɔ̂ɔp</span> falling</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>有聲調符號時：子音類別 × 聲調符號</h3>
+      <table>
+        <tr>
+          <th>子音類別</th>
+          <th>่ ไม้เอก</th>
+          <th>้ ไม้โท</th>
+          <th>๊ ไม้ตรี</th>
+          <th>๋ ไม้จัตวา</th>
+        </tr>
+        <tr>
+          <td><span class="class-pill mid">中音字母</span></td>
+          <td><span class="tone-pill low">low</span><br><button class="sound-btn" data-say="ก่า"><span class="thai">ก่า</span><span class="rom">gàa</span></button></td>
+          <td><span class="tone-pill falling">falling</span><br><button class="sound-btn" data-say="ก้า"><span class="thai">ก้า</span><span class="rom">gâa</span></button></td>
+          <td><span class="tone-pill high">high</span><br><button class="sound-btn" data-say="ก๊า"><span class="thai">ก๊า</span><span class="rom">gáa</span></button></td>
+          <td><span class="tone-pill rising">rising</span><br><button class="sound-btn" data-say="ก๋า"><span class="thai">ก๋า</span><span class="rom">gǎa</span></button></td>
+        </tr>
+        <tr>
+          <td><span class="class-pill high">高音字母</span></td>
+          <td><span class="tone-pill low">low</span><br><button class="sound-btn" data-say="ข่า"><span class="thai">ข่า</span><span class="rom">khàa</span></button></td>
+          <td><span class="tone-pill falling">falling</span><br><button class="sound-btn" data-say="ข้า"><span class="thai">ข้า</span><span class="rom">khâa</span></button></td>
+          <td>rare</td>
+          <td>rare</td>
+        </tr>
+        <tr>
+          <td><span class="class-pill low">低音字母</span></td>
+          <td><span class="tone-pill falling">falling</span><br><button class="sound-btn" data-say="ค่า"><span class="thai">ค่า</span><span class="rom">khâa</span></button></td>
+          <td><span class="tone-pill high">high</span><br><button class="sound-btn" data-say="ค้า"><span class="thai">ค้า</span><span class="rom">kháa</span></button></td>
+          <td>rare / special</td>
+          <td>rare / special</td>
+        </tr>
+      </table>
+      <div class="warn">
+        同一個符號在不同子音類別 上不一定一樣：<span class="thai">ข่า</span> / <span class="rom">khàa</span> 是 high class + <span class="thai">่</span> = low；但 <span class="thai">ค่า</span> / <span class="rom">khâa</span> 是 low class + <span class="thai">่</span> = falling。
+      </div>
+    </div>
+  </section>
+
+  <section id="rules" class="tab">
+    <h2>Rule Tables｜完整規則表</h2>
+
+    <div class="card">
+      <h3>Table 1｜沒有聲調符號：子音類別 + 死活音節 + 長短母音</h3>
+      <table>
+        <tr><th>子音類別</th><th>Live syllable</th><th>Short dead</th><th>Long dead</th></tr>
+        <tr>
+          <td><span class="class-pill mid">中音字母</span></td>
+          <td><span class="tone-pill mid">mid</span><br><span class="thai">กา</span> / <span class="rom">gaa</span></td>
+          <td><span class="tone-pill low">low</span><br><span class="thai">จด</span> / <span class="rom">jòt</span></td>
+          <td><span class="tone-pill low">low</span><br><span class="thai">ปาก</span> / <span class="rom">bpàak</span></td>
+        </tr>
+        <tr>
+          <td><span class="class-pill high">高音字母</span></td>
+          <td><span class="tone-pill rising">rising</span><br><span class="thai">ขา</span> / <span class="rom">khǎa</span></td>
+          <td><span class="tone-pill low">low</span><br><span class="thai">ผิด</span> / <span class="rom">phìt</span></td>
+          <td><span class="tone-pill low">low</span><br><span class="thai">สุข</span> / <span class="rom">sùk</span></td>
+        </tr>
+        <tr>
+          <td><span class="class-pill low">低音字母</span></td>
+          <td><span class="tone-pill mid">mid</span><br><span class="thai">มา</span> / <span class="rom">maa</span></td>
+          <td><span class="tone-pill high">high</span><br><span class="thai">รัก</span> / <span class="rom">rák</span></td>
+          <td><span class="tone-pill falling">falling</span><br><span class="thai">มาก</span> / <span class="rom">mâak</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Table 2｜有聲調符號：子音類別 × 聲調符號</h3>
+      <table>
+        <tr><th>子音類別</th><th>No mark</th><th>่</th><th>้</th><th>๊</th><th>๋</th></tr>
+        <tr><td><span class="class-pill mid">中音字母</span></td><td>看 live/dead</td><td><span class="tone-pill low">low</span></td><td><span class="tone-pill falling">falling</span></td><td><span class="tone-pill high">high</span></td><td><span class="tone-pill rising">rising</span></td></tr>
+        <tr><td><span class="class-pill high">高音字母</span></td><td>看 live/dead</td><td><span class="tone-pill low">low</span></td><td><span class="tone-pill falling">falling</span></td><td>rare</td><td>rare</td></tr>
+        <tr><td><span class="class-pill low">低音字母</span></td><td>看 live/dead</td><td><span class="tone-pill falling">falling</span></td><td><span class="tone-pill high">high</span></td><td>rare / special</td><td>rare / special</td></tr>
+      </table>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span><span class="eng">中音字母 + ่</span></button>
+        <button class="sound-btn" data-say="ต้อง"><span class="thai">ต้อง</span><span class="rom">dtɔ̂ng</span><span class="eng">中音字母 + ้</span></button>
+        <button class="sound-btn" data-say="ค่า"><span class="thai">ค่า</span><span class="rom">khâa</span><span class="eng">低音字母 + ่</span></button>
+        <button class="sound-btn" data-say="น้ำ"><span class="thai">น้ำ</span><span class="rom">náam</span><span class="eng">低音字母 + ้</span></button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="rule-card">
+        <h3>中子音 Middle Class：最規則</h3>
+        <p>中子音可以想成聲調學習的「標準組」。有聲調符號時最直覺。</p>
+        <table>
+          <tr><th>Word</th><th>Condition</th><th>Tone</th></tr>
+          <tr><td><span class="thai">กา</span> / <span class="rom">gaa</span></td><td>live no mark</td><td>mid</td></tr>
+          <tr><td><span class="thai">จด</span> / <span class="rom">jòt</span></td><td>short dead no mark</td><td>低音字母</td></tr>
+          <tr><td><span class="thai">ปาก</span> / <span class="rom">bpàak</span></td><td>long dead no mark</td><td>低音字母</td></tr>
+          <tr><td><span class="thai">ก่า</span> / <span class="rom">gàa</span></td><td>่</td><td>低音字母</td></tr>
+          <tr><td><span class="thai">ก้า</span> / <span class="rom">gâa</span></td><td>้</td><td>falling</td></tr>
+          <tr><td><span class="thai">ก๊า</span> / <span class="rom">gáa</span></td><td>๊</td><td>高音字母</td></tr>
+          <tr><td><span class="thai">ก๋า</span> / <span class="rom">gǎa</span></td><td>๋</td><td>rising</td></tr>
+        </table>
+      </div>
+
+      <div class="rule-card">
+        <h3>高子音 High Class：無調號 live 會升</h3>
+        <p>高子音 live no mark 是 rising tone；dead no mark 是 low tone。</p>
+        <table>
+          <tr><th>Word</th><th>Condition</th><th>Tone</th></tr>
+          <tr><td><span class="thai">ขา</span> / <span class="rom">khǎa</span></td><td>live no mark</td><td>rising</td></tr>
+          <tr><td><span class="thai">สอง</span> / <span class="rom">sɔ̌ɔng</span></td><td>live final</td><td>rising</td></tr>
+          <tr><td><span class="thai">ผิด</span> / <span class="rom">phìt</span></td><td>short dead</td><td>低音字母</td></tr>
+          <tr><td><span class="thai">สุข</span> / <span class="rom">sùk</span></td><td>dead</td><td>低音字母</td></tr>
+          <tr><td><span class="thai">ข่า</span> / <span class="rom">khàa</span></td><td>่</td><td>低音字母</td></tr>
+          <tr><td><span class="thai">ข้า</span> / <span class="rom">khâa</span></td><td>้</td><td>falling</td></tr>
+        </table>
+      </div>
+
+      <div class="rule-card">
+        <h3>低子音 Low Class：最需要看長短</h3>
+        <p>低子音無調號 live 是 mid；短死 high；長死 falling。有調號時：่ falling，้ high。</p>
+        <table>
+          <tr><th>Word</th><th>Condition</th><th>Tone</th></tr>
+          <tr><td><span class="thai">มา</span> / <span class="rom">maa</span></td><td>live no mark</td><td>mid</td></tr>
+          <tr><td><span class="thai">คน</span> / <span class="rom">khon</span></td><td>live final</td><td>mid</td></tr>
+          <tr><td><span class="thai">รัก</span> / <span class="rom">rák</span></td><td>short dead</td><td>高音字母</td></tr>
+          <tr><td><span class="thai">มาก</span> / <span class="rom">mâak</span></td><td>long dead</td><td>falling</td></tr>
+          <tr><td><span class="thai">ค่า</span> / <span class="rom">khâa</span></td><td>่</td><td>falling</td></tr>
+          <tr><td><span class="thai">ค้า</span> / <span class="rom">kháa</span></td><td>้</td><td>高音字母</td></tr>
+        </table>
+      </div>
+
+      <div class="rule-card">
+        <h3>快速記憶句</h3>
+        <div class="note">
+          <b>中子音：</b>live mid，dead low。<br>
+          <b>高子音：</b>live rising，dead low。<br>
+          <b>低子音：</b>live mid，short dead high，long dead falling。
+        </div>
+        <p>先把「無調號」記熟，再處理 tone marks。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow" class="tab">
+    <h2>Decision Flow｜聲調判讀流程</h2>
+
+    <div class="flow-card">
+      <h3><span class="step-num">Step 1</span>找主子音類別</h3>
+      <div class="formula">
+        <span class="part">ก</span><span class="arrow">→</span><span class="class-pill mid">中音字母</span>
+        <span class="part">ข</span><span class="arrow">→</span><span class="class-pill high">高音字母</span>
+        <span class="part">ค</span><span class="arrow">→</span><span class="class-pill low">低音字母</span>
+      </div>
+      <p>主子音類別 是整個聲調判讀的第一步。沒有找 class，後面全部會亂。</p>
+    </div>
+
+    <div class="flow-card">
+      <h3><span class="step-num">Step 2</span>看有沒有聲調符號</h3>
+      <p>如果有 <span class="thai">่ ้ ๊ ๋</span>，先用「子音類別 × 聲調符號」表判斷。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="ก่อน"><span class="thai">ก่อน</span><span class="rom">gɔ̀ɔn</span><span class="eng">中音字母 + ่ = low</span></button>
+        <button class="sound-btn" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">低音字母 + ่ = falling</span></button>
+        <button class="sound-btn" data-say="ซื้อ"><span class="thai">ซื้อ</span><span class="rom">sʉ́ʉ</span><span class="eng">低音字母 + ้ = high</span></button>
+      </div>
+    </div>
+
+    <div class="flow-card">
+      <h3><span class="step-num">Step 3</span>沒有符號時，看 live / dead</h3>
+      <p>沒有 tone mark 時，才進入 live/dead 判斷。</p>
+      <table>
+        <tr><th>Word</th><th>子音類別</th><th>Live / Dead</th><th>Length</th><th>Tone</th></tr>
+        <tr><td><span class="thai">กิน</span></td><td>中音字母</td><td>live (-n)</td><td>—</td><td><span class="rom">gin</span> mid</td></tr>
+        <tr><td><span class="thai">ขอ</span></td><td>高音字母</td><td>live open</td><td>long</td><td><span class="rom">khɔ̌ɔ</span> rising</td></tr>
+        <tr><td><span class="thai">คน</span></td><td>低音字母</td><td>live (-n)</td><td>—</td><td><span class="rom">khon</span> mid</td></tr>
+        <tr><td><span class="thai">รัก</span></td><td>低音字母</td><td>dead (-k)</td><td>short</td><td><span class="rom">rák</span> 高音字母</td></tr>
+        <tr><td><span class="thai">มาก</span></td><td>低音字母</td><td>dead (-k)</td><td>long</td><td><span class="rom">mâak</span> falling</td></tr>
+      </table>
+    </div>
+
+    <div class="flow-card">
+      <h3><span class="step-num">Step 4</span>如果是 dead syllable，再看長短母音</h3>
+      <p>長短母音尤其會影響 <span class="class-pill low">低子音</span> 無調號死音節。</p>
+      <div class="formula">
+        <span class="part">ร + ั + ก</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">รัก <button class="tts" data-say="รัก">🔊</button></span><span class="rom">rák</span><span class="eng">short dead → high</span></span>
+      </div>
+      <div class="formula">
+        <span class="part">ม + า + ก</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">มาก <button class="tts" data-say="มาก">🔊</button></span><span class="rom">mâak</span><span class="eng">long dead → falling</span></span>
+      </div>
+    </div>
+
+    <div class="flow-card">
+      <h3><span class="step-num">Step 5</span>把規則變成讀音</h3>
+      <div class="formula">
+        <span class="part">ร</span><span class="arrow">+</span><span class="part">เ-ือ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">+</span><span class="part">่</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">เรื่อง <button class="tts" data-say="เรื่อง">🔊</button></span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></span>
+      </div>
+      <p><span class="thai">ร</span> 是低子音，<span class="thai">่</span> 在低子音上通常給 falling tone，所以 <span class="thai">เรื่อง</span> 是 <span class="rom">rʉ̂ang</span>。</p>
+    </div>
+  </section>
+
+  <section id="examples" class="tab">
+    <h2>High-Frequency Examples｜高頻字判讀</h2>
+
+    <div class="grid">
+      <div class="rule-card">
+        <h3>ได้</h3>
+        <div class="formula"><span class="part">ด</span><span class="arrow">+</span><span class="part">ไ-</span><span class="arrow">+</span><span class="part">้</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ได้ <button class="tts" data-say="ได้">🔊</button></span><span class="rom">dâai</span><span class="eng">can; get</span></span></div>
+        <p><span class="thai">ด</span> 中子音 + <span class="thai">้</span> → falling tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>ก็</h3>
+        <div class="formula"><span class="part">ก</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">็</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ก็ <button class="tts" data-say="ก็">🔊</button></span><span class="rom">gɔ̂ɔ</span><span class="eng">then; also</span></span></div>
+        <p>高頻特殊短小詞，直接固定記：<span class="thai">ก็</span> / <span class="rom">gɔ̂ɔ</span>。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>ต้อง</h3>
+        <div class="formula"><span class="part">ต</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">+</span><span class="part">้</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ต้อง <button class="tts" data-say="ต้อง">🔊</button></span><span class="rom">dtɔ̂ng</span><span class="eng">must</span></span></div>
+        <p><span class="thai">ต</span> 中子音 + <span class="thai">้</span> → falling tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>เรื่อง</h3>
+        <div class="formula"><span class="part">ร</span><span class="arrow">+</span><span class="part">เ-ือ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">+</span><span class="part">่</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เรื่อง <button class="tts" data-say="เรื่อง">🔊</button></span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></span></div>
+        <p><span class="thai">ร</span> 低子音 + <span class="thai">่</span> → falling tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>ขอ</h3>
+        <div class="formula"><span class="part">ข</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ขอ <button class="tts" data-say="ขอ">🔊</button></span><span class="rom">khɔ̌ɔ</span><span class="eng">ask for</span></span></div>
+        <p><span class="thai">ข</span> 高子音 + live no mark → rising tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>สอง</h3>
+        <div class="formula"><span class="part">ส</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span><span class="result"><span class="thai-lg">สอง <button class="tts" data-say="สอง">🔊</button></span><span class="rom">sɔ̌ɔng</span><span class="eng">two</span></span></div>
+        <p><span class="thai">ส</span> 高子音 + live no mark → rising tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>ซื้อ</h3>
+        <div class="formula"><span class="part">ซ</span><span class="arrow">+</span><span class="part">ือ</span><span class="arrow">+</span><span class="part">้</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ซื้อ <button class="tts" data-say="ซื้อ">🔊</button></span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></span></div>
+        <p><span class="thai">ซ</span> 低子音 + <span class="thai">้</span> → high tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>รัก</h3>
+        <div class="formula"><span class="part">ร</span><span class="arrow">+</span><span class="part">ั</span><span class="arrow">+</span><span class="part">ก</span><span class="arrow">→</span><span class="result"><span class="thai-lg">รัก <button class="tts" data-say="รัก">🔊</button></span><span class="rom">rák</span><span class="eng">love</span></span></div>
+        <p><span class="thai">ร</span> 低子音 + short dead syllable → high tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>มาก</h3>
+        <div class="formula"><span class="part">ม</span><span class="arrow">+</span><span class="part">า</span><span class="arrow">+</span><span class="part">ก</span><span class="arrow">→</span><span class="result"><span class="thai-lg">มาก <button class="tts" data-say="มาก">🔊</button></span><span class="rom">mâak</span><span class="eng">very; much</span></span></div>
+        <p><span class="thai">ม</span> 低子音 + long dead syllable → falling tone。</p>
+      </div>
+
+      <div class="rule-card">
+        <h3>ผิด</h3>
+        <div class="formula"><span class="part">ผ</span><span class="arrow">+</span><span class="part">ิ</span><span class="arrow">+</span><span class="part">ด</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ผิด <button class="tts" data-say="ผิด">🔊</button></span><span class="rom">phìt</span><span class="eng">wrong</span></span></div>
+        <p><span class="thai">ผ</span> 高子音 + dead syllable → low tone。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab">
+    <h2>Mistakes｜常見聲調錯誤</h2>
+
+    <div class="mistake-card">
+      <h3>1. 以為 high consonant = high tone</h3>
+      <p>錯。高子音只是 class，不代表一定高聲。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="ขอ"><span class="thai">ขอ</span><span class="rom">khɔ̌ɔ</span><span class="eng">rising, not high</span></button>
+        <button class="sound-btn" data-say="ผิด"><span class="thai">ผิด</span><span class="rom">phìt</span><span class="eng">low, not high</span></button>
+      </div>
+    </div>
+
+    <div class="mistake-card">
+      <h3>2. 只看聲調符號，不看 class</h3>
+      <table>
+        <tr><th>Thai</th><th>子音類別</th><th>Mark</th><th>Tone</th></tr>
+        <tr><td><span class="thai">ก่า</span></td><td>中音字母</td><td>่</td><td><span class="rom">gàa</span> 低音字母</td></tr>
+        <tr><td><span class="thai">ค่า</span></td><td>低音字母</td><td>่</td><td><span class="rom">khâa</span> falling</td></tr>
+      </table>
+      <p>同樣是 <span class="thai">่</span>，不同子音類別 結果不同。</p>
+    </div>
+
+    <div class="mistake-card">
+      <h3>3. 忽略 dead syllable 長短音</h3>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span><span class="eng">low class + short dead = high</span></button>
+        <button class="sound-btn" data-say="มาก"><span class="thai">มาก</span><span class="rom">mâak</span><span class="eng">low class + long dead = falling</span></button>
+      </div>
+      <p>兩個都是低子音 + dead final，但因母音長短不同，聲調不同。</p>
+    </div>
+
+    <div class="mistake-card">
+      <h3>4. ห นำ 先不要硬套一般低子音規則</h3>
+      <p><span class="thai">หนู หมา หลาย หวาน</span> 這類字有 <span class="thai">ห นำ</span>，會影響後面低子音的聲調規則。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="หนู"><span class="thai">หนู</span><span class="rom">nǔu</span><span class="eng">mouse; I/you cute</span></button>
+        <button class="sound-btn" data-say="หมา"><span class="thai">หมา</span><span class="rom">mǎa</span><span class="eng">dog</span></button>
+        <button class="sound-btn" data-say="หลาย"><span class="thai">หลาย</span><span class="rom">lǎai</span><span class="eng">many</span></button>
+      </div>
+      <div class="note">這會在 Part 5 或 Appendix「ห นำ / อักษรนำ」中詳細整理。</div>
+    </div>
+  </section>
+
+  <section id="practice" class="tab">
+    <h2>Practice｜練習</h2>
+
+    <div class="practice-card">
+      <h3>1. 判斷 tone</h3>
+      <p>請先自己判斷，再打開答案。</p>
+      <ol>
+        <li><span class="thai">ก่อน</span></li>
+        <li><span class="thai">ต้อง</span></li>
+        <li><span class="thai">ขอ</span></li>
+        <li><span class="thai">รัก</span></li>
+        <li><span class="thai">มาก</span></li>
+      </ol>
+      <details>
+        <summary>Answer</summary>
+        <p><span class="thai">ก่อน</span> / <span class="rom">gɔ̀ɔn</span> / low tone <button class="tts" data-say="ก่อน">🔊</button></p>
+        <p><span class="thai">ต้อง</span> / <span class="rom">dtɔ̂ng</span> / falling tone <button class="tts" data-say="ต้อง">🔊</button></p>
+        <p><span class="thai">ขอ</span> / <span class="rom">khɔ̌ɔ</span> / rising tone <button class="tts" data-say="ขอ">🔊</button></p>
+        <p><span class="thai">รัก</span> / <span class="rom">rák</span> / high tone <button class="tts" data-say="รัก">🔊</button></p>
+        <p><span class="thai">มาก</span> / <span class="rom">mâak</span> / falling tone <button class="tts" data-say="มาก">🔊</button></p>
+      </details>
+    </div>
+
+    <div class="practice-card">
+      <h3>2. 選出 live / dead</h3>
+      <p>1. กิน / 2. คิด / 3. เมือง / 4. ชอบ / 5. แล้ว</p>
+      <details>
+        <summary>Answer</summary>
+        <p><span class="thai">กิน</span> / <span class="rom">gin</span> / live (-n) <button class="tts" data-say="กิน">🔊</button></p>
+        <p><span class="thai">คิด</span> / <span class="rom">khít</span> / dead (-t) <button class="tts" data-say="คิด">🔊</button></p>
+        <p><span class="thai">เมือง</span> / <span class="rom">mʉang</span> / live (-ng) <button class="tts" data-say="เมือง">🔊</button></p>
+        <p><span class="thai">ชอบ</span> / <span class="rom">chɔ̂ɔp</span> / dead (-p) <button class="tts" data-say="ชอบ">🔊</button></p>
+        <p><span class="thai">แล้ว</span> / <span class="rom">lɛ́ɛw</span> / live (-w) <button class="tts" data-say="แล้ว">🔊</button></p>
+      </details>
+    </div>
+
+    <div class="practice-card">
+      <h3>3. Tone contrast shadowing</h3>
+      <p>跟著聽，注意聲音走向。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span><span class="eng">mid</span></button>
+        <button class="sound-btn" data-say="หมา"><span class="thai">หมา</span><span class="rom">mǎa</span><span class="eng">rising</span></button>
+        <button class="sound-btn" data-say="ม้า"><span class="thai">ม้า</span><span class="rom">máa</span><span class="eng">high</span></button>
+        <button class="sound-btn" data-say="ค่า"><span class="thai">ค่า</span><span class="rom">khâa</span><span class="eng">falling</span></button>
+        <button class="sound-btn" data-say="ข่า"><span class="thai">ข่า</span><span class="rom">khàa</span><span class="eng">low</span></button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const THAI_RATE = 0.86;
+function speakThai(text){
+  if(!("speechSynthesis" in window)){return;}
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "th-TH";
+  u.rate = THAI_RATE;
+  window.speechSynthesis.speak(u);
+}
+document.addEventListener("click", e=>{
+  const ttsBtn = e.target.closest(".tts");
+  if(ttsBtn){
+    e.preventDefault();
+    speakThai(ttsBtn.dataset.say || ttsBtn.textContent.trim());
+    return;
+  }
+  const soundBtn = e.target.closest(".sound-btn");
+  if(soundBtn){
+    e.preventDefault();
+    speakThai(soundBtn.dataset.say || soundBtn.textContent.trim());
+    return;
+  }
+  const tabBtn = e.target.closest(".tab-btn");
+  if(tabBtn){
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    tabBtn.classList.add("active");
+    document.getElementById(tabBtn.dataset.tab).classList.add("active");
+  }
+});
+if(!("speechSynthesis" in window)){
+  const warn = document.createElement("div");
+  warn.className = "warn";
+  warn.textContent = "此瀏覽器可能不支援泰文 TTS，建議使用 Chrome / Edge。";
+  document.querySelector(".hero").appendChild(warn);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thai Alphabet Handbook｜Part 3｜拼讀系統 Reading System</title>
+<style>
+:root{
+  --text:#1f2937;
+  --muted:#7a6f63;
+  --line:rgba(88,63,35,.16);
+  --card:rgba(255,255,255,.9);
+  --orange:#f2a35d;
+  --orange-soft:#fff1df;
+  --green:#78b887;
+  --green-soft:#edf8ef;
+  --blue:#6ea8d6;
+  --blue-soft:#eef7ff;
+  --red:#dc776f;
+  --red-soft:#fff0ef;
+  --purple:#8873c9;
+  --purple-soft:#f3efff;
+  --shadow:0 12px 28px rgba(74,45,18,.08);
+  --radius:18px;
+  --thai-font:"Noto Sans Thai","Tahoma","Leelawadee UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei","Noto Sans Thai",sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(242,163,93,.16), transparent 36%),
+    radial-gradient(circle at top right, rgba(110,168,214,.14), transparent 38%),
+    linear-gradient(135deg,#fffaf4 0%,#fbfffb 55%,#f7fbff 100%);
+  line-height:1.75;
+  padding:56px 24px 24px;
+}
+.page{max-width:1240px;margin:0 auto}
+.hero,.card,.step-card,.pattern-card,.break-card,.mistake-card,.practice-card,.drill-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.hero{padding:26px;border-radius:24px}
+h1{font-size:28px;margin:0 0 8px;line-height:1.3}
+h2{font-size:22px;margin:28px 0 14px}
+h3{font-size:18px;margin:20px 0 10px}
+h4{font-size:15px;margin:16px 0 8px}
+.subtitle{font-size:14px;color:var(--muted);margin-bottom:14px}
+.tabs{
+  margin-top:18px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  border-bottom:1px solid var(--line);
+  padding-bottom:10px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:transparent;
+  backdrop-filter:none;
+}
+.tab-btn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.78);
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:13px;
+}
+.tab-btn.active{background:#1f2937;color:#fff;border-color:#1f2937}
+.tab{display:none}
+.tab.active{display:block}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge,.tag{
+  display:inline-flex;
+  align-items:center;
+  font-size:12px;
+  padding:3px 9px;
+  border-radius:999px;
+  font-weight:800;
+  border:1px solid transparent;
+}
+.orange{background:var(--orange-soft);color:#9a5b24;border-color:#f4c899}
+.green{background:var(--green-soft);color:#3d6f48;border-color:#cde8d3}
+.blue{background:var(--blue-soft);color:#315f82;border-color:#c9e0f2}
+.red{background:var(--red-soft);color:#9b3f38;border-color:#f1c2be}
+.purple{background:var(--purple-soft);color:#5f4c9b;border-color:#d8cff7}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card,.step-card,.pattern-card,.break-card,.mistake-card,.practice-card,.drill-card{padding:18px;margin:14px 0}
+.step-card{border-left:5px solid var(--orange)}
+.pattern-card{border-left:5px solid var(--green)}
+.break-card{border-left:5px solid var(--blue)}
+.mistake-card{border-left:5px solid var(--red)}
+.practice-card,.drill-card{border-left:5px solid var(--purple)}
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:rgba(255,255,255,.76);
+  border-radius:14px;
+  overflow:hidden;
+  font-size:14px;
+  margin:10px 0;
+}
+th,td{border:1px solid rgba(88,63,35,.16);padding:10px;vertical-align:top}
+th{background:#fff1df;font-size:12px;text-align:left;color:#5d4030}
+tr:nth-child(even) td{background:#fffdf9}
+.thai{font-family:var(--thai-font);font-size:15px;font-weight:750;color:#111827}
+.thai-lg{font-family:var(--thai-font);font-size:19px;font-weight:850;color:#111827}
+.thai-xl{font-family:var(--thai-font);font-size:32px;font-weight:900;color:#111827;line-height:1.2}
+.rom{font-family:var(--mono);color:#6b7280;font-size:12.5px}
+.eng{font-size:13px;color:#374151}
+.tts{
+  border:1px solid rgba(242,163,93,.45);
+  background:#fff1df;
+  color:#9a5b24;
+  border-radius:999px;
+  padding:2px 7px;
+  margin-left:5px;
+  cursor:pointer;
+  font-size:12px;
+}
+.tts:hover{background:#ffe1bd}
+.sound-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.sound-btn{
+  border:1px solid rgba(80,120,80,.22);
+  background:#f7fff8;
+  color:#2d6d3d;
+  border-radius:13px;
+  padding:6px 9px;
+  cursor:pointer;
+  font-size:12px;
+  text-align:left;
+}
+.sound-btn:hover{background:#eaf8ec}
+.sound-btn .thai{display:block;font-size:14px}
+.sound-btn .rom{display:block;font-size:12px}
+.sound-btn .eng{display:block;font-size:11px;color:#52645a}
+.note{
+  background:#fffaf4;
+  border:1px solid rgba(242,163,93,.25);
+  border-radius:14px;
+  padding:12px 14px;
+  margin:12px 0;
+  font-size:14px;
+}
+.warn{
+  background:var(--red-soft);
+  border:1px solid #f1c2be;
+  border-radius:14px;
+  padding:12px 14px;
+  margin:12px 0;
+}
+.formula{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin:10px 0;
+}
+.part{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:42px;
+  padding:7px 10px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fffaf4;
+  font-family:var(--thai-font);
+  font-weight:850;
+  font-size:18px;
+}
+.arrow{font-weight:900;color:#9a5b24}
+.result{
+  display:inline-flex;
+  flex-direction:column;
+  gap:1px;
+  padding:8px 12px;
+  border:1px solid rgba(110,168,214,.35);
+  background:var(--blue-soft);
+  border-radius:12px;
+}
+.step-num{
+  display:inline-flex;
+  margin-right:6px;
+  padding:2px 8px;
+  border-radius:999px;
+  background:var(--orange-soft);
+  color:#9a5b24;
+  font-size:12px;
+  font-weight:900;
+}
+.example{padding:9px 0;border-bottom:1px dashed rgba(88,63,35,.16)}
+.example:last-child{border-bottom:none}
+details{
+  background:rgba(255,255,255,.8);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 14px;
+  margin:10px 0;
+}
+summary{cursor:pointer;font-weight:900}
+.mini{font-size:12px;color:var(--muted)}
+@media(max-width:920px){
+  body{padding:24px 14px 14px}
+  .grid,.grid3{grid-template-columns:1fr}
+  th,td{padding:8px}
+  .thai-xl{font-size:28px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <h1>Thai Alphabet Handbook｜Part 3｜拼讀系統 Reading System</h1>
+    <div class="subtitle">
+      詳細拼讀訓練版：把 Part 1 母音與 Part 2 子音真正串起來，練習「看到泰文字 → 找主子音 → 找母音 → 找尾音 → 組合 Romanization → 讀出來」。聲調規則會在 Part 4 獨立整理，本篇先以可讀出字形為主。
+    </div>
+    <div class="badges">
+      <span class="badge orange">Reading Flow</span>
+      <span class="badge green">Pattern Library</span>
+      <span class="badge blue">Word Breakdown</span>
+      <span class="badge purple">Reading Drill</span>
+      <span class="badge red">Common Mistakes</span>
+    </div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="formula">Reading Formula</button>
+      <button class="tab-btn" data-tab="patterns">Pattern Library</button>
+      <button class="tab-btn" data-tab="breakdown">High-Frequency Breakdown</button>
+      <button class="tab-btn" data-tab="finals">Final Reading</button>
+      <button class="tab-btn" data-tab="mistakes">Common Mistakes</button>
+      <button class="tab-btn" data-tab="drills">Reading Drills</button>
+      <button class="tab-btn" data-tab="practice">Practice</button>
+    </nav>
+  </section>
+
+  <section id="overview" class="tab active">
+    <h2>Overview｜泰文拼讀的核心流程</h2>
+    <div class="grid">
+      <div class="step-card">
+        <h3>看到一個泰文字時，先不要急著猜</h3>
+        <p>你真正要練的是固定流程：</p>
+        <ol>
+          <li>找主子音。</li>
+          <li>找母音形狀。</li>
+          <li>找尾音。</li>
+          <li>判斷短音 / 長音 / 複合母音。</li>
+          <li>先組合出基礎讀音。</li>
+          <li>最後再處理聲調。</li>
+        </ol>
+        <div class="note">
+          本篇先練「拼得出來」，Part 4 再專門處理完整聲調規則。
+        </div>
+      </div>
+
+      <div class="step-card">
+        <h3>示範：เรื่อง</h3>
+        <div class="formula">
+          <span class="part">ร</span>
+          <span class="arrow">+</span>
+          <span class="part">เ-ือ</span>
+          <span class="arrow">+</span>
+          <span class="part">ง</span>
+          <span class="arrow">→</span>
+          <span class="result">
+            <span class="thai-lg">เรื่อง <button class="tts" data-say="เรื่อง">🔊</button></span>
+            <span class="rom">rʉ̂ang</span>
+            <span class="eng">matter; topic</span>
+          </span>
+        </div>
+        <p><span class="thai">เ-ือ</span> 是 <span class="rom">ʉa</span>，尾音 <span class="thai">ง</span> 是 <span class="rom">-ng</span>，組合後是 <span class="rom">rʉang</span>，再加上聲調就是 <span class="rom">rʉ̂ang</span>。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>本篇最重要目標</h3>
+      <table>
+        <tr><th>Before</th><th>After</th></tr>
+        <tr>
+          <td>看到 <span class="thai">เพิ่ง</span> 只能靠記憶或查拼音。</td>
+          <td>知道它是 <span class="thai">พ + เ-ิ + ง</span> → <span class="rom">phə̂ng</span>。</td>
+        </tr>
+        <tr>
+          <td>看到 <span class="thai">เปลี่ยน</span> 覺得字母很多。</td>
+          <td>知道它是 <span class="thai">ปล + เ-ีย + น</span> → <span class="rom">bplìian</span>。</td>
+        </tr>
+        <tr>
+          <td>看到 <span class="thai">ห้อง</span> 猜不出 <span class="rom">ɔɔ</span>。</td>
+          <td>知道 <span class="thai">อ + ง</span> 這裡讀 <span class="rom">ɔɔng</span> → <span class="rom">hɔ̂ng</span>。</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="formula" class="tab">
+    <h2>Reading Formula｜拼讀公式</h2>
+
+    <div class="break-card">
+      <h3><span class="step-num">Formula 1</span>子音 + 母音</h3>
+      <div class="formula">
+        <span class="part">ม</span><span class="arrow">+</span><span class="part">า</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">มา <button class="tts" data-say="มา">🔊</button></span><span class="rom">maa</span><span class="eng">come</span></span>
+      </div>
+      <p>這是最直覺的形式：子音在前，母音在後。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="ชา"><span class="thai">ชา</span><span class="rom">chaa</span><span class="eng">tea</span></button>
+        <button class="sound-btn" data-say="ดี"><span class="thai">ดี</span><span class="rom">dii</span><span class="eng">good</span></button>
+        <button class="sound-btn" data-say="ดู"><span class="thai">ดู</span><span class="rom">duu</span><span class="eng">look</span></button>
+      </div>
+    </div>
+
+    <div class="break-card">
+      <h3><span class="step-num">Formula 2</span>子音 + 母音 + 尾音</h3>
+      <div class="formula">
+        <span class="part">บ</span><span class="arrow">+</span><span class="part">า</span><span class="arrow">+</span><span class="part">น</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">บ้าน <button class="tts" data-say="บ้าน">🔊</button></span><span class="rom">bâan</span><span class="eng">house</span></span>
+      </div>
+      <p>有尾音時，尾音會決定收尾方式，例如 <span class="thai">น</span> 收 <span class="rom">-n</span>。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span><span class="eng">eat</span></button>
+        <button class="sound-btn" data-say="งาน"><span class="thai">งาน</span><span class="rom">ngaan</span><span class="eng">work</span></button>
+        <button class="sound-btn" data-say="สาม"><span class="thai">สาม</span><span class="rom">sǎam</span><span class="eng">three</span></button>
+      </div>
+    </div>
+
+    <div class="break-card">
+      <h3><span class="step-num">Formula 3</span>前置母音：母音寫前面，但發音仍在子音後</h3>
+      <div class="formula">
+        <span class="part">เ-</span><span class="arrow">+</span><span class="part">ก</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">เก <button class="tts" data-say="เก">🔊</button></span><span class="rom">gee</span><span class="eng">long ee pattern</span></span>
+      </div>
+      <p>泰文很多母音寫在子音前面，但讀音仍然跟在子音後面。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="เจอ"><span class="thai">เจอ</span><span class="rom">jəə</span><span class="eng">meet</span></button>
+        <button class="sound-btn" data-say="เด็ก"><span class="thai">เด็ก</span><span class="rom">dèk</span><span class="eng">child</span></button>
+        <button class="sound-btn" data-say="เป็น"><span class="thai">เป็น</span><span class="rom">bpen</span><span class="eng">be</span></button>
+      </div>
+    </div>
+
+    <div class="break-card">
+      <h3><span class="step-num">Formula 4</span>複合母音 + 尾音</h3>
+      <div class="formula">
+        <span class="part">ม</span><span class="arrow">+</span><span class="part">เ-ือ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">เมือง <button class="tts" data-say="เมือง">🔊</button></span><span class="rom">mʉang</span><span class="eng">city</span></span>
+      </div>
+      <p>複合母音通常最容易讓學習者卡住。先抓整組母音，不要一個符號一個符號硬拆。</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></button>
+        <button class="sound-btn" data-say="เรียน"><span class="thai">เรียน</span><span class="rom">rian</span><span class="eng">study</span></button>
+        <button class="sound-btn" data-say="เปลี่ยน"><span class="thai">เปลี่ยน</span><span class="rom">bplìian</span><span class="eng">change</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="patterns" class="tab">
+    <h2>Pattern Library｜高頻拼讀 Pattern</h2>
+
+    <div class="pattern-card">
+      <h3>Pattern A｜เ-ือ + ง = ʉang</h3>
+      <p>這組在 Daily Notes 和日常生活裡非常常見。</p>
+      <table>
+        <tr><th>Thai</th><th>Breakdown</th><th>Romanization</th><th>English</th></tr>
+        <tr><td><span class="thai">เรื่อง <button class="tts" data-say="เรื่อง">🔊</button></span></td><td>ร + เ-ือ + ง</td><td><span class="rom">rʉ̂ang</span></td><td>matter; topic</td></tr>
+        <tr><td><span class="thai">เมือง <button class="tts" data-say="เมือง">🔊</button></span></td><td>ม + เ-ือ + ง</td><td><span class="rom">mʉang</span></td><td>city</td></tr>
+        <tr><td><span class="thai">เครื่อง <button class="tts" data-say="เครื่อง">🔊</button></span></td><td>คร + เ-ือ + ง</td><td><span class="rom">khrʉ̂ang</span></td><td>machine; device</td></tr>
+      </table>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern B｜เ-ีย + น = ian / iian</h3>
+      <table>
+        <tr><th>Thai</th><th>Breakdown</th><th>Romanization</th><th>English</th></tr>
+        <tr><td><span class="thai">เรียน <button class="tts" data-say="เรียน">🔊</button></span></td><td>ร + เ-ีย + น</td><td><span class="rom">rian</span></td><td>study</td></tr>
+        <tr><td><span class="thai">เขียน <button class="tts" data-say="เขียน">🔊</button></span></td><td>ข + เ-ีย + น</td><td><span class="rom">khǐian</span></td><td>write</td></tr>
+        <tr><td><span class="thai">เปลี่ยน <button class="tts" data-say="เปลี่ยน">🔊</button></span></td><td>ปล + เ-ีย + น</td><td><span class="rom">bplìian</span></td><td>change</td></tr>
+      </table>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern C｜เ-า = ao</h3>
+      <table>
+        <tr><th>Thai</th><th>Breakdown</th><th>Romanization</th><th>English</th></tr>
+        <tr><td><span class="thai">เรา <button class="tts" data-say="เรา">🔊</button></span></td><td>ร + เ-า</td><td><span class="rom">rao</span></td><td>we; us</td></tr>
+        <tr><td><span class="thai">เขา <button class="tts" data-say="เขา">🔊</button></span></td><td>ข + เ-า</td><td><span class="rom">khǎo</span></td><td>he; she; they</td></tr>
+        <tr><td><span class="thai">เอา <button class="tts" data-say="เอา">🔊</button></span></td><td>อ + เ-า</td><td><span class="rom">ao</span></td><td>take; want</td></tr>
+      </table>
+      <div class="warn">不要和 <span class="thai">อาว</span> / <span class="rom">aaw</span> 混淆，例如 <span class="thai">ขาว</span> / <span class="rom">khǎaw</span> / white。</div>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern D｜ไ- / ใ- = ai</h3>
+      <table>
+        <tr><th>Thai</th><th>Breakdown</th><th>Romanization</th><th>English</th></tr>
+        <tr><td><span class="thai">ไป <button class="tts" data-say="ไป">🔊</button></span></td><td>ป + ไ-</td><td><span class="rom">bpai</span></td><td>go</td></tr>
+        <tr><td><span class="thai">ให้ <button class="tts" data-say="ให้">🔊</button></span></td><td>ห + ใ-</td><td><span class="rom">hâi</span></td><td>give; for</td></tr>
+        <tr><td><span class="thai">ใช้ <button class="tts" data-say="ใช้">🔊</button></span></td><td>ช + ใ-</td><td><span class="rom">chái</span></td><td>use</td></tr>
+        <tr><td><span class="thai">ได้ <button class="tts" data-say="ได้">🔊</button></span></td><td>ด + ไ-</td><td><span class="rom">dâai</span></td><td>can; get</td></tr>
+      </table>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern E｜เ-ิ + final = ə + final / əə + final</h3>
+      <p>這組常是 <span class="thai">เ-อ</span> 遇尾音後的變形。</p>
+      <table>
+        <tr><th>Thai</th><th>Breakdown</th><th>Romanization</th><th>English</th></tr>
+        <tr><td><span class="thai">เดิน <button class="tts" data-say="เดิน">🔊</button></span></td><td>ด + เ-ิ + น</td><td><span class="rom">dəən</span></td><td>walk</td></tr>
+        <tr><td><span class="thai">เงิน <button class="tts" data-say="เงิน">🔊</button></span></td><td>ง + เ-ิ + น</td><td><span class="rom">ngoen</span></td><td>money</td></tr>
+        <tr><td><span class="thai">เชิญ <button class="tts" data-say="เชิญ">🔊</button></span></td><td>ช + เ-ิ + ญ</td><td><span class="rom">choen</span></td><td>invite; please</td></tr>
+        <tr><td><span class="thai">เพิ่ง <button class="tts" data-say="เพิ่ง">🔊</button></span></td><td>พ + เ-ิ + ง</td><td><span class="rom">phə̂ng</span></td><td>just recently</td></tr>
+        <tr><td><span class="thai">เริ่ม <button class="tts" data-say="เริ่ม">🔊</button></span></td><td>ร + เ-ิ + ม</td><td><span class="rom">rə̂əm</span></td><td>start</td></tr>
+      </table>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern F｜เอย / อย / อ่อย family</h3>
+      <table>
+        <tr><th>Thai</th><th>Pattern</th><th>Romanization</th><th>English</th></tr>
+        <tr><td><span class="thai">เลย <button class="tts" data-say="เลย">🔊</button></span></td><td>เ-ย</td><td><span class="rom">ləəy</span></td><td>so; at all</td></tr>
+        <tr><td><span class="thai">เคย <button class="tts" data-say="เคย">🔊</button></span></td><td>เ-ย</td><td><span class="rom">khəəy</span></td><td>have ever</td></tr>
+        <tr><td><span class="thai">ค่อย <button class="tts" data-say="ค่อย">🔊</button></span></td><td>ออ + ย</td><td><span class="rom">khɔ̂i</span></td><td>later; gradually</td></tr>
+        <tr><td><span class="thai">อร่อย <button class="tts" data-say="อร่อย">🔊</button></span></td><td>ออ + ย</td><td><span class="rom">à-rɔ̀i</span></td><td>delicious</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="breakdown" class="tab">
+    <h2>High-Frequency Breakdown｜Daily Notes 高頻字拆解</h2>
+
+    <div class="grid">
+      <div class="break-card"><h3>เรื่อง</h3><div class="formula"><span class="part">ร</span><span class="arrow">+</span><span class="part">เ-ือ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เรื่อง <button class="tts" data-say="เรื่อง">🔊</button></span><span class="rom">rʉ̂ang</span><span class="eng">matter; topic</span></span></div></div>
+      <div class="break-card"><h3>เมือง</h3><div class="formula"><span class="part">ม</span><span class="arrow">+</span><span class="part">เ-ือ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เมือง <button class="tts" data-say="เมือง">🔊</button></span><span class="rom">mʉang</span><span class="eng">city</span></span></div></div>
+      <div class="break-card"><h3>เพิ่ง</h3><div class="formula"><span class="part">พ</span><span class="arrow">+</span><span class="part">เ-ิ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เพิ่ง <button class="tts" data-say="เพิ่ง">🔊</button></span><span class="rom">phə̂ng</span><span class="eng">just recently</span></span></div></div>
+      <div class="break-card"><h3>เริ่ม</h3><div class="formula"><span class="part">ร</span><span class="arrow">+</span><span class="part">เ-ิ</span><span class="arrow">+</span><span class="part">ม</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เริ่ม <button class="tts" data-say="เริ่ม">🔊</button></span><span class="rom">rə̂əm</span><span class="eng">start</span></span></div></div>
+      <div class="break-card"><h3>เดิน</h3><div class="formula"><span class="part">ด</span><span class="arrow">+</span><span class="part">เ-ิ</span><span class="arrow">+</span><span class="part">น</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เดิน <button class="tts" data-say="เดิน">🔊</button></span><span class="rom">dəən</span><span class="eng">walk</span></span></div></div>
+      <div class="break-card"><h3>เงิน</h3><div class="formula"><span class="part">ง</span><span class="arrow">+</span><span class="part">เ-ิ</span><span class="arrow">+</span><span class="part">น</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เงิน <button class="tts" data-say="เงิน">🔊</button></span><span class="rom">ngoen</span><span class="eng">money</span></span></div></div>
+      <div class="break-card"><h3>ชื่อ</h3><div class="formula"><span class="part">ช</span><span class="arrow">+</span><span class="part">-ือ</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ชื่อ <button class="tts" data-say="ชื่อ">🔊</button></span><span class="rom">chʉ̂ʉ</span><span class="eng">name</span></span></div></div>
+      <div class="break-card"><h3>ซื้อ</h3><div class="formula"><span class="part">ซ</span><span class="arrow">+</span><span class="part">-ือ</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ซื้อ <button class="tts" data-say="ซื้อ">🔊</button></span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></span></div></div>
+      <div class="break-card"><h3>เจอ</h3><div class="formula"><span class="part">จ</span><span class="arrow">+</span><span class="part">เ-อ</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เจอ <button class="tts" data-say="เจอ">🔊</button></span><span class="rom">jəə</span><span class="eng">meet</span></span></div></div>
+      <div class="break-card"><h3>ห้อง</h3><div class="formula"><span class="part">ห</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ห้อง <button class="tts" data-say="ห้อง">🔊</button></span><span class="rom">hɔ̂ng</span><span class="eng">room</span></span></div></div>
+      <div class="break-card"><h3>ต้อง</h3><div class="formula"><span class="part">ต</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ต้อง <button class="tts" data-say="ต้อง">🔊</button></span><span class="rom">dtɔ̂ng</span><span class="eng">must; need</span></span></div></div>
+      <div class="break-card"><h3>ก่อน</h3><div class="formula"><span class="part">ก</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">น</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ก่อน <button class="tts" data-say="ก่อน">🔊</button></span><span class="rom">gɔ̀ɔn</span><span class="eng">before</span></span></div></div>
+      <div class="break-card"><h3>ค่อย</h3><div class="formula"><span class="part">ค</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">ย</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ค่อย <button class="tts" data-say="ค่อย">🔊</button></span><span class="rom">khɔ̂i</span><span class="eng">later; gradually</span></span></div></div>
+      <div class="break-card"><h3>แล้ว</h3><div class="formula"><span class="part">ล</span><span class="arrow">+</span><span class="part">แ-</span><span class="arrow">+</span><span class="part">ว</span><span class="arrow">→</span><span class="result"><span class="thai-lg">แล้ว <button class="tts" data-say="แล้ว">🔊</button></span><span class="rom">lɛ́ɛw</span><span class="eng">already; then</span></span></div></div>
+    </div>
+  </section>
+
+  <section id="finals" class="tab">
+    <h2>Final Reading｜尾音閱讀邏輯</h2>
+
+    <div class="card">
+      <h3>尾音不是看子音原本的 initial sound</h3>
+      <p>同一個子音放在開頭和放在尾巴時，可能讀法不同。Part 2 已經整理過子音，本篇把它轉成「實際閱讀時怎麼收尾」。</p>
+      <table>
+        <tr><th>Final sound</th><th>Letters</th><th>Reading examples</th></tr>
+        <tr><td><span class="rom">-k</span></td><td><span class="thai">ก ข ค ฆ</span></td><td><button class="sound-btn" data-say="รัก"><span class="thai">รัก</span><span class="rom">rák</span></button> <button class="sound-btn" data-say="เลือก"><span class="thai">เลือก</span><span class="rom">lʉ̂ak</span></button> <button class="sound-btn" data-say="ถูก"><span class="thai">ถูก</span><span class="rom">thùuk</span></button></td></tr>
+        <tr><td><span class="rom">-t</span></td><td><span class="thai">จ ช ซ ฎ ฏ ฐ ฑ ฒ ด ต ถ ท ธ ศ ษ ส</span></td><td><button class="sound-btn" data-say="คิด"><span class="thai">คิด</span><span class="rom">khít</span></button> <button class="sound-btn" data-say="รถ"><span class="thai">รถ</span><span class="rom">rót</span></button> <button class="sound-btn" data-say="ประเทศ"><span class="thai">ประเทศ</span><span class="rom">bprà-thêet</span></button></td></tr>
+        <tr><td><span class="rom">-p</span></td><td><span class="thai">บ ป พ ฟ ภ</span></td><td><button class="sound-btn" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span></button> <button class="sound-btn" data-say="รูป"><span class="thai">รูป</span><span class="rom">rûup</span></button> <button class="sound-btn" data-say="ภาพ"><span class="thai">ภาพ</span><span class="rom">phâap</span></button></td></tr>
+        <tr><td><span class="rom">-n</span></td><td><span class="thai">ญ ณ น ร ล ฬ</span></td><td><button class="sound-btn" data-say="เงิน"><span class="thai">เงิน</span><span class="rom">ngoen</span></button> <button class="sound-btn" data-say="อาหาร"><span class="thai">อาหาร</span><span class="rom">aa-hǎan</span></button> <button class="sound-btn" data-say="ผล"><span class="thai">ผล</span><span class="rom">phǒn</span></button></td></tr>
+        <tr><td><span class="rom">-m</span></td><td><span class="thai">ม</span></td><td><button class="sound-btn" data-say="ลืม"><span class="thai">ลืม</span><span class="rom">lʉʉm</span></button> <button class="sound-btn" data-say="เริ่ม"><span class="thai">เริ่ม</span><span class="rom">rə̂əm</span></button></td></tr>
+        <tr><td><span class="rom">-ng</span></td><td><span class="thai">ง</span></td><td><button class="sound-btn" data-say="ห้อง"><span class="thai">ห้อง</span><span class="rom">hɔ̂ng</span></button> <button class="sound-btn" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span></button></td></tr>
+        <tr><td><span class="rom">-y</span></td><td><span class="thai">ย</span></td><td><button class="sound-btn" data-say="เลย"><span class="thai">เลย</span><span class="rom">ləəy</span></button> <button class="sound-btn" data-say="ช่วย"><span class="thai">ช่วย</span><span class="rom">chûai</span></button></td></tr>
+        <tr><td><span class="rom">-w</span></td><td><span class="thai">ว</span></td><td><button class="sound-btn" data-say="แล้ว"><span class="thai">แล้ว</span><span class="rom">lɛ́ɛw</span></button> <button class="sound-btn" data-say="ข้าว"><span class="thai">ข้าว</span><span class="rom">khâaw</span></button></td></tr>
+      </table>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Dead finals｜死音節尾音</h3>
+        <p><span class="rom">-k / -t / -p</span> 是之後判斷聲調時很重要的死音節尾音。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="มาก"><span class="thai">มาก</span><span class="rom">mâak</span></button>
+          <button class="sound-btn" data-say="คิด"><span class="thai">คิด</span><span class="rom">khít</span></button>
+          <button class="sound-btn" data-say="ชอบ"><span class="thai">ชอบ</span><span class="rom">chɔ̂ɔp</span></button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Live finals｜活音節尾音</h3>
+        <p><span class="rom">-n / -m / -ng / -y / -w</span> 通常是活音節尾音。</p>
+        <div class="sound-row">
+          <button class="sound-btn" data-say="กิน"><span class="thai">กิน</span><span class="rom">gin</span></button>
+          <button class="sound-btn" data-say="ลืม"><span class="thai">ลืม</span><span class="rom">lʉʉm</span></button>
+          <button class="sound-btn" data-say="ห้อง"><span class="thai">ห้อง</span><span class="rom">hɔ̂ng</span></button>
+          <button class="sound-btn" data-say="เลย"><span class="thai">เลย</span><span class="rom">ləəy</span></button>
+          <button class="sound-btn" data-say="แล้ว"><span class="thai">แล้ว</span><span class="rom">lɛ́ɛw</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab">
+    <h2>Common Mistakes｜常見拼讀錯誤</h2>
+
+    <div class="mistake-card">
+      <h3>1. เ-า / ao 和 อาว / aaw 混在一起</h3>
+      <table>
+        <tr><th>Type</th><th>Thai</th><th>Romanization</th><th>English</th></tr>
+        <tr><td>ao</td><td><span class="thai">เขา <button class="tts" data-say="เขา">🔊</button></span></td><td><span class="rom">khǎo</span></td><td>he; she; they</td></tr>
+        <tr><td>aaw</td><td><span class="thai">ขาว <button class="tts" data-say="ขาว">🔊</button></span></td><td><span class="rom">khǎaw</span></td><td>white</td></tr>
+        <tr><td>aaw</td><td><span class="thai">ข้าว <button class="tts" data-say="ข้าว">🔊</button></span></td><td><span class="rom">khâaw</span></td><td>rice</td></tr>
+      </table>
+    </div>
+
+    <div class="mistake-card">
+      <h3>2. เ-ือ / ʉa 寫成 rûueang 類型</h3>
+      <p>學習版固定：</p>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></button>
+        <button class="sound-btn" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span><span class="eng">city</span></button>
+        <button class="sound-btn" data-say="เครื่อง"><span class="thai">เครื่อง</span><span class="rom">khrʉ̂ang</span><span class="eng">device</span></button>
+      </div>
+      <div class="warn">不要在同一份筆記中混用 <span class="rom">rʉ̂ang</span> 和 <span class="rom">rûueang</span>。</div>
+    </div>
+
+    <div class="mistake-card">
+      <h3>3. เลย 不是 loei / looei</h3>
+      <p>本套拼讀手冊使用：</p>
+      <div class="formula">
+        <span class="part">ล</span><span class="arrow">+</span><span class="part">เ-ย</span><span class="arrow">→</span>
+        <span class="result"><span class="thai-lg">เลย <button class="tts" data-say="เลย">🔊</button></span><span class="rom">ləəy</span><span class="eng">so; at all</span></span>
+      </div>
+    </div>
+
+    <div class="mistake-card">
+      <h3>4. เห็น เอง เงิน เดิน：看到 เ- อย่า一律讀 ee</h3>
+      <table>
+        <tr><th>Thai</th><th>Pattern</th><th>Romanization</th><th>English</th></tr>
+        <tr><td><span class="thai">เห็น <button class="tts" data-say="เห็น">🔊</button></span></td><td>เ-็ + น</td><td><span class="rom">hěn</span></td><td>see</td></tr>
+        <tr><td><span class="thai">เอง <button class="tts" data-say="เอง">🔊</button></span></td><td>เ-ง</td><td><span class="rom">eeng</span></td><td>self</td></tr>
+        <tr><td><span class="thai">เงิน <button class="tts" data-say="เงิน">🔊</button></span></td><td>เ-ิ + น</td><td><span class="rom">ngoen</span></td><td>money</td></tr>
+        <tr><td><span class="thai">เดิน <button class="tts" data-say="เดิน">🔊</button></span></td><td>เ-ิ + น</td><td><span class="rom">dəən</span></td><td>walk</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="drills" class="tab">
+    <h2>Reading Drills｜拼讀訓練</h2>
+
+    <div class="drill-card">
+      <h3>Level 1｜短字快速讀</h3>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="มา"><span class="thai">มา</span><span class="rom">maa</span><span class="eng">come</span></button>
+        <button class="sound-btn" data-say="ไป"><span class="thai">ไป</span><span class="rom">bpai</span><span class="eng">go</span></button>
+        <button class="sound-btn" data-say="เอา"><span class="thai">เอา</span><span class="rom">ao</span><span class="eng">take</span></button>
+        <button class="sound-btn" data-say="ได้"><span class="thai">ได้</span><span class="rom">dâai</span><span class="eng">can</span></button>
+        <button class="sound-btn" data-say="ดู"><span class="thai">ดู</span><span class="rom">duu</span><span class="eng">look</span></button>
+      </div>
+    </div>
+
+    <div class="drill-card">
+      <h3>Level 2｜母音變形字</h3>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="เงิน"><span class="thai">เงิน</span><span class="rom">ngoen</span><span class="eng">money</span></button>
+        <button class="sound-btn" data-say="เดิน"><span class="thai">เดิน</span><span class="rom">dəən</span><span class="eng">walk</span></button>
+        <button class="sound-btn" data-say="เพิ่ง"><span class="thai">เพิ่ง</span><span class="rom">phə̂ng</span><span class="eng">just</span></button>
+        <button class="sound-btn" data-say="เริ่ม"><span class="thai">เริ่ม</span><span class="rom">rə̂əm</span><span class="eng">start</span></button>
+        <button class="sound-btn" data-say="ซื้อ"><span class="thai">ซื้อ</span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></button>
+      </div>
+    </div>
+
+    <div class="drill-card">
+      <h3>Level 3｜複合母音字</h3>
+      <div class="sound-row">
+        <button class="sound-btn" data-say="เรื่อง"><span class="thai">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></button>
+        <button class="sound-btn" data-say="เมือง"><span class="thai">เมือง</span><span class="rom">mʉang</span><span class="eng">city</span></button>
+        <button class="sound-btn" data-say="เครื่อง"><span class="thai">เครื่อง</span><span class="rom">khrʉ̂ang</span><span class="eng">device</span></button>
+        <button class="sound-btn" data-say="เรียน"><span class="thai">เรียน</span><span class="rom">rian</span><span class="eng">study</span></button>
+        <button class="sound-btn" data-say="เปลี่ยน"><span class="thai">เปลี่ยน</span><span class="rom">bplìian</span><span class="eng">change</span></button>
+      </div>
+    </div>
+
+    <div class="drill-card">
+      <h3>Level 4｜句子 Shadowing</h3>
+      <div class="example">
+        <span class="thai-lg">วันนี้ฝนตก <button class="tts" data-say="วันนี้ฝนตก">🔊</button></span><br>
+        <span class="rom">wan-níi fǒn dtòk</span><br>
+        <span class="eng">It is raining today.</span>
+      </div>
+      <div class="example">
+        <span class="thai-lg">ผมอยู่กรุงเทพ <button class="tts" data-say="ผมอยู่กรุงเทพ">🔊</button></span><br>
+        <span class="rom">phǒm yùu grung-thêep</span><br>
+        <span class="eng">I live in Bangkok.</span>
+      </div>
+      <div class="example">
+        <span class="thai-lg">เพราะกลัวเขาเข้าใจผิด <button class="tts" data-say="เพราะกลัวเขาเข้าใจผิด">🔊</button></span><br>
+        <span class="rom">phrɔ́ glua khǎo khâo-jai phìt</span><br>
+        <span class="eng">Because I was afraid he would misunderstand.</span>
+      </div>
+      <div class="example">
+        <span class="thai-lg">เรื่องนี้ค่อนข้างยาก <button class="tts" data-say="เรื่องนี้ค่อนข้างยาก">🔊</button></span><br>
+        <span class="rom">rʉ̂ang níi khɔ̂ɔn-khâang yâak</span><br>
+        <span class="eng">This topic is rather difficult.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="practice" class="tab">
+    <h2>Practice｜練習題</h2>
+
+    <div class="practice-card">
+      <h3>1. 拆字練習</h3>
+      <p>請先自己拆，再看答案。</p>
+      <ol>
+        <li><span class="thai">เรื่อง</span></li>
+        <li><span class="thai">เงิน</span></li>
+        <li><span class="thai">เปลี่ยน</span></li>
+        <li><span class="thai">แล้ว</span></li>
+      </ol>
+      <details>
+        <summary>Answer</summary>
+        <p><span class="thai">เรื่อง</span> / <span class="rom">rʉ̂ang</span> / matter = ร + เ-ือ + ง <button class="tts" data-say="เรื่อง">🔊</button></p>
+        <p><span class="thai">เงิน</span> / <span class="rom">ngoen</span> / money = ง + เ-ิ + น <button class="tts" data-say="เงิน">🔊</button></p>
+        <p><span class="thai">เปลี่ยน</span> / <span class="rom">bplìian</span> / change = ปล + เ-ีย + น <button class="tts" data-say="เปลี่ยน">🔊</button></p>
+        <p><span class="thai">แล้ว</span> / <span class="rom">lɛ́ɛw</span> / already = ล + แ- + ว <button class="tts" data-say="แล้ว">🔊</button></p>
+      </details>
+    </div>
+
+    <div class="practice-card">
+      <h3>2. 選正確 Romanization</h3>
+      <p>1. เลย = ?</p>
+      <p>2. เดิน = ?</p>
+      <p>3. ห้อง = ?</p>
+      <p>4. ซื้อ = ?</p>
+      <details>
+        <summary>Answer</summary>
+        <p><span class="thai">เลย</span> / <span class="rom">ləəy</span> / so; at all <button class="tts" data-say="เลย">🔊</button></p>
+        <p><span class="thai">เดิน</span> / <span class="rom">dəən</span> / walk <button class="tts" data-say="เดิน">🔊</button></p>
+        <p><span class="thai">ห้อง</span> / <span class="rom">hɔ̂ng</span> / room <button class="tts" data-say="ห้อง">🔊</button></p>
+        <p><span class="thai">ซื้อ</span> / <span class="rom">sʉ́ʉ</span> / buy <button class="tts" data-say="ซื้อ">🔊</button></p>
+      </details>
+    </div>
+
+    <div class="practice-card">
+      <h3>3. 看句子讀出來</h3>
+      <p><span class="thai-lg">วันนี้ต้องไปซื้อของ</span></p>
+      <details>
+        <summary>Answer</summary>
+        <p>
+          <span class="thai">วันนี้ต้องไปซื้อของ <button class="tts" data-say="วันนี้ต้องไปซื้อของ">🔊</button></span><br>
+          <span class="rom">wan-níi dtɔ̂ng bpai sʉ́ʉ khɔ̌ɔng</span><br>
+          <span class="eng">Today I have to go buy things.</span>
+        </p>
+      </details>
+    </div>
+  </section>
+</div>
+
+<script>
+const THAI_RATE = 0.86;
+function speakThai(text){
+  if(!("speechSynthesis" in window)){return;}
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "th-TH";
+  u.rate = THAI_RATE;
+  window.speechSynthesis.speak(u);
+}
+document.addEventListener("click", e=>{
+  const ttsBtn = e.target.closest(".tts");
+  if(ttsBtn){
+    e.preventDefault();
+    speakThai(ttsBtn.dataset.say || ttsBtn.textContent.trim());
+    return;
+  }
+  const soundBtn = e.target.closest(".sound-btn");
+  if(soundBtn){
+    e.preventDefault();
+    speakThai(soundBtn.dataset.say || soundBtn.textContent.trim());
+    return;
+  }
+  const tabBtn = e.target.closest(".tab-btn");
+  if(tabBtn){
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    tabBtn.classList.add("active");
+    document.getElementById(tabBtn.dataset.tab).classList.add("active");
+  }
+});
+if(!("speechSynthesis" in window)){
+  const warn = document.createElement("div");
+  warn.className = "warn";
+  warn.textContent = "此瀏覽器可能不支援泰文 TTS，建議使用 Chrome / Edge。";
+  document.querySelector(".hero").appendChild(warn);
+}
+</script>
+</body>
+</html>
