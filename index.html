@@ -23,6 +23,9 @@
       --blue-soft: #eef7ff;
       --purple: #8873c9;
       --purple-soft: #f6f1ff;
+      --coral: #c9524a;
+      --coral-soft: #fff2f1;
+      --coral-mid: #f0b0ab;
       --shadow: 0 12px 28px rgba(74,45,18,.08);
       --shadow-hover: 0 20px 40px rgba(74,45,18,.13);
       --radius: 18px;
@@ -235,7 +238,18 @@
     .tag.blue   { background: var(--blue-soft);   color: #1d4ed8; border-color: #bfdbfe; }
     .tag.purple { background: var(--purple-soft); color: #5b21b6; border-color: #ddd6fe; }
 
-    /* ── Note card ── */
+    .header-tag.coral { background: var(--coral-soft); color: #8a2020; border-color: var(--coral-mid); }
+
+    .card.card-coral::before {
+      background: linear-gradient(90deg, var(--coral), #e07c5e, var(--orange));
+      opacity: .95;
+    }
+
+    a.card.card-coral:hover {
+      border-color: rgba(201,82,74,.3);
+    }
+
+    .tag.coral { background: var(--coral-soft); color: #8a2020; border-color: var(--coral-mid); }
     .note-card {
       background: var(--amber-soft);
       border: 1px solid var(--amber-mid);
@@ -319,6 +333,8 @@
 <section class="grid"><a class="card" href="Thai Reading Guide｜Part 1｜母音系統 Vowels.html"><div class="card-rank">Part 1 </div><div class="card-title">母音系統 Vowels</div><div class="card-desc">整理短音、長音、前置母音、複合母音、母音遇尾音的變形，以及 ao / aaw、ləəy、lɛ́ɛw 等高頻拼讀規則。</div><div class="card-tags"><span class="tag">#母音變形</span><span class="tag">#尾音收尾</span><span class="tag">#TTS音頻</span><span class="tag">#拼讀規則</span></div></a><a class="card" href="Thai Alphabet Handbook｜Part 2｜子音系統 Consonants.html"><div class="card-rank">Part 2 </div><div class="card-title">子音系統 Consonants</div><div class="card-desc">詳細整理 44 個泰文子音，依中子音、高子音、低子音排序，包含 initial sound、final sound、常見例字、同音家族與聲調學習提醒。</div><div class="card-tags"><span class="tag">#中高低音</span><span class="tag">#初音尾音</span><span class="tag">#例字音頻</span><span class="tag">#同音家族</span></div></a><a class="card" href="Thai Alphabet Handbook｜Part 3｜拼讀系統 Reading System.html"><div class="card-rank">Part 3 </div><div class="card-title">拼讀系統 Reading System</div><div class="card-desc">把母音與子音真正串起來，整理 Reading Formula、Pattern Library、真子音連綴、假連綴、前引字、隱含短母音與高頻字拆解。</div><div class="card-tags"><span class="tag">#拼讀流程</span><span class="tag">#連綴前引字</span><span class="tag">#閱讀訓練</span><span class="tag">#高頻字拆解</span></div></a><a class="card" href="Thai Alphabet Handbook｜Part 4｜聲調系統 Tone Rules.html"><div class="card-rank">Part 4 </div><div class="card-title">聲調系統 Tone Rules</div><div class="card-desc">整理泰文五個聲調、聲調符號、中高低子音、長短音、死活音節、前引字對聲調的影響，以及 Quick Lookup 判讀工具。</div><div class="card-tags"><span class="tag">#聲調規則</span><span class="tag">#長短音</span><span class="tag">#死活音節</span><span class="tag">#QuickLookup</span></div></a></section>
 <div class="section-title">Reference Tools</div>
 <section class="grid"><a class="card" href="Thai Alphabet Handbook｜Appendix 1｜Romanization Quick Map.html"><div class="card-rank">Appendix 1 </div><div class="card-title">Romanization Quick Map</div><div class="card-desc">快速查母音、子音、尾音、聲調標記、固定高頻拼法與容易混淆的 Romanization，例如 rʉ̂ang、dtɔ̂ng、gɔ̀ɔn、ləəy、ngəən。</div><div class="card-tags"><span class="tag">#Romanization</span><span class="tag">#快速對照</span><span class="tag">#固定拼法</span><span class="tag">#混淆母音</span></div></a><div class="card locked"><div class="card-rank">Appendix 2 <span class="badge-soon">待新增</span></div><div class="card-title">常見混淆字形</div><div class="card-desc">建議整理容易看錯的字母與符號，例如 ถ / ภ、บ / ป、ผ / พ、ย / ญ、ไ / ใ、母音變形與聲調符號位置。</div><div class="card-tags"><span class="tag">#常見錯誤</span><span class="tag">#字形辨認</span><span class="tag">#初學陷阱</span></div></div><div class="card locked"><div class="card-rank">Practice <span class="badge-soon">待新增</span></div><div class="card-title">拼讀練習題庫</div><div class="card-desc">建議把 Part 1–4 的規則整合成題庫：看字拼音、判斷聲調、找母音變形、前引字與連綴拆解。</div><div class="card-tags"><span class="tag">#Practice</span><span class="tag">#拼讀練習</span><span class="tag">#聲調判斷</span></div></div><div class="card locked"><div class="card-rank">Audio Drill <span class="badge-soon">待新增</span></div><div class="card-title">Minimal Pair 聽辨練習</div><div class="card-desc">建議專門練容易聽錯的對比：ao / aaw、o / ɔ、e / ɛ、ə / əə、b / bp、d / dt、同音不同 class 的子音。</div><div class="card-tags"><span class="tag">#聽辨訓練</span><span class="tag">#MinimalPairs</span><span class="tag">#發音校正</span></div></div></section>
+<div class="section-title">Script Variants</div>
+<section class="grid"><a class="card card-coral" href="Thai Alphabet Handbook｜Special｜廣告體 Advertising Script.html"><div class="card-rank">Special <span class="badge-new">NEW</span></div><div class="card-title">廣告體 Advertising Script</div><div class="card-desc">辨識市場攤位、街頭招牌與手繪廣告常見的泰文廣告體字形，含筆畫變形規則、標準字對照、高頻招牌詞識字訓練。</div><div class="card-tags"><span class="tag coral">#字形變形</span><span class="tag coral">#招牌識字</span><span class="tag coral">#手寫風格</span><span class="tag coral">#實戰閱讀</span></div></a></section>
 <section class="note-card"><h2>使用方式</h2><p>先從 Part 1 母音系統與 Part 2 子音系統建立字母直覺，再用 Part 3 拼讀系統把母音、子音、尾音、連綴、前引字與隱含母音串起來。</p><p>Part 4 用來判斷聲調；Appendix 1 則是 Daily Notes 寫作與複習時的 Romanization 速查。未完成的卡片先保留為灰階預告，之後可直接接上新手冊。</p></section>
 <footer class="footer">
 <div class="footer-note">Thai Reading Guide · Alphabet / Vowels / Consonants / Reading / Tones / Romanization · Created for ABBY.</div>
