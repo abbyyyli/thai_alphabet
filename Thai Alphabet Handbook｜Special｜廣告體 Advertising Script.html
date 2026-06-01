@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thai Alphabet Handbook｜Special｜廣告體 Advertising Script</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --text:#1f2937;
+  --muted:#7a6f63;
+  --line:rgba(88,63,35,.16);
+  --card:rgba(255,255,255,.9);
+  --coral:#c9524a;
+  --coral-soft:#fff2f1;
+  --coral-mid:#f0b0ab;
+  --coral-deep:#8a2020;
+  --orange:#f2a35d;
+  --orange-soft:#fff1df;
+  --green:#78b887;
+  --green-soft:#edf8ef;
+  --blue:#6ea8d6;
+  --blue-soft:#eef7ff;
+  --red:#dc776f;
+  --red-soft:#fff0ef;
+  --purple:#8873c9;
+  --purple-soft:#f3efff;
+  --shadow:0 12px 28px rgba(74,45,18,.08);
+  --radius:18px;
+  --thai-font:"Kanit","Noto Sans Thai","Tahoma",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei","Noto Sans Thai",sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(201,82,74,.13),transparent 36%),
+    radial-gradient(circle at top right,rgba(242,163,93,.09),transparent 38%),
+    linear-gradient(135deg,#fffaf4 0%,#fefaf8 55%,#fff8f7 100%);
+  line-height:1.75;
+  padding:56px 24px 24px;
+}
+.page{max-width:1240px;margin:0 auto}
+.hero,.card,.rule-card,.char-card,.vocab-card,.note,.warn,.compare-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.hero{padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+h1{font-size:28px;margin:0 0 8px;line-height:1.3}
+h2{font-size:22px;margin:28px 0 14px}
+h3{font-size:18px;margin:20px 0 10px}
+h4{font-size:15px;margin:16px 0 8px}
+.subtitle{font-size:14px;color:var(--muted);margin-bottom:14px}
+.tabs{
+  margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding-bottom:10px;
+  position:sticky;top:0;z-index:10;
+  background:var(--card);
+  padding-top:8px;
+}
+.tab-btn{
+  border:1px solid var(--line);background:rgba(255,255,255,.78);
+  color:var(--text);padding:8px 12px;border-radius:999px;
+  cursor:pointer;font-weight:800;font-size:13px;
+}
+.tab-btn.active{background:#1f2937;color:#fff;border-color:#1f2937}
+.tab{display:none}.tab.active{display:block}
+
+/* badges / tags */
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge,.tag{display:inline-flex;align-items:center;font-size:12px;padding:3px 9px;border-radius:999px;font-weight:800;border:1px solid transparent}
+.coral{background:var(--coral-soft);color:var(--coral-deep);border-color:var(--coral-mid)}
+.orange{background:var(--orange-soft);color:#9a5b24;border-color:#f4c899}
+.green{background:var(--green-soft);color:#3d6f48;border-color:#cde8d3}
+.blue{background:var(--blue-soft);color:#315f82;border-color:#c9e0f2}
+.red{background:var(--red-soft);color:#9b3f38;border-color:#f1c2be}
+.purple{background:var(--purple-soft);color:#5f4c9b;border-color:#d8cff7}
+
+/* grids */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+
+/* card types */
+.card,.rule-card,.char-card,.vocab-card,.compare-card{padding:18px;margin:14px 0}
+.rule-card{border-left:5px solid var(--coral)}
+.char-card{border-left:5px solid var(--blue)}
+.vocab-card{border-left:5px solid var(--green)}
+.compare-card{border-left:5px solid var(--orange)}
+
+/* table */
+.table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0;border-radius:14px}
+table{width:100%;min-width:520px;border-collapse:collapse;background:rgba(255,255,255,.76);border-radius:14px;overflow:hidden;font-size:14px;margin:0}
+th,td{border:1px solid rgba(88,63,35,.16);padding:10px;vertical-align:middle}
+th{background:#fff2f1;font-size:12px;text-align:left;color:var(--coral-deep)}
+tr:nth-child(even) td{background:#fffdf9}
+
+/* Thai typography */
+.thai{font-family:var(--thai-font);font-size:15px;font-weight:750;color:#111827}
+.thai-xl{font-family:var(--thai-font);font-size:36px;font-weight:900;color:#111827;line-height:1.2}
+.thai-lg{font-family:var(--thai-font);font-size:22px;font-weight:850;color:#111827;line-height:1.3}
+.thai-md{font-family:var(--thai-font);font-size:17px;font-weight:800;color:#111827}
+.rom{font-family:var(--mono);color:#6b7280;font-size:12.5px}
+.eng{font-size:13px;color:#374151}
+
+/* TTS buttons */
+.tts{border:1px solid rgba(201,82,74,.38);background:var(--coral-soft);color:var(--coral-deep);border-radius:999px;padding:2px 7px;margin-left:5px;cursor:pointer;font-size:12px}
+.tts:hover{background:#ffd8d5}
+.sound-btn{border:1px solid rgba(80,120,80,.22);background:#f7fff8;color:#2d6d3d;border-radius:13px;padding:8px 11px;cursor:pointer;font-size:12px;text-align:left;transition:transform .12s}
+.sound-btn:hover{background:#eaf8ec;transform:translateY(-1px)}
+.sound-btn .thai{display:block;font-size:16px}
+.sound-btn .rom{display:block;font-size:12px;margin-top:2px}
+.sound-btn .eng{display:block;font-size:11px;color:#52645a;margin-top:1px}
+.sound-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+
+/* notes */
+.note,.warn{padding:12px 14px;margin:12px 0;font-size:14px;border-radius:14px}
+.note{background:#fffaf4;border:1px solid rgba(201,82,74,.22)}
+.warn{background:var(--red-soft);border:1px solid #f1c2be}
+
+/* comparison display */
+.compare-row{display:flex;align-items:stretch;gap:0;margin:10px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.compare-col{flex:1;padding:14px 16px;text-align:center}
+.compare-col.standard{background:#f9f9f7}
+.compare-col.adv{background:#fff8f7}
+.compare-col .label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.compare-col.adv .label{color:var(--coral)}
+.compare-divider{width:1px;background:var(--line)}
+
+/* character feature annotation */
+.char-feature{display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:10px 14px;background:#fffaf4;border:1px solid var(--line);border-radius:12px;margin:4px}
+.char-feature .thai{font-size:28px}
+.char-note{font-size:11.5px;color:var(--muted);text-align:center;max-width:80px;line-height:1.4}
+
+/* rule number badge */
+.rule-num{display:inline-flex;margin-right:8px;padding:2px 9px;border-radius:999px;background:var(--coral-soft);color:var(--coral-deep);font-size:12px;font-weight:900;vertical-align:middle;border:1px solid var(--coral-mid)}
+
+/* context scene cards */
+.scene-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0}
+.scene-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:0 4px 12px rgba(74,45,18,.06)}
+.scene-icon{font-size:24px;margin-bottom:6px}
+.scene-title{font-size:13px;font-weight:800;margin-bottom:4px}
+.scene-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* vocab category */
+.vocab-section{margin:18px 0}
+.vocab-cat-label{font-size:11.5px;font-weight:820;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.vocab-chip{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 12px;box-shadow:0 3px 8px rgba(74,45,18,.06);cursor:pointer;transition:transform .12s,box-shadow .12s;text-align:left}
+.vocab-chip:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(74,45,18,.1)}
+.vocab-chip .thai{display:block;font-family:var(--thai-font);font-size:18px;font-weight:850;color:#111827;margin-bottom:3px}
+.vocab-chip .rom{display:block;font-family:var(--mono);font-size:11.5px;color:#6b7280}
+.vocab-chip .eng{display:block;font-size:12px;color:#374151;margin-top:2px}
+
+/* details */
+details{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:10px 0}
+summary{cursor:pointer;font-weight:900;font-size:14px}
+
+/* affected part highlight */
+.hl-circle{color:#c9524a;font-weight:950}
+.hl-stroke{color:#3a7fd4;font-weight:950}
+
+/* stroke diagram */
+.stroke-note{background:#fff2f1;border:1px solid var(--coral-mid);border-radius:10px;padding:10px 12px;font-size:13px;margin:8px 0;display:flex;gap:10px;align-items:flex-start}
+.stroke-note .icon{font-size:18px;flex:0 0 auto;margin-top:1px}
+
+@media(max-width:780px){
+  body{padding:24px 14px 14px}
+  .grid,.grid3{grid-template-columns:1fr}
+  th,td{padding:8px;font-size:13px}
+  .vocab-grid{grid-template-columns:repeat(2,1fr)}
+  .scene-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* sub-tabs (inside tab-full) */
+.sub-tab-btn{
+  border:1px solid var(--line);background:rgba(255,255,255,.78);
+  color:var(--text);padding:6px 14px;border-radius:999px;
+  cursor:pointer;font-weight:800;font-size:12.5px;
+}
+.sub-tab-btn.active{background:var(--coral);color:#fff;border-color:var(--coral)}
+.sub-tab{display:none}.sub-tab.active{display:block}
+/* small vocab pill for tables */
+.vocab-pill-sm{
+  display:inline-flex;flex-direction:column;align-items:flex-start;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:10px;padding:5px 9px;cursor:pointer;
+  transition:transform .1s,box-shadow .1s;text-align:left;
+  gap:1px;
+}
+.vocab-pill-sm:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(74,45,18,.1)}
+.vocab-pill-sm .rom{font-size:11px;color:#6b7280}
+.vocab-pill-sm .eng{font-size:11px;color:#374151}
+
+/* vowel carrier / mark coloring — matches Part 1 convention */
+.carrier,td .carrier{color:#c8b9aa!important;font-weight:700!important}
+.vmark,td .vmark{color:#315f82!important;font-weight:950!important}
+
+
+/* layout fix: keep all tabs within same page width as header */
+.tab{
+  max-width:100%;
+  width:100%;
+  overflow-x:hidden;
+}
+.table-wrap{
+  max-width:100%;
+  overflow-x:auto;
+}
+.grid,.grid3,.scene-grid,.vocab-grid{
+  max-width:100%;
+}
+.compare-row{
+  max-width:100%;
+}
+.card,.rule-card,.char-card,.vocab-card,.compare-card,.note,.warn{
+  max-width:100%;
+}
+#tab-full table,
+#tab-chars table,
+#tab-rules table,
+#tab-vocab table{
+  width:100%;
+}
+
+
+/* v3: recognition notebook */
+.recognition-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:14px 0;
+}
+.recognition-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:5px solid var(--coral);
+  border-radius:16px;
+  padding:15px 16px;
+  box-shadow:0 4px 12px rgba(74,45,18,.06);
+}
+.recognition-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.letter-pair{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.letter-demo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:46px;
+  padding:4px 8px;
+  border-radius:12px;
+  background:#fff8f7;
+  border:1px solid var(--coral-mid);
+  font-family:'Kanit',sans-serif;
+  font-size:34px;
+  font-weight:800;
+  color:var(--coral-deep);
+  line-height:1.15;
+}
+.letter-vs{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.quick-rule{
+  background:#fffaf4;
+  border:1px solid rgba(201,82,74,.20);
+  border-radius:12px;
+  padding:9px 11px;
+  margin:9px 0;
+  font-size:13px;
+  line-height:1.65;
+}
+.check-list{
+  margin:8px 0 0 18px;
+  padding:0;
+  font-size:13px;
+  color:var(--text);
+  line-height:1.65;
+}
+.mini-word-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+.priority-badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:2px 8px;
+  font-size:11px;
+  font-weight:900;
+  background:var(--red-soft);
+  color:#9b3f38;
+  border:1px solid #f1c2be;
+}
+.priority-badge.b{
+  background:var(--orange-soft);
+  color:#9a5b24;
+  border-color:#f4c899;
+}
+.priority-badge.c{
+  background:var(--blue-soft);
+  color:#315f82;
+  border-color:#c9e0f2;
+}
+@media(max-width:780px){
+  .recognition-grid{grid-template-columns:1fr}
+  .letter-demo{font-size:31px;min-width:42px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<!-- ── Hero ── -->
+<div class="hero">
+<div class="badges" style="margin-bottom:10px"><span class="badge coral">Special</span><span class="badge orange">廣告體辨認</span><span class="badge green">TTS 音頻</span><span class="badge blue">字母對照</span></div>
+<h1>廣告體 Advertising Script</h1>
+<p class="subtitle">這份不是字體設計課，而是「看到泰國招牌、菜單、IG 圖卡時可以快速對照」的辨認筆記。以 <strong>Kanit</strong> 作為清楚範例，整理廣告體 / 圓體 / 粗體 / 仿手寫體中最容易看錯的泰文字形。</p>
+<nav class="tabs">
+<button class="tab-btn active" data-tab="overview">總覽</button>
+<button class="tab-btn" data-tab="rules">變形規則</button>
+<button class="tab-btn" data-tab="chars">字母對照</button>
+<button class="tab-btn" data-tab="full">完整字母表</button>
+<button class="tab-btn" data-tab="vocab">招牌詞彙</button>
+</nav>
+</div><div class="tab active" id="tab-overview">
+<h2>什麼是數位廣告體？</h2>
+<div class="card" style="border-left:5px solid var(--coral)">
+<p style="font-size:14px;line-height:1.8;margin-bottom:10px">
+    泰國現代招牌多用電腦輸出印刷，選用的字型以 <strong>Kanit</strong>、Prompt 為主流。這類字型屬於<strong>幾何窄身無襯線體</strong>——比教科書常用的 Noto Sans Thai 明顯更窄、更粗，字形比例也不同。
+  </p>
+<p style="font-size:14px;line-height:1.8">
+    初學者習慣了 Noto Sans Thai 的「工整版」泰文後，看到 Kanit 風格的招牌會感到陌生——不是認不得字母，而是<strong>比例感不對、字間距極緊、粗細對比強</strong>，需要重新校正視覺直覺。
+  </p>
+</div>
+<h2>Kanit vs 標準體 — 直觀對比</h2>
+<div class="compare-row" style="margin-bottom:8px">
+<div class="compare-col standard">
+<div class="label">Noto Sans Thai（教科書體）</div>
+<div style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#111827;line-height:1.6;letter-spacing:0.02em">
+      ลดราคา<br/>อาหารสด<br/>ยินดีต้อนรับ
+    </div>
+</div>
+<div class="compare-divider"></div>
+<div class="compare-col adv">
+<div class="label">Kanit（招牌廣告體）</div>
+<div style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827;line-height:1.6;letter-spacing:-0.01em">
+      ลดราคา<br/>อาหารสด<br/>ยินดีต้อนรับ
+    </div>
+</div>
+</div>
+<p style="font-size:13px;color:var(--muted);margin-bottom:20px">字體不同，字母完全相同——熟悉 Kanit 的字形比例是實戰閱讀的關鍵。</p>
+<h2>在哪裡看到廣告體？</h2>
+<div class="scene-grid">
+<div class="scene-card"><div class="scene-icon">🏬</div><div class="scene-title">店面招牌</div><div class="scene-desc">燈箱、壓克力、貼膜招牌，Kanit 700–800 最常見</div></div>
+<div class="scene-card"><div class="scene-icon">📋</div><div class="scene-title">促銷海報</div><div class="scene-desc">7-Eleven、Big C、Lotus's 等連鎖店的促銷貼紙</div></div>
+<div class="scene-card"><div class="scene-icon">🍜</div><div class="scene-title">餐廳菜單板</div><div class="scene-desc">電腦輸出的看板菜單、電子顯示屏</div></div>
+<div class="scene-card"><div class="scene-icon">🚌</div><div class="scene-title">交通廣告</div><div class="scene-desc">公車、BTS、MRT 站內廣告看板</div></div>
+<div class="scene-card"><div class="scene-icon">🏪</div><div class="scene-title">市場攤位</div><div class="scene-desc">印刷價格牌、品名標示（愈來愈少手寫）</div></div>
+<div class="scene-card"><div class="scene-icon">📱</div><div class="scene-title">數位廣告</div><div class="scene-desc">LINE 貼圖、FB 廣告、IG 貼文的泰文字</div></div>
+</div>
+<h2>Kanit 的三個閱讀重點</h2>
+<div class="grid">
+<div class="rule-card">
+<h4><span class="rule-num">①</span>字形更窄、字間更緊</h4>
+<p style="font-size:13.5px;line-height:1.7;margin-bottom:10px">Kanit 是 condensed 字型，每個字母比 Noto Sans Thai 窄約 15–20%。招牌上常把字間距再壓緊，整個詞看起來像一個視覺塊。</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+<div style="text-align:center">
+<div style="font-family:'Noto Sans Thai',sans-serif;font-size:24px;font-weight:700;letter-spacing:0.04em;color:#111827">อาหาร</div>
+<div class="rom" style="margin-top:2px">Noto — 較寬鬆</div>
+</div>
+<div style="text-align:center">
+<div style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700;letter-spacing:-0.02em;color:#c9524a">อาหาร</div>
+<div class="rom" style="margin-top:2px">Kanit — 更窄更緊</div>
+</div>
+</div>
+</div>
+<div class="rule-card">
+<h4><span class="rule-num">②</span>字頭圓圈更小、更俐落</h4>
+<p style="font-size:13.5px;line-height:1.7;margin-bottom:10px">Kanit 的幾何風格讓字母頭部（หัว）比 Noto Sans Thai 更小、更緊湊，習慣標準體的人需要重新抓字母特徵的位置感。</p>
+<div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">
+<div style="text-align:center">
+<div style="font-family:'Noto Sans Thai',sans-serif;font-size:36px;font-weight:700;color:#111827;line-height:1.2">กขคงจ</div>
+<div class="rom" style="margin-top:2px">Noto — 字頭較明顯</div>
+</div>
+<div style="text-align:center">
+<div style="font-family:'Kanit',sans-serif;font-size:36px;font-weight:700;color:#c9524a;line-height:1.2">กขคงจ</div>
+<div class="rom" style="margin-top:2px">Kanit — 字頭更小更緊</div>
+</div>
+</div>
+</div>
+<div class="rule-card">
+<h4><span class="rule-num">③</span>上下母音符號位置改變</h4>
+<p style="font-size:13.5px;line-height:1.7;margin-bottom:10px">Kanit 的行高較緊，字母上方的母音符號（อิ อี อึ อื）和聲調符號離子音更近，視覺上不如 Noto 分明，需要適應。</p>
+<div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">
+<div style="text-align:center">
+<div style="font-family:'Noto Sans Thai',sans-serif;font-size:32px;font-weight:700;color:#111827;line-height:1.4">กิ กี กึ กื</div>
+<div class="rom" style="margin-top:2px">Noto — 符號清晰</div>
+</div>
+<div style="text-align:center">
+<div style="font-family:'Kanit',sans-serif;font-size:32px;font-weight:700;color:#c9524a;line-height:1.4">กิ กี กึ กื</div>
+<div class="rom" style="margin-top:2px">Kanit — 符號更緊湊</div>
+</div>
+</div>
+</div>
+<div class="rule-card">
+<h4><span class="rule-num">④</span>字重越重、字形越方</h4>
+<p style="font-size:13.5px;line-height:1.7">招牌常用 700–800 weight。越粗的 Kanit，筆畫間的空隙越小，字形越接近方塊。看到非常粗的泰文字，先從整體詞形抓輪廓，再辨認個別字母。</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-top:10px">
+<div style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:400;color:#111827">ขาย</div>
+<div style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:600;color:#111827">ขาย</div>
+<div style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700;color:#c9524a">ขาย</div>
+<div style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:800;color:#c9524a">ขาย</div>
+<div class="rom" style="align-self:center">400 → 600 → 700 → 800</div>
+</div>
+</div>
+</div>
+<div class="note" style="border-color:var(--coral-mid)">
+<strong>📌 閱讀策略：</strong>看 Kanit 招牌時，先抓<strong>整個詞的音節數</strong>（靠母音符號位置判斷），再從左到右逐音節辨認子音。字間距極緊時，母音符號是拆分音節的最佳分界線。
+</div>
+<h2>補充：也會遇到的招牌場景</h2><p style="font-size:13px;color:var(--muted);margin-bottom:12px">以下場景偏向傳統手寫或仿手寫招牌，之後可另外延伸成手寫廣告體練習。</p><div class="scene-grid"><div class="scene-card">
+<div class="scene-icon">🏪</div>
+<div class="scene-title">市場攤位</div>
+<div class="scene-desc">傳統市場的手寫價格牌、品名標示、促銷字樣</div>
+</div><div class="scene-card">
+<div class="scene-icon">🍜</div>
+<div class="scene-title">餐廳菜單</div>
+<div class="scene-desc">路邊攤、小餐館的手寫黑板菜單或紙板菜單</div>
+</div><div class="scene-card">
+<div class="scene-icon">🏬</div>
+<div class="scene-title">店面招牌</div>
+<div class="scene-desc">老商店、藥局、雜貨店的手繪或印刷廣告體招牌</div>
+</div><div class="scene-card">
+<div class="scene-icon">📋</div>
+<div class="scene-title">廣告看板</div>
+<div class="scene-desc">路邊橫幅、宣傳海報、特價促銷廣告</div>
+</div><div class="scene-card">
+<div class="scene-icon">🚌</div>
+<div class="scene-title">交通標示</div>
+<div class="scene-desc">部分舊式公車路線牌、站名牌使用廣告體風格</div>
+</div><div class="scene-card">
+<div class="scene-icon">🛍️</div>
+<div class="scene-title">包裝標籤</div>
+<div class="scene-desc">傳統食品包裝、手工製品的手寫或仿手寫標籤</div>
+</div></div>
+</div><div class="tab" id="tab-rules">
+<h2>Kanit 閱讀規則</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:16px">從 Noto Sans Thai 切換到 Kanit 時，需要重新校正的視覺習慣。</p>
+<div class="rule-card">
+<h3><span class="rule-num">規則 1</span>整體字形更窄——不要誤判字母</h3>
+<p style="font-size:14px;line-height:1.8;margin-bottom:12px">Kanit 是 condensed 字型，每個字母水平方向壓縮約 15–20%。最容易出錯的是原本「較寬」的字母，在 Kanit 裡看起來像另一個字。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>字母</th><th>Rom.</th><th>Kanit 下的視覺陷阱</th></tr></thead>
+<tbody>
+<tr>
+<td><span style="font-family:'Kanit',sans-serif;font-size:22px;font-weight:700">ณ</span></td>
+<td><span class="rom">n</span></td>
+<td>壓縮後內部空間縮小，容易看成 ม 或 น</td>
+</tr>
+<tr>
+<td><span style="font-family:'Kanit',sans-serif;font-size:22px;font-weight:700">ฆ</span></td>
+<td><span class="rom">kh</span></td>
+<td>兩側弧形因壓縮而更靠近，需留意上方橫線</td>
+</tr>
+<tr>
+<td><span style="font-family:'Kanit',sans-serif;font-size:22px;font-weight:700">ถ / ภ</span></td>
+<td><span class="rom">th / ph</span></td>
+<td>原本就相似，Kanit 下更難分，靠左側筆畫</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="rule-card">
+<h3><span class="rule-num">規則 2</span>字頭（หัว）更小、更規整</h3>
+<p style="font-size:14px;line-height:1.8;margin-bottom:12px">Kanit 的幾何風格使字頭（起筆小圓圈）統一縮小且位置更固定，反而比 Noto Sans Thai 的字頭更<strong>一致易找</strong>——只是要適應它「在更靠近字母主幹」的位置。</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<div style="text-align:center">
+<div style="font-family:'Kanit',sans-serif;font-size:40px;font-weight:700;line-height:1.3;color:#111827">กขคงจชนบปมยรลวสหอ</div>
+<div class="rom" style="margin-top:4px">全部子音的 Kanit 字頭一覽（weight 700）</div>
+</div>
+</div>
+<div class="stroke-note" style="margin-top:12px">
+<span class="icon">💡</span>
+<span>Kanit 字頭的位置和大小比 Noto 更統一，辨認時抓住「字頭在哪側」（左上 / 右上）就能快速分類。</span>
+</div>
+</div>
+<div class="rule-card">
+<h3><span class="rule-num">規則 3</span>粗重字重下，相似字母更難區分</h3>
+<p style="font-size:14px;line-height:1.8;margin-bottom:12px">招牌常用 weight 700–800，筆畫變粗後，字母間的空隙縮小，以下幾組特別容易混淆：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>易混組</th><th>Rom.</th><th>區分方法（Kanit 700）</th></tr></thead>
+<tbody>
+<tr>
+<td>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">ด</span>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">ต</span>
+</td>
+<td><span class="rom">d / dt</span></td>
+<td>ด 的右上有一個小外突，ต 無——在 Kanit 700 下仍可見，但很細微</td>
+</tr>
+<tr>
+<td>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">บ</span>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">ป</span>
+</td>
+<td><span class="rom">bp / bp</span></td>
+<td>บ 左上有小圓頭，ป 的上橫更長且無圓——重量越大越難分，靠詞義</td>
+</tr>
+<tr>
+<td>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">ภ</span>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">ถ</span>
+</td>
+<td><span class="rom">ph / th</span></td>
+<td>ถ 左側有一直線延伸向上，ภ 左側為弧形——找左邊的形狀</td>
+</tr>
+<tr>
+<td>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">น</span>
+<span style="font-family:'Kanit',sans-serif;font-size:24px;font-weight:700">ม</span>
+</td>
+<td><span class="rom">n / m</span></td>
+<td>น 整體較窄，右側弧較高；ม 較寬方，Kanit 下仍有明顯差異</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="rule-card">
+<h3><span class="rule-num">規則 4</span>母音符號讀法不變，位置感要重建</h3>
+<p style="font-size:14px;line-height:1.8;margin-bottom:10px">Kanit 的行高較緊，上方母音（อิ อี อึ อื อั）和聲調符號距子音更近，不像 Noto 那樣有清楚呼吸感。母音本身沒有改變，只是<strong>視覺上更擁擠</strong>。</p>
+<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-top:10px">
+<div style="text-align:center">
+<div style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#111827;line-height:1.8">กิ กี กึ กื กั</div>
+<div class="rom">Noto — 符號空間充裕</div>
+</div>
+<div style="text-align:center">
+<div style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#c9524a;line-height:1.8">กิ กี กึ กื กั</div>
+<div class="rom">Kanit — 符號更緊</div>
+</div>
+</div>
+</div>
+<div class="rule-card">
+<h3><span class="rule-num">規則 5</span>前置母音（เ แ โ ไ ใ）在 Kanit 的閱讀順序</h3>
+<p style="font-size:14px;line-height:1.8;margin-bottom:10px">前置母音放在子音左邊，在 Kanit 窄身排列下字間距更緊，視覺上容易把前置母音誤讀為上一個字的一部分。</p>
+<div class="stroke-note">
+<span class="icon">💡</span>
+<span><strong>提醒：</strong>看到 เ แ โ ไ ใ 時，它一定是<strong>緊跟在右邊那個子音</strong>的母音，不是左邊那個字的尾巴。這在 Kanit 緊排版下需要特別意識。</span>
+</div>
+<div style="margin-top:12px;display:flex;gap:20px;flex-wrap:wrap">
+<div style="text-align:center">
+<div style="font-family:'Kanit',sans-serif;font-size:30px;font-weight:700;color:#c9524a">เปิด</div>
+<div class="rom">เ 屬於 ป，不是前一個字</div>
+</div>
+<div style="text-align:center">
+<div style="font-family:'Kanit',sans-serif;font-size:30px;font-weight:700;color:#c9524a">ไม่ใช่</div>
+<div class="rom">ไ 屬於 ม，ใ 屬於 ช</div>
+</div>
+</div>
+</div>
+</div><div class="tab" id="tab-chars"><h2>字母對照｜廣告體快速辨認筆記</h2><div class="note">這一頁不是要分辨每一種字體名稱，而是訓練你看到泰國招牌、菜單、IG 圖卡時，快速判斷「這到底是哪個字母」。先看 <strong>Level A</strong>：最容易看錯、最值得背辨認點的組合。</div><h3>Level A｜最容易看錯，優先練</h3><div class="recognition-grid"><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">บ</span><span class="letter-vs">vs</span><span class="letter-demo">ป</span></div><span class="priority-badge">Level A</span></div><div class="rom">บ / b, ป / bp（但你系統常用 bp 對 ป；兩者 class 不同）</div><div class="quick-rule"><strong>快速判斷：</strong>บ 找左上小圓頭；ป 找上方長橫、沒有圓頭。</div><ul class="check-list"><li>บ 是低音字；ป 是中音字，聲調規則不同。</li><li>粗體時圓頭會縮小，先看「上方是否有長橫」。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="บ้าน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">บ้าน</span><span class="rom">bâan</span><span class="eng">house</span></button><button class="vocab-pill-sm" data-say="ปลา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ปลา</span><span class="rom">bplaa</span><span class="eng">fish</span></button><button class="vocab-pill-sm" data-say="เปิด"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เปิด</span><span class="rom">bpə̀ət</span><span class="eng">open</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">ผ</span><span class="letter-vs">vs</span><span class="letter-demo">พ</span></div><span class="priority-badge">Level A</span></div><div class="rom">ผ / ph（高音字）, พ / ph（低音字）</div><div class="quick-rule"><strong>快速判斷：</strong>ผ 左側比較像立起來的開口；พ 更像兩個圓弧連在一起。</div><ul class="check-list"><li>兩個都讀 ph，但 class 不同，聲調會不同。</li><li>廣告體變胖時，先看左邊是不是比較直、比較開。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ผลไม้"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ผลไม้</span><span class="rom">phǒn-lá-máai</span><span class="eng">fruit</span></button><button class="vocab-pill-sm" data-say="พูด"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">พูด</span><span class="rom">phûut</span><span class="eng">speak</span></button><button class="vocab-pill-sm" data-say="พิเศษ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">พิเศษ</span><span class="rom">phí-sèet</span><span class="eng">special</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">ถ</span><span class="letter-vs">vs</span><span class="letter-demo">ภ</span></div><span class="priority-badge">Level A</span></div><div class="rom">ถ / th（高音字）, ภ / ph（低音字）</div><div class="quick-rule"><strong>快速判斷：</strong>ถ 左邊有直線往上；ภ 左邊是弧形、像包起來。</div><ul class="check-list"><li>這組在粗體招牌很容易看錯。</li><li>先看左側：直線 = ถ；圓弧 = ภ。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ถึง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ถึง</span><span class="rom">thʉ̌ng</span><span class="eng">arrive</span></button><button class="vocab-pill-sm" data-say="ภาษา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ภาษา</span><span class="rom">phaa-sǎa</span><span class="eng">language</span></button><button class="vocab-pill-sm" data-say="ภายใน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ภายใน</span><span class="rom">phaai-nai</span><span class="eng">inside</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">ย</span><span class="letter-vs">vs</span><span class="letter-demo">ญ</span></div><span class="priority-badge">Level A</span></div><div class="rom">ย / y, ญ / y 或 final -n</div><div class="quick-rule"><strong>快速判斷：</strong>ญ 底部多一個下伸／尾巴；ย 比較簡短、沒有複雜下尾。</div><ul class="check-list"><li>手寫或廣告體常把 ญ 的尾巴縮短。</li><li>看到女性 หญิง / yǐng 時，常會遇到 ญ。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ยา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ยา</span><span class="rom">yaa</span><span class="eng">medicine</span></button><button class="vocab-pill-sm" data-say="หญิง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">หญิง</span><span class="rom">yǐng</span><span class="eng">female</span></button><button class="vocab-pill-sm" data-say="ใหญ่"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ใหญ่</span><span class="rom">yài</span><span class="eng">big</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">ร</span><span class="letter-vs">vs</span><span class="letter-demo">ว</span></div><span class="priority-badge">Level A</span></div><div class="rom">ร / r, ว / w</div><div class="quick-rule"><strong>快速判斷：</strong>ร 比較像短鉤；ว 比較像開口圓弧。</div><ul class="check-list"><li>廣告體中 ร 會變很短，很容易被略過。</li><li>ว 常出現在 วัน / วาง / ขาว / เร็ว 這類詞。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ราคา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ราคา</span><span class="rom">raa-khaa</span><span class="eng">price</span></button><button class="vocab-pill-sm" data-say="วัน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">วัน</span><span class="rom">wan</span><span class="eng">day</span></button><button class="vocab-pill-sm" data-say="เร็ว"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เร็ว</span><span class="rom">rew</span><span class="eng">fast</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">ไ</span><span class="letter-vs">vs</span><span class="letter-demo">ใ</span></div><span class="priority-badge">Level A</span></div><div class="rom">ไ / ai, ใ / ai（同音）</div><div class="quick-rule"><strong>快速判斷：</strong>ใ 上方鉤往左；ไ 上方鉤往右。</div><ul class="check-list"><li>發音相同，但拼字不同。</li><li>ใ 只出現在固定 20 個詞；看到 ใจ / ใช่ / ใบ 要特別記形狀。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ไป"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ไป</span><span class="rom">bpai</span><span class="eng">go</span></button><button class="vocab-pill-sm" data-say="ใจ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ใจ</span><span class="rom">jai</span><span class="eng">heart</span></button><button class="vocab-pill-sm" data-say="ใช่"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ใช่</span><span class="rom">châi</span><span class="eng">yes</span></button></div></div></div><h3>Level B｜也很常見，看到會卡一下</h3><div class="recognition-grid"><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">เ</span><span class="letter-vs">vs</span><span class="letter-demo">แ</span></div><span class="priority-badge b">Level B</span></div><div class="rom">เ / ee family, แ / ɛɛ family</div><div class="quick-rule"><strong>快速判斷：</strong>แ 是雙線；เ 是單線。廣告體緊排時，แ 的兩條線可能黏得很近。</div><ul class="check-list"><li>看到 แพง / แม่ / แมว 時，要意識到是 แ，不是 เ。</li><li>前置母音永遠屬於右邊的子音。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="เมนู"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เมนู</span><span class="rom">mee-nuu</span><span class="eng">menu</span></button><button class="vocab-pill-sm" data-say="แม่"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">แม่</span><span class="rom">mɛ̂ɛ</span><span class="eng">mother</span></button><button class="vocab-pill-sm" data-say="แพง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">แพง</span><span class="rom">phɛɛng</span><span class="eng">expensive</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">า</span><span class="letter-vs">vs</span><span class="letter-demo">ำ</span></div><span class="priority-badge b">Level B</span></div><div class="rom">า / aa, ำ / am</div><div class="quick-rule"><strong>快速判斷：</strong>ำ = 上面小圈 + า。粗體時小圈可能很貼近主字。</div><ul class="check-list"><li>ราคา 是 า；กำลัง 是 ำ。</li><li>看到上方小圈不要漏掉，漏掉就會把 am 看成 aa。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ราคา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ราคา</span><span class="rom">raa-khaa</span><span class="eng">price</span></button><button class="vocab-pill-sm" data-say="กำลัง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กำลัง</span><span class="rom">gam-lang</span><span class="eng">power; currently</span></button><button class="vocab-pill-sm" data-say="จำ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">จำ</span><span class="rom">jam</span><span class="eng">remember</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">อ</span><span class="letter-vs">vs</span><span class="letter-demo">ฮ</span></div><span class="priority-badge b">Level B</span></div><div class="rom">อ / carrier or ɔɔ, ฮ / h</div><div class="quick-rule"><strong>快速判斷：</strong>ฮ 比 อ 多出右側／上方的裝飾感，整體更複雜。</div><ul class="check-list"><li>อ 常當母音承載字或 initial。</li><li>ฮ 多出現在外來語或口語詞。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="อาหาร"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">อาหาร</span><span class="rom">aa-hǎan</span><span class="eng">food</span></button><button class="vocab-pill-sm" data-say="ออก"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ออก</span><span class="rom">ɔ̀ɔk</span><span class="eng">exit; go out</span></button><button class="vocab-pill-sm" data-say="ฮา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฮา</span><span class="rom">haa</span><span class="eng">funny</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">น</span><span class="letter-vs">vs</span><span class="letter-demo">ม</span></div><span class="priority-badge b">Level B</span></div><div class="rom">น / n, ม / m</div><div class="quick-rule"><strong>快速判斷：</strong>ม 比較寬、像有兩段肚子；น 比較窄。</div><ul class="check-list"><li>Kanit 窄身時兩者都被壓縮，但 ม 通常仍比較寬。</li><li>詞尾時靠語感與常見詞判斷。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="น้ำ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">น้ำ</span><span class="rom">náam</span><span class="eng">water</span></button><button class="vocab-pill-sm" data-say="มา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">มา</span><span class="rom">maa</span><span class="eng">come</span></button><button class="vocab-pill-sm" data-say="นาน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">นาน</span><span class="rom">naan</span><span class="eng">long time</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">ช</span><span class="letter-vs">vs</span><span class="letter-demo">ซ</span></div><span class="priority-badge b">Level B</span></div><div class="rom">ช / ch, ซ / s</div><div class="quick-rule"><strong>快速判斷：</strong>ช 有較明顯的多段弧；ซ 的形狀更像簡化的 s 音字。</div><ul class="check-list"><li>兩者在粗體、圓體時會變像。</li><li>ซ 常見於 ซื้อ / ซอย / ซี 等。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ชอบ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ชอบ</span><span class="rom">chɔ̂ɔp</span><span class="eng">like</span></button><button class="vocab-pill-sm" data-say="ซื้อ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ซื้อ</span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></button><button class="vocab-pill-sm" data-say="ซอย"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ซอย</span><span class="rom">sɔɔi</span><span class="eng">alley</span></button></div></div><div class="recognition-card"><div class="recognition-head"><div class="letter-pair"><span class="letter-demo">ท</span><span class="letter-vs">vs</span><span class="letter-demo">ธ</span></div><span class="priority-badge b">Level B</span></div><div class="rom">ท / th, ธ / th</div><div class="quick-rule"><strong>快速判斷：</strong>ธ 有更特殊的內部／上方形狀，ท 較簡單。</div><ul class="check-list"><li>兩者同為低音 th，很多時候要靠字形記憶。</li><li>ธ 常見於 ธนาคาร / ธุระ。</li></ul><div class="mini-word-row"><button class="vocab-pill-sm" data-say="ทาง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ทาง</span><span class="rom">thaang</span><span class="eng">way</span></button><button class="vocab-pill-sm" data-say="ธง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ธง</span><span class="rom">thong</span><span class="eng">flag</span></button><button class="vocab-pill-sm" data-say="ธุระ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ธุระ</span><span class="rom">thú-rá</span><span class="eng">errand</span></button></div></div></div><h3>Level C｜補充辨認，遇到再查</h3><div class="table-wrap"><table>
+<thead><tr><th>組合</th><th>Romanization</th><th>快速辨認點</th><th>高頻例字</th></tr></thead>
+<tbody>
+<tr><td><span class="thai-lg">ด / ต</span></td><td><span class="rom">d / dt</span></td><td>ด 右上有小外突；ต 較平。兩者都是中音字，聲調邏輯相同。</td><td>ดี / dii, ต้อง / dtɔ̂ng</td></tr>
+<tr><td><span class="thai-lg">ข / ช</span></td><td><span class="rom">kh / ch</span></td><td>ข 有上方橫線；ช 是多段弧，沒有橫線。</td><td>ขาย / khǎai, ชา / chaa</td></tr>
+<tr><td><span class="thai-lg">ศ / ส / ษ</span></td><td><span class="rom">s</span></td><td>發音相近，廣告閱讀先認整體詞；拼字細節可回查。</td><td>สด / sòt, ภาษา / phaa-sǎa</td></tr>
+<tr><td><span class="thai-lg">ฤ / ฤๅ</span></td><td><span class="rom">rʉ / rʉʉ</span></td><td>少見但一看到很陌生；先當特殊符號記。</td><td>ฤดู / rʉ́-duu, ฤๅษี / rʉʉ-sǐi</td></tr>
+</tbody>
+</table></div><div class="note"><strong>📌 你的閱讀策略：</strong>先不要管這是 Kanit、Prompt、圓體還是手寫體。看到陌生廣告字時，先找「圓頭 / 長橫 / 左側直線 / 底部尾巴 / 前置母音」這幾個辨認點，再用高頻招牌詞反推。</div></div><div class="tab" id="tab-full">
+<h2>完整字母表</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:6px">44 個子音與全母音的 Kanit vs 教科書體對照。母音欄中<span style="color:#c8b9aa;font-weight:700">灰色</span>為子音載體、<span style="color:#315f82;font-weight:700">藍色</span>為母音符號。🔊 播母音本身音；點例詞聽例詞。</p>
+<div style="display:flex;gap:8px;margin:16px 0 12px;flex-wrap:wrap">
+<button class="sub-tab-btn active" data-sub="consonants">子音 (44)</button>
+<button class="sub-tab-btn" data-sub="vowels">母音 (35)</button>
+</div>
+<div class="sub-tab active" id="sub-consonants">
+<div class="table-wrap"><table style="min-width:380px">
+<thead><tr><th>Kanit</th><th>教科書體</th><th>Initial</th><th>Final</th><th>例詞</th></tr></thead>
+<tbody><tr><td colspan="5" style="background:#6b8fa3;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:6px 10px">中音字 Middle Class · 9 字</td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ก</span><button class="tts" data-say="ก" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ก</span></td><td><span class="rom">g</span></td><td><span class="rom">-k</span></td><td><button class="vocab-pill-sm" data-say="ไก่"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ไก่</span> <span class="rom">gài</span> <span class="eng">雞</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">จ</span><button class="tts" data-say="จ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">จ</span></td><td><span class="rom">j</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="จาน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">จาน</span> <span class="rom">jaan</span> <span class="eng">盤子</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ด</span><button class="tts" data-say="ด" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ด</span></td><td><span class="rom">d</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="เด็ก"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เด็ก</span> <span class="rom">dèk</span> <span class="eng">小孩</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ต</span><button class="tts" data-say="ต" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ต</span></td><td><span class="rom">dt</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ตลาด"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ตลาด</span> <span class="rom">dtà-làat</span> <span class="eng">市場</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฎ</span><button class="tts" data-say="ฎ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฎ</span></td><td><span class="rom">d</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ชฎา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ชฎา</span> <span class="rom">chá-daa</span> <span class="eng">皇冠（罕）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฏ</span><button class="tts" data-say="ฏ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฏ</span></td><td><span class="rom">dt</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ปฏัก"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ปฏัก</span> <span class="rom">bpà-dtàk</span> <span class="eng">矛（罕）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">บ</span><button class="tts" data-say="บ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">บ</span></td><td><span class="rom">bp</span></td><td><span class="rom">-p</span></td><td><button class="vocab-pill-sm" data-say="บ้าน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">บ้าน</span> <span class="rom">bâan</span> <span class="eng">家</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ป</span><button class="tts" data-say="ป" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ป</span></td><td><span class="rom">bp</span></td><td><span class="rom">-p</span></td><td><button class="vocab-pill-sm" data-say="ปลา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ปลา</span> <span class="rom">bplaa</span> <span class="eng">魚</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">อ</span><button class="tts" data-say="อ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">อ</span></td><td><span class="rom">ɔɔ</span></td><td><span class="rom">—</span></td><td><button class="vocab-pill-sm" data-say="อาหาร"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">อาหาร</span> <span class="rom">aa-hǎan</span> <span class="eng">食物</span></button></td></tr><tr><td colspan="5" style="background:#8a7c6e;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:6px 10px">高音字 High Class · 11 字</td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ข</span><button class="tts" data-say="ข" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ข</span></td><td><span class="rom">kh</span></td><td><span class="rom">-k</span></td><td><button class="vocab-pill-sm" data-say="ขาย"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ขาย</span> <span class="rom">khǎai</span> <span class="eng">賣</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฃ</span><button class="tts" data-say="ฃ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฃ</span></td><td><span class="rom">kh</span></td><td><span class="rom">-k</span></td><td><button class="vocab-pill-sm" data-say="ขวด"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ขวด</span> <span class="rom">khùat</span> <span class="eng">瓶（古字）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฉ</span><button class="tts" data-say="ฉ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฉ</span></td><td><span class="rom">ch</span></td><td><span class="rom">—</span></td><td><button class="vocab-pill-sm" data-say="ฉัน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฉัน</span> <span class="rom">chǎn</span> <span class="eng">我</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฐ</span><button class="tts" data-say="ฐ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฐ</span></td><td><span class="rom">th</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ฐาน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฐาน</span> <span class="rom">thǎan</span> <span class="eng">基座</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ถ</span><button class="tts" data-say="ถ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ถ</span></td><td><span class="rom">th</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ถุง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ถุง</span> <span class="rom">thǔng</span> <span class="eng">袋子</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ผ</span><button class="tts" data-say="ผ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ผ</span></td><td><span class="rom">ph</span></td><td><span class="rom">—</span></td><td><button class="vocab-pill-sm" data-say="ผลไม้"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ผลไม้</span> <span class="rom">phǒn-lá-máai</span> <span class="eng">水果</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฝ</span><button class="tts" data-say="ฝ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฝ</span></td><td><span class="rom">f</span></td><td><span class="rom">—</span></td><td><button class="vocab-pill-sm" data-say="ฝน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฝน</span> <span class="rom">fǒn</span> <span class="eng">雨</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ศ</span><button class="tts" data-say="ศ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ศ</span></td><td><span class="rom">s</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ศาล"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ศาล</span> <span class="rom">sǎan</span> <span class="eng">法院</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ษ</span><button class="tts" data-say="ษ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ษ</span></td><td><span class="rom">s</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ฤๅษี"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฤๅษี</span> <span class="rom">rʉʉ-sǐi</span> <span class="eng">隱士（罕）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ส</span><button class="tts" data-say="ส" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ส</span></td><td><span class="rom">s</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="สวัสดี"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">สวัสดี</span> <span class="rom">sà-wàt-dii</span> <span class="eng">你好</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ห</span><button class="tts" data-say="ห" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ห</span></td><td><span class="rom">h</span></td><td><span class="rom">—</span></td><td><button class="vocab-pill-sm" data-say="หมา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">หมา</span> <span class="rom">mǎa</span> <span class="eng">狗</span></button></td></tr><tr><td colspan="5" style="background:#7a8a6e;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:6px 10px">低音字 Low Class · 24 字</td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ค</span><button class="tts" data-say="ค" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ค</span></td><td><span class="rom">kh</span></td><td><span class="rom">-k</span></td><td><button class="vocab-pill-sm" data-say="คน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">คน</span> <span class="rom">khon</span> <span class="eng">人</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฅ</span><button class="tts" data-say="ฅ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฅ</span></td><td><span class="rom">kh</span></td><td><span class="rom">-k</span></td><td><button class="vocab-pill-sm" data-say="คน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">คน</span> <span class="rom">khon</span> <span class="eng">人（古字）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฆ</span><button class="tts" data-say="ฆ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฆ</span></td><td><span class="rom">kh</span></td><td><span class="rom">-k</span></td><td><button class="vocab-pill-sm" data-say="ระฆัง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ระฆัง</span> <span class="rom">rá-khang</span> <span class="eng">鈴</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ง</span><button class="tts" data-say="ง" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ง</span></td><td><span class="rom">ng</span></td><td><span class="rom">-ng</span></td><td><button class="vocab-pill-sm" data-say="งาน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">งาน</span> <span class="rom">ngaan</span> <span class="eng">工作</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ช</span><button class="tts" data-say="ช" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ช</span></td><td><span class="rom">ch</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ช้าง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ช้าง</span> <span class="rom">cháang</span> <span class="eng">象</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ซ</span><button class="tts" data-say="ซ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ซ</span></td><td><span class="rom">s</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ซื้อ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ซื้อ</span> <span class="rom">sʉ́ʉ</span> <span class="eng">買</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฌ</span><button class="tts" data-say="ฌ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฌ</span></td><td><span class="rom">ch</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="เฌอ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เฌอ</span> <span class="rom">chəə</span> <span class="eng">樹（罕）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ญ</span><button class="tts" data-say="ญ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ญ</span></td><td><span class="rom">y</span></td><td><span class="rom">-n</span></td><td><button class="vocab-pill-sm" data-say="หญิง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">หญิง</span> <span class="rom">yǐng</span> <span class="eng">女性</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ณ</span><button class="tts" data-say="ณ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ณ</span></td><td><span class="rom">n</span></td><td><span class="rom">-n</span></td><td><button class="vocab-pill-sm" data-say="เณร"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เณร</span> <span class="rom">neen</span> <span class="eng">沙彌</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ท</span><button class="tts" data-say="ท" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ท</span></td><td><span class="rom">th</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ทาง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ทาง</span> <span class="rom">thaang</span> <span class="eng">路</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ธ</span><button class="tts" data-say="ธ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ธ</span></td><td><span class="rom">th</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ธง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ธง</span> <span class="rom">thong</span> <span class="eng">旗</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">น</span><button class="tts" data-say="น" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">น</span></td><td><span class="rom">n</span></td><td><span class="rom">-n</span></td><td><button class="vocab-pill-sm" data-say="น้ำ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">น้ำ</span> <span class="rom">náam</span> <span class="eng">水</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">พ</span><button class="tts" data-say="พ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">พ</span></td><td><span class="rom">ph</span></td><td><span class="rom">-p</span></td><td><button class="vocab-pill-sm" data-say="พ่อ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">พ่อ</span> <span class="rom">phɔ̂ɔ</span> <span class="eng">父親</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฟ</span><button class="tts" data-say="ฟ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฟ</span></td><td><span class="rom">f</span></td><td><span class="rom">-p</span></td><td><button class="vocab-pill-sm" data-say="ฟัง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฟัง</span> <span class="rom">fang</span> <span class="eng">聽</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ภ</span><button class="tts" data-say="ภ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ภ</span></td><td><span class="rom">ph</span></td><td><span class="rom">-p</span></td><td><button class="vocab-pill-sm" data-say="ภาษา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ภาษา</span> <span class="rom">phaa-sǎa</span> <span class="eng">語言</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ม</span><button class="tts" data-say="ม" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ม</span></td><td><span class="rom">m</span></td><td><span class="rom">-m</span></td><td><button class="vocab-pill-sm" data-say="แม่"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">แม่</span> <span class="rom">mɛ̂ɛ</span> <span class="eng">媽媽</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ย</span><button class="tts" data-say="ย" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ย</span></td><td><span class="rom">y</span></td><td><span class="rom">-y</span></td><td><button class="vocab-pill-sm" data-say="ยา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ยา</span> <span class="rom">yaa</span> <span class="eng">藥</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ร</span><button class="tts" data-say="ร" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ร</span></td><td><span class="rom">r</span></td><td><span class="rom">-n</span></td><td><button class="vocab-pill-sm" data-say="ราคา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ราคา</span> <span class="rom">raa-khaa</span> <span class="eng">價格</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ล</span><button class="tts" data-say="ล" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ล</span></td><td><span class="rom">l</span></td><td><span class="rom">-n</span></td><td><button class="vocab-pill-sm" data-say="ลด"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ลด</span> <span class="rom">lót</span> <span class="eng">折扣</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ว</span><button class="tts" data-say="ว" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ว</span></td><td><span class="rom">w</span></td><td><span class="rom">-w</span></td><td><button class="vocab-pill-sm" data-say="วัน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">วัน</span> <span class="rom">wan</span> <span class="eng">日</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฬ</span><button class="tts" data-say="ฬ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฬ</span></td><td><span class="rom">l</span></td><td><span class="rom">-n</span></td><td><button class="vocab-pill-sm" data-say="จุฬา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">จุฬา</span> <span class="rom">jù-laa</span> <span class="eng">風箏（罕）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฮ</span><button class="tts" data-say="ฮ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฮ</span></td><td><span class="rom">h</span></td><td><span class="rom">—</span></td><td><button class="vocab-pill-sm" data-say="ฮา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฮา</span> <span class="rom">haa</span> <span class="eng">好笑</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฑ</span><button class="tts" data-say="ฑ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฑ</span></td><td><span class="rom">th</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="มณโฑ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">มณโฑ</span> <span class="rom">mon-thoo</span> <span class="eng">人名（罕）</span></button></td></tr><tr><td style="white-space:nowrap"><span style="font-family:'Kanit',sans-serif;font-size:28px;font-weight:700;color:#111827">ฒ</span><button class="tts" data-say="ฒ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span style="font-family:'Noto Sans Thai','Tahoma',sans-serif;font-size:28px;font-weight:700;color:#6b7280">ฒ</span></td><td><span class="rom">th</span></td><td><span class="rom">-t</span></td><td><button class="vocab-pill-sm" data-say="ผู้เฒ่า"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ผู้เฒ่า</span> <span class="rom">phûu-thâo</span> <span class="eng">老人</span></button></td></tr></tbody>
+</table></div>
+</div>
+<div class="sub-tab" id="sub-vowels">
+<div class="table-wrap"><table style="min-width:360px">
+<thead><tr><th>Kanit</th><th>教科書體</th><th>Rom.</th><th>例詞</th></tr></thead>
+<tbody><tr><td colspan="4" style="background:#6b8fa3;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:6px 10px">基本母音 · 短音 / 長音 配對</td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ะ</span></span><button class="tts" data-say="อะ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ะ</span></span></td><td><span class="rom">a</span></td><td><button class="vocab-pill-sm" data-say="จะ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">จะ</span> <span class="rom">jà</span> <span class="eng">要（語助）</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">า</span></span><button class="tts" data-say="อา" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">า</span></span></td><td><span class="rom">aa</span></td><td><button class="vocab-pill-sm" data-say="กา"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กา</span> <span class="rom">gaa</span> <span class="eng">烏鴉</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ิ</span></span><button class="tts" data-say="อิ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ิ</span></span></td><td><span class="rom">i</span></td><td><button class="vocab-pill-sm" data-say="กิน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กิน</span> <span class="rom">gin</span> <span class="eng">吃</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ี</span></span><button class="tts" data-say="อี" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ี</span></span></td><td><span class="rom">ii</span></td><td><button class="vocab-pill-sm" data-say="ดี"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ดี</span> <span class="rom">dii</span> <span class="eng">好</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ึ</span></span><button class="tts" data-say="อึ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ึ</span></span></td><td><span class="rom">ʉ</span></td><td><button class="vocab-pill-sm" data-say="กึ่ง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กึ่ง</span> <span class="rom">gʉ̀ng</span> <span class="eng">半</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ือ</span></span><button class="tts" data-say="อือ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ือ</span></span></td><td><span class="rom">ʉʉ</span></td><td><button class="vocab-pill-sm" data-say="มือ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">มือ</span> <span class="rom">mʉʉ</span> <span class="eng">手</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ุ</span></span><button class="tts" data-say="อุ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ุ</span></span></td><td><span class="rom">u</span></td><td><button class="vocab-pill-sm" data-say="กุ้ง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กุ้ง</span> <span class="rom">gûng</span> <span class="eng">蝦</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ู</span></span><button class="tts" data-say="อู" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ู</span></span></td><td><span class="rom">uu</span></td><td><button class="vocab-pill-sm" data-say="ดู"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ดู</span> <span class="rom">duu</span> <span class="eng">看</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ะ</span></span><button class="tts" data-say="เอะ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ะ</span></span></td><td><span class="rom">e</span></td><td><button class="vocab-pill-sm" data-say="เละ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เละ</span> <span class="rom">lé</span> <span class="eng">爛（口語）</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span></span><button class="tts" data-say="เอ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span></span></td><td><span class="rom">ee</span></td><td><button class="vocab-pill-sm" data-say="เพลง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เพลง</span> <span class="rom">phleeng</span> <span class="eng">歌曲</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">แ</span><span class="carrier">ก</span><span class="vmark">ะ</span></span><button class="tts" data-say="แอะ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">แ</span><span class="carrier">ก</span><span class="vmark">ะ</span></span></td><td><span class="rom">ɛ</span></td><td><button class="vocab-pill-sm" data-say="แกะ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">แกะ</span> <span class="rom">gɛ̀</span> <span class="eng">羊</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">แ</span><span class="carrier">ก</span></span><button class="tts" data-say="แอ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">แ</span><span class="carrier">ก</span></span></td><td><span class="rom">ɛɛ</span></td><td><button class="vocab-pill-sm" data-say="แมว"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">แมว</span> <span class="rom">mɛɛw</span> <span class="eng">貓</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">โ</span><span class="carrier">ก</span><span class="vmark">ะ</span></span><button class="tts" data-say="โอะ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">โ</span><span class="carrier">ก</span><span class="vmark">ะ</span></span></td><td><span class="rom">o</span></td><td><button class="vocab-pill-sm" data-say="โต๊ะ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">โต๊ะ</span> <span class="rom">dtó</span> <span class="eng">桌子</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">โ</span><span class="carrier">ก</span></span><button class="tts" data-say="โอ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">โ</span><span class="carrier">ก</span></span></td><td><span class="rom">oo</span></td><td><button class="vocab-pill-sm" data-say="โต"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">โต</span> <span class="rom">dtoo</span> <span class="eng">大</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">าะ</span></span><button class="tts" data-say="เอาะ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">าะ</span></span></td><td><span class="rom">ɔ</span></td><td><button class="vocab-pill-sm" data-say="เกาะ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เกาะ</span> <span class="rom">gɔ̀</span> <span class="eng">島</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">อ</span></span><button class="tts" data-say="ออ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">อ</span></span></td><td><span class="rom">ɔɔ</span></td><td><button class="vocab-pill-sm" data-say="กอง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กอง</span> <span class="rom">gɔɔng</span> <span class="eng">堆</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">อะ</span></span><button class="tts" data-say="เออะ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">อะ</span></span></td><td><span class="rom">ə</span></td><td><button class="vocab-pill-sm" data-say="เอ๊ะ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เอ๊ะ</span> <span class="rom">é</span> <span class="eng">咦（感嘆）</span></button></td></tr><tr style="border-bottom:2px solid rgba(88,63,35,.18)"><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">อ</span></span><button class="tts" data-say="เออ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">อ</span></span></td><td><span class="rom">əə</span></td><td><button class="vocab-pill-sm" data-say="เลย"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เลย</span> <span class="rom">ləəy</span> <span class="eng">直接</span></button></td></tr><tr><td colspan="4" style="background:#8a7c6e;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:6px 10px">複合母音</td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ีย</span></span><button class="tts" data-say="เอีย" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ีย</span></span></td><td><span class="rom">iia</span></td><td><button class="vocab-pill-sm" data-say="เรียน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เรียน</span> <span class="rom">riian</span> <span class="eng">學習</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ือ</span></span><button class="tts" data-say="เอือ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ือ</span></span></td><td><span class="rom">ʉa</span></td><td><button class="vocab-pill-sm" data-say="เรื่อง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เรื่อง</span> <span class="rom">rʉ̂ang</span> <span class="eng">事情</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ัว</span></span><button class="tts" data-say="อัว" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ัว</span></span></td><td><span class="rom">ua</span></td><td><button class="vocab-pill-sm" data-say="วัว"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">วัว</span> <span class="rom">wua</span> <span class="eng">牛</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">า</span></span><button class="tts" data-say="เอา" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">า</span></span></td><td><span class="rom">ao</span></td><td><button class="vocab-pill-sm" data-say="เก่า"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เก่า</span> <span class="rom">gào</span> <span class="eng">舊</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">าว</span></span><button class="tts" data-say="อาว" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">าว</span></span></td><td><span class="rom">aaw</span></td><td><button class="vocab-pill-sm" data-say="ขาว"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ขาว</span> <span class="rom">khǎaw</span> <span class="eng">白</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">ำ</span></span><button class="tts" data-say="อำ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">ำ</span></span></td><td><span class="rom">am</span></td><td><button class="vocab-pill-sm" data-say="กำลัง"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กำลัง</span> <span class="rom">gam-lang</span> <span class="eng">力量</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ย</span></span><button class="tts" data-say="เอย" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ย</span></span></td><td><span class="rom">əəy</span></td><td><button class="vocab-pill-sm" data-say="เลย"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เลย</span> <span class="rom">ləəy</span> <span class="eng">就/直接</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ว</span></span><button class="tts" data-say="เอว" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ว</span></span></td><td><span class="rom">eew</span></td><td><button class="vocab-pill-sm" data-say="แถว"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">แถว</span> <span class="rom">thɛ̌ɛw</span> <span class="eng">排/區域</span></button></td></tr><tr><td colspan="4" style="background:#7a8a6e;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:6px 10px">特殊母音</td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="carrier">ก</span><span class="vmark">รร</span></span><button class="tts" data-say="อรร" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="carrier">ก</span><span class="vmark">รร</span></span></td><td><span class="rom">an/a</span></td><td><button class="vocab-pill-sm" data-say="กรรม"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">กรรม</span> <span class="rom">gam</span> <span class="eng">業（karma）</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">ฤ</span></span><button class="tts" data-say="ฤ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">ฤ</span></span></td><td><span class="rom">rʉ</span></td><td><button class="vocab-pill-sm" data-say="ฤดู"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฤดู</span> <span class="rom">rʉ́-duu</span> <span class="eng">季節</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">ฤๅ</span></span><button class="tts" data-say="ฤๅ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">ฤๅ</span></span></td><td><span class="rom">rʉʉ</span></td><td><button class="vocab-pill-sm" data-say="ฤๅษี"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฤๅษี</span> <span class="rom">rʉʉ-sǐi</span> <span class="eng">隱士</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">ฦ</span></span><button class="tts" data-say="ฦ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">ฦ</span></span></td><td><span class="rom">lʉ</span></td><td><button class="vocab-pill-sm" data-say="ฦๅ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ฦๅ</span> <span class="rom">lʉ</span> <span class="eng">聽說（古字）</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">ไ</span><span class="carrier">ก</span></span><button class="tts" data-say="ไอ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">ไ</span><span class="carrier">ก</span></span></td><td><span class="rom">ii</span></td><td><button class="vocab-pill-sm" data-say="ไป"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ไป</span> <span class="rom">bpai</span> <span class="eng">去</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">ใ</span><span class="carrier">ก</span></span><button class="tts" data-say="ใอ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">ใ</span><span class="carrier">ก</span></span></td><td><span class="rom">ii</span></td><td><button class="vocab-pill-sm" data-say="ใจ"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">ใจ</span> <span class="rom">jai</span> <span class="eng">心</span></button></td></tr><tr style=""><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Kanit',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ิ</span></span><button class="tts" data-say="เอิ" style="font-size:11px;padding:1px 5px;margin-left:4px">🔊</button></td><td style="white-space:nowrap"><span class="thai" style="font-size:22px;font-weight:700;font-family:'Noto Sans Thai','Tahoma',sans-serif"><span class="vmark">เ</span><span class="carrier">ก</span><span class="vmark">ิ</span></span></td><td><span class="rom">ə</span></td><td><button class="vocab-pill-sm" data-say="เดิน"><span class="thai" style="font-family:'Kanit',sans-serif;color:var(--coral);font-size:15px">เดิน</span> <span class="rom">dəən</span> <span class="eng">走</span></button></td></tr></tbody>
+</table></div>
+</div>
+</div><div class="tab" id="tab-vocab">
+<h2>高頻招牌詞彙</h2>
+<p style="font-size:14px;color:var(--muted);margin-bottom:16px">點擊每個詞彙卡片可播放發音。熟悉這些詞的整體視覺形狀，是辨認廣告體最有效的方法。</p>
+<!-- 開閉營業 -->
+<div class="vocab-section">
+<div class="vocab-cat-label">🔓 開閉與販售</div>
+<div class="vocab-grid">
+<button class="vocab-chip" data-say="เปิด">
+<span class="thai">เปิด</span>
+<span class="rom">bpəət</span>
+<span class="eng">開（open）</span>
+</button>
+<button class="vocab-chip" data-say="ปิด">
+<span class="thai">ปิด</span>
+<span class="rom">bpìt</span>
+<span class="eng">關（closed）</span>
+</button>
+<button class="vocab-chip" data-say="ขาย">
+<span class="thai">ขาย</span>
+<span class="rom">khǎai</span>
+<span class="eng">賣、販售（for sale）</span>
+</button>
+<button class="vocab-chip" data-say="ซื้อ">
+<span class="thai">ซื้อ</span>
+<span class="rom">sʉ́ʉ</span>
+<span class="eng">買（buy）</span>
+</button>
+<button class="vocab-chip" data-say="ลด">
+<span class="thai">ลด</span>
+<span class="rom">lót</span>
+<span class="eng">折扣、降價（discount）</span>
+</button>
+<button class="vocab-chip" data-say="สั่ง">
+<span class="thai">สั่ง</span>
+<span class="rom">sàng</span>
+<span class="eng">點餐、訂購（order）</span>
+</button>
+</div>
+</div>
+<!-- 價格品質 -->
+<div class="vocab-section">
+<div class="vocab-cat-label">💰 價格與品質</div>
+<div class="vocab-grid">
+<button class="vocab-chip" data-say="ราคา">
+<span class="thai">ราคา</span>
+<span class="rom">raa-khaa</span>
+<span class="eng">價格（price）</span>
+</button>
+<button class="vocab-chip" data-say="ถูก">
+<span class="thai">ถูก</span>
+<span class="rom">thùuk</span>
+<span class="eng">便宜（cheap）</span>
+</button>
+<button class="vocab-chip" data-say="แพง">
+<span class="thai">แพง</span>
+<span class="rom">phɛɛng</span>
+<span class="eng">貴（expensive）</span>
+</button>
+<button class="vocab-chip" data-say="ฟรี">
+<span class="thai">ฟรี</span>
+<span class="rom">frii</span>
+<span class="eng">免費（free）</span>
+</button>
+<button class="vocab-chip" data-say="พิเศษ">
+<span class="thai">พิเศษ</span>
+<span class="rom">phí-sèet</span>
+<span class="eng">特別（special）</span>
+</button>
+<button class="vocab-chip" data-say="ใหม่">
+<span class="thai">ใหม่</span>
+<span class="rom">mài</span>
+<span class="eng">新（new）</span>
+</button>
+<button class="vocab-chip" data-say="ดี">
+<span class="thai">ดี</span>
+<span class="rom">dii</span>
+<span class="eng">好（good）</span>
+</button>
+<button class="vocab-chip" data-say="สด">
+<span class="thai">สด</span>
+<span class="rom">sòt</span>
+<span class="eng">新鮮（fresh）</span>
+</button>
+</div>
+</div>
+<!-- 食物 -->
+<div class="vocab-section">
+<div class="vocab-cat-label">🍜 食物相關</div>
+<div class="vocab-grid">
+<button class="vocab-chip" data-say="อาหาร">
+<span class="thai">อาหาร</span>
+<span class="rom">aa-hǎan</span>
+<span class="eng">食物（food）</span>
+</button>
+<button class="vocab-chip" data-say="อร่อย">
+<span class="thai">อร่อย</span>
+<span class="rom">à-rɔ̀i</span>
+<span class="eng">好吃（delicious）</span>
+</button>
+<button class="vocab-chip" data-say="เครื่องดื่ม">
+<span class="thai">เครื่องดื่ม</span>
+<span class="rom">khrʉ̂ang dʉ̀ʉm</span>
+<span class="eng">飲料（drinks）</span>
+</button>
+<button class="vocab-chip" data-say="ข้าว">
+<span class="thai">ข้าว</span>
+<span class="rom">khâaw</span>
+<span class="eng">米飯（rice）</span>
+</button>
+<button class="vocab-chip" data-say="ไม่ใส่ผักชี">
+<span class="thai">ไม่ใส่ผักชี</span>
+<span class="rom">mâi sài phàk-chii</span>
+<span class="eng">不加香菜</span>
+</button>
+<button class="vocab-chip" data-say="เผ็ด">
+<span class="thai">เผ็ด</span>
+<span class="rom">phèt</span>
+<span class="eng">辣（spicy）</span>
+</button>
+</div>
+</div>
+<!-- 場所指引 -->
+<div class="vocab-section">
+<div class="vocab-cat-label">🧭 場所與指引</div>
+<div class="vocab-grid">
+<button class="vocab-chip" data-say="ทางเข้า">
+<span class="thai">ทางเข้า</span>
+<span class="rom">thaang-khâo</span>
+<span class="eng">入口（entrance）</span>
+</button>
+<button class="vocab-chip" data-say="ทางออก">
+<span class="thai">ทางออก</span>
+<span class="rom">thaang-ɔ̀ɔk</span>
+<span class="eng">出口（exit）</span>
+</button>
+<button class="vocab-chip" data-say="ห้องน้ำ">
+<span class="thai">ห้องน้ำ</span>
+<span class="rom">hɔ̂ng-náam</span>
+<span class="eng">廁所（restroom）</span>
+</button>
+<button class="vocab-chip" data-say="ชาย">
+<span class="thai">ชาย</span>
+<span class="rom">chaai</span>
+<span class="eng">男（male）</span>
+</button>
+<button class="vocab-chip" data-say="หญิง">
+<span class="thai">หญิง</span>
+<span class="rom">yǐng</span>
+<span class="eng">女（female）</span>
+</button>
+<button class="vocab-chip" data-say="ระวัง">
+<span class="thai">ระวัง</span>
+<span class="rom">rá-wang</span>
+<span class="eng">小心（caution）</span>
+</button>
+<button class="vocab-chip" data-say="ห้ามจอด">
+<span class="thai">ห้ามจอด</span>
+<span class="rom">hâam-jɔ̀ɔt</span>
+<span class="eng">禁止停車（no parking）</span>
+</button>
+<button class="vocab-chip" data-say="ที่จอดรถ">
+<span class="thai">ที่จอดรถ</span>
+<span class="rom">thîi-jɔ̀ɔt-rót</span>
+<span class="eng">停車場（parking）</span>
+</button>
+</div>
+</div>
+<!-- 店鋪 -->
+<div class="vocab-section">
+<div class="vocab-cat-label">🏪 店鋪與場所</div>
+<div class="vocab-grid">
+<button class="vocab-chip" data-say="ร้าน">
+<span class="thai">ร้าน</span>
+<span class="rom">ráan</span>
+<span class="eng">店、攤（shop）</span>
+</button>
+<button class="vocab-chip" data-say="ตลาด">
+<span class="thai">ตลาด</span>
+<span class="rom">dtà-làat</span>
+<span class="eng">市場（market）</span>
+</button>
+<button class="vocab-chip" data-say="แผนก">
+<span class="thai">แผนก</span>
+<span class="rom">phà-nɛ̀ɛk</span>
+<span class="eng">部門（department）</span>
+</button>
+<button class="vocab-chip" data-say="ชั้น">
+<span class="thai">ชั้น</span>
+<span class="rom">chán</span>
+<span class="eng">樓層（floor）</span>
+</button>
+<button class="vocab-chip" data-say="เปิด 24 ชั่วโมง">
+<span class="thai">เปิด 24 ชั่วโมง</span>
+<span class="rom">bpə̀ət yîi-sìp-sìi chûa-moong</span>
+<span class="eng">24小時營業</span>
+</button>
+</div>
+</div>
+<!-- 禮貌 -->
+<div class="vocab-section">
+<div class="vocab-cat-label">🙏 禮貌用語</div>
+<div class="vocab-grid">
+<button class="vocab-chip" data-say="ยินดีต้อนรับ">
+<span class="thai">ยินดีต้อนรับ</span>
+<span class="rom">yin-dii dtɔ̂n-ráp</span>
+<span class="eng">歡迎光臨（welcome）</span>
+</button>
+<button class="vocab-chip" data-say="ขอบคุณ">
+<span class="thai">ขอบคุณ</span>
+<span class="rom">khɔ̀ɔp-khun</span>
+<span class="eng">謝謝（thank you）</span>
+</button>
+<button class="vocab-chip" data-say="โปรดระวัง">
+<span class="thai">โปรดระวัง</span>
+<span class="rom">bpròot rá-wang</span>
+<span class="eng">請注意（please be careful）</span>
+</button>
+</div>
+</div>
+<div class="note" style="border-color:var(--coral-mid);margin-top:20px">
+<strong>📌 練習建議：</strong>熟悉上面的詞彙後，找市場或餐廳的照片，嘗試辨認招牌上的詞。即使字形不同，只要認出整體輪廓和母音符號的位置，通常就能猜出是哪個詞。
+</div>
+</div>
+<!-- ════════════════════ TAB 1: 總覽 ════════════════════ -->
+</div><!-- /tab-overview -->
+<!-- ════════════════════ TAB 2: 變形規則 ════════════════════ -->
+<!-- /tab-rules -->
+<!-- ════════════════════ TAB 3: 字母對照 ════════════════════ -->
+<!-- /tab-chars -->
+<!-- ════════════════════ TAB 4: 招牌詞彙 ════════════════════ -->
+<!-- /tab-vocab -->
+<!-- ════════════════════ TAB 5: 完整字母表 ════════════════════ -->
+<!-- /tab-full -->
+<!-- ── Footer ── -->
+<div style="margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+<span style="font-size:13px;color:var(--muted)">Thai Alphabet Handbook · Special · 廣告體 Advertising Script · Created for ABBY.</span>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<a href="index.html" style="font-size:12px;font-weight:700;color:var(--muted);text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.72)">← 手冊首頁</a>
+<a href="Thai Alphabet Handbook｜Appendix 1｜Romanization Quick Map.html" style="font-size:12px;font-weight:700;color:var(--muted);text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.72)">Appendix 1 →</a>
+</div>
+</div>
+<!-- /page -->
+<script>
+const THAI_RATE = 0.86;
+function speakThai(text){
+  if(!("speechSynthesis" in window)){return;}
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "th-TH";
+  u.rate = THAI_RATE;
+  window.speechSynthesis.speak(u);
+}
+
+document.addEventListener("click", e => {
+  const tts = e.target.closest(".tts");
+  if(tts){ e.preventDefault(); speakThai(tts.dataset.say || tts.textContent.trim()); return; }
+  const chip = e.target.closest(".vocab-chip");
+  if(chip){ e.preventDefault(); speakThai(chip.dataset.say || chip.textContent.trim()); return; }
+  const pill = e.target.closest(".vocab-pill-sm");
+  if(pill){ e.preventDefault(); speakThai(pill.dataset.say || pill.textContent.trim()); return; }
+  const subBtn = e.target.closest(".sub-tab-btn");
+  if(subBtn){
+    const parent = subBtn.closest("#tab-full");
+    parent.querySelectorAll(".sub-tab-btn").forEach(b => b.classList.remove("active"));
+    parent.querySelectorAll(".sub-tab").forEach(t => t.classList.remove("active"));
+    subBtn.classList.add("active");
+    const sub = document.getElementById("sub-" + subBtn.dataset.sub);
+    if(sub) sub.classList.add("active");
+    return;
+  }
+  const tabBtn = e.target.closest(".tab-btn");
+  if(tabBtn){
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    tabBtn.classList.add("active");
+    const id = "tab-" + tabBtn.dataset.tab;
+    const target = document.getElementById(id);
+    if(target) target.classList.add("active");
+  }
+});
+</script>
+</body>
+</html>
