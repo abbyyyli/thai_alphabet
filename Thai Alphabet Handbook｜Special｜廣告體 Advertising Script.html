@@ -442,6 +442,37 @@ tr:nth-child(even) td{ background:#fffdf9 !important; }
   color:#2f7948 !important;
   border-color:#b2dfbd !important;
 }
+
+/* tab-chars: warm neutral card borders + letter-demo styling (from v10) */
+#tab-chars .recognition-card{
+  background:var(--card) !important;
+  border:1px solid var(--line) !important;
+  border-left:5px solid var(--line) !important;
+  box-shadow:var(--shadow) !important;
+}
+#tab-chars .recognition-card:nth-of-type(2n),
+#tab-chars .recognition-card:nth-of-type(3n){
+  border-left-color:var(--line) !important;
+}
+#tab-chars .letter-demo{
+  background:#fffaf4 !important;
+  border:1px solid var(--line) !important;
+  color:#392f26 !important;
+}
+#tab-chars .quick-rule{
+  background:#fffaf4 !important;
+  border:1px solid rgba(242,163,93,.22) !important;
+}
+#tab-chars .vocab-pill-sm{
+  background:var(--card) !important;
+  border:1px solid var(--line) !important;
+  box-shadow:0 3px 8px rgba(74,45,18,.06) !important;
+}
+#tab-chars .vocab-pill-sm:hover{
+  background:#fffaf4 !important;
+  border-color:var(--line) !important;
+  box-shadow:0 6px 16px rgba(74,45,18,.10) !important;
+}
 </style>
 </head>
 <body>
@@ -491,6 +522,7 @@ tr:nth-child(even) td{ background:#fffdf9 !important; }
 <div class="scene-card"><div class="scene-icon">📋</div><div class="scene-title">促銷海報</div><div class="scene-desc">7-Eleven、Big C、Lotus's 等連鎖店的促銷貼紙</div></div>
 <div class="scene-card"><div class="scene-icon">🍜</div><div class="scene-title">餐廳菜單板</div><div class="scene-desc">電腦輸出的看板菜單、電子顯示屏</div></div>
 <div class="scene-card"><div class="scene-icon">🚌</div><div class="scene-title">交通廣告</div><div class="scene-desc">公車、BTS、MRT 站內廣告看板</div></div>
+<div class="scene-card"><div class="scene-icon">🏪</div><div class="scene-title">市場攤位</div><div class="scene-desc">印刷價格牌、品名標示（愈來愈少手寫）</div></div>
 <div class="scene-card"><div class="scene-icon">📱</div><div class="scene-title">數位廣告</div><div class="scene-desc">LINE 貼圖、FB 廣告、IG 貼文的泰文字</div></div>
 </div>
 <h2>Kanit 的三個閱讀重點</h2>
