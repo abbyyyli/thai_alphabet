@@ -197,6 +197,14 @@ tr:nth-child(even) td{background:#fffdf9}
   font-size:18px;
 }
 .arrow{font-weight:900;color:#9a5b24}
+.part.sound-part{
+  cursor:pointer;
+  transition:.15s ease;
+}
+.part.sound-part:hover{
+  transform:translateY(-1px);
+  background:#fff1df;
+}
 .result{
   display:inline-flex;
   flex-direction:column;
@@ -206,6 +214,19 @@ tr:nth-child(even) td{background:#fffdf9}
   background:var(--blue-soft);
   border-radius:12px;
 }
+.result.tts{
+  border:1px solid rgba(110,168,214,.35);
+  background:var(--blue-soft);
+  border-radius:12px;
+  padding:8px 12px;
+  margin:0;
+  font-size:inherit;
+  cursor:pointer;
+  text-align:left;
+  transition:.15s ease;
+}
+.result.tts:hover{background:#cfe7fa}
+.result .thai-lg{padding:0;margin:0;border:none;background:none;cursor:inherit}
 .step-num{
   display:inline-flex;
   margin-right:6px;
@@ -533,19 +554,15 @@ tr:nth-child(even) td{background:#fffdf9 !important}
 <div class="rule-card">
 <h3>示範：ก่อน</h3>
 <div class="formula">
-<span class="part">ก</span>
+<span class="part sound-part" data-say="กอ">ก</span>
 <span class="arrow">+</span>
-<span class="part">ออ</span>
+<span class="part sound-part" data-say="ออ">ออ</span>
 <span class="arrow">+</span>
-<span class="part">น</span>
+<span class="part sound-part" data-say="นอ">น</span>
 <span class="arrow">+</span>
-<span class="part">่</span>
+<span class="part sound-part" data-say="ไม้เอก">่</span>
 <span class="arrow">→</span>
-<span class="result">
-<span class="thai-lg">ก่อน <button class="tts" data-say="ก่อน">🔊</button></span>
-<span class="rom">gɔ̀ɔn</span>
-<span class="eng">before</span>
-</span>
+<button class="result tts" data-say="ก่อน"><span class="thai-lg">ก่อน</span><span class="rom">gɔ̀ɔn</span><span class="eng">before</span></button>
 </div>
 <p><span class="thai">ก</span> 是中子音，<span class="thai">น</span> 是 live final，有 <span class="thai">่</span>，所以是 low tone：<span class="rom">gɔ̀ɔn</span>。</p>
 </div>
@@ -1156,18 +1173,18 @@ tr:nth-child(even) td{background:#fffdf9 !important}
 <p>長短母音尤其會影響 <span class="class-pill low">低子音</span> 無調號死音節。</p>
 <div class="formula">
 <span class="part">ร + ั + ก</span><span class="arrow">→</span>
-<span class="result"><span class="thai-lg">รัก <button class="tts" data-say="รัก">🔊</button></span><span class="rom">rák</span><span class="eng">short dead → high</span></span>
+<button class="result tts" data-say="รัก"><span class="thai-lg">รัก</span><span class="rom">rák</span><span class="eng">short dead → high</span></button>
 </div>
 <div class="formula">
 <span class="part">ม + า + ก</span><span class="arrow">→</span>
-<span class="result"><span class="thai-lg">มาก <button class="tts" data-say="มาก">🔊</button></span><span class="rom">mâak</span><span class="eng">long dead → falling</span></span>
+<button class="result tts" data-say="มาก"><span class="thai-lg">มาก</span><span class="rom">mâak</span><span class="eng">long dead → falling</span></button>
 </div>
 </div>
 <div class="flow-card">
 <h3><span class="step-num">Step 5</span>把規則變成讀音</h3>
 <div class="formula">
 <span class="part">ร</span><span class="arrow">+</span><span class="part">เ-ือ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">+</span><span class="part">่</span><span class="arrow">→</span>
-<span class="result"><span class="thai-lg">เรื่อง <button class="tts" data-say="เรื่อง">🔊</button></span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></span>
+<button class="result tts" data-say="เรื่อง"><span class="thai-lg">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></button>
 </div>
 <p><span class="thai">ร</span> 是低子音，<span class="thai">่</span> 在低子音上通常給 falling tone，所以 <span class="thai">เรื่อง</span> 是 <span class="rom">rʉ̂ang</span>。</p>
 </div>
@@ -1177,52 +1194,52 @@ tr:nth-child(even) td{background:#fffdf9 !important}
 <div class="grid">
 <div class="rule-card">
 <h3>ได้</h3>
-<div class="formula"><span class="part">ด</span><span class="arrow">+</span><span class="part">ไ-</span><span class="arrow">+</span><span class="part">้</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ได้ <button class="tts" data-say="ได้">🔊</button></span><span class="rom">dâai</span><span class="eng">can; get</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="ดอ">ด</span><span class="arrow">+</span><span class="part sound-part" data-say="ไอ">ไ-</span><span class="arrow">+</span><span class="part sound-part" data-say="ไม้โท">้</span><span class="arrow">→</span><button class="result tts" data-say="ได้"><span class="thai-lg">ได้</span><span class="rom">dâai</span><span class="eng">can; get</span></button></div>
 <p><span class="thai">ด</span> 中子音 + <span class="thai">้</span> → falling tone。</p>
 </div>
 <div class="rule-card">
 <h3>ก็</h3>
-<div class="formula"><span class="part">ก</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">็</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ก็ <button class="tts" data-say="ก็">🔊</button></span><span class="rom">gɔ̂ɔ</span><span class="eng">then; also</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="กอ">ก</span><span class="arrow">+</span><span class="part sound-part" data-say="ออ">อ</span><span class="arrow">+</span><span class="part sound-part" data-say="ไม้ไต่คู้">็</span><span class="arrow">→</span><button class="result tts" data-say="ก็"><span class="thai-lg">ก็</span><span class="rom">gɔ̂ɔ</span><span class="eng">then; also</span></button></div>
 <p>高頻特殊短小詞，直接固定記：<span class="thai">ก็</span> / <span class="rom">gɔ̂ɔ</span>。</p>
 </div>
 <div class="rule-card">
 <h3>ต้อง</h3>
-<div class="formula"><span class="part">ต</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">+</span><span class="part">้</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ต้อง <button class="tts" data-say="ต้อง">🔊</button></span><span class="rom">dtɔ̂ng</span><span class="eng">must</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="ตอ">ต</span><span class="arrow">+</span><span class="part sound-part" data-say="ออ">อ</span><span class="arrow">+</span><span class="part sound-part" data-say="งอ">ง</span><span class="arrow">+</span><span class="part sound-part" data-say="ไม้โท">้</span><span class="arrow">→</span><button class="result tts" data-say="ต้อง"><span class="thai-lg">ต้อง</span><span class="rom">dtɔ̂ng</span><span class="eng">must</span></button></div>
 <p><span class="thai">ต</span> 中子音 + <span class="thai">้</span> → falling tone。</p>
 </div>
 <div class="rule-card">
 <h3>เรื่อง</h3>
-<div class="formula"><span class="part">ร</span><span class="arrow">+</span><span class="part">เ-ือ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">+</span><span class="part">่</span><span class="arrow">→</span><span class="result"><span class="thai-lg">เรื่อง <button class="tts" data-say="เรื่อง">🔊</button></span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="รอ">ร</span><span class="arrow">+</span><span class="part sound-part" data-say="เอือ">เ-ือ</span><span class="arrow">+</span><span class="part sound-part" data-say="งอ">ง</span><span class="arrow">+</span><span class="part sound-part" data-say="ไม้เอก">่</span><span class="arrow">→</span><button class="result tts" data-say="เรื่อง"><span class="thai-lg">เรื่อง</span><span class="rom">rʉ̂ang</span><span class="eng">matter</span></button></div>
 <p><span class="thai">ร</span> 低子音 + <span class="thai">่</span> → falling tone。</p>
 </div>
 <div class="rule-card">
 <h3>ขอ</h3>
-<div class="formula"><span class="part">ข</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ขอ <button class="tts" data-say="ขอ">🔊</button></span><span class="rom">khɔ̌ɔ</span><span class="eng">ask for</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="ขอ">ข</span><span class="arrow">+</span><span class="part sound-part" data-say="ออ">อ</span><span class="arrow">→</span><button class="result tts" data-say="ขอ"><span class="thai-lg">ขอ</span><span class="rom">khɔ̌ɔ</span><span class="eng">ask for</span></button></div>
 <p><span class="thai">ข</span> 高子音 + live no mark → rising tone。</p>
 </div>
 <div class="rule-card">
 <h3>สอง</h3>
-<div class="formula"><span class="part">ส</span><span class="arrow">+</span><span class="part">อ</span><span class="arrow">+</span><span class="part">ง</span><span class="arrow">→</span><span class="result"><span class="thai-lg">สอง <button class="tts" data-say="สอง">🔊</button></span><span class="rom">sɔ̌ɔng</span><span class="eng">two</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="สอ">ส</span><span class="arrow">+</span><span class="part sound-part" data-say="ออ">อ</span><span class="arrow">+</span><span class="part sound-part" data-say="งอ">ง</span><span class="arrow">→</span><button class="result tts" data-say="สอง"><span class="thai-lg">สอง</span><span class="rom">sɔ̌ɔng</span><span class="eng">two</span></button></div>
 <p><span class="thai">ส</span> 高子音 + live no mark → rising tone。</p>
 </div>
 <div class="rule-card">
 <h3>ซื้อ</h3>
-<div class="formula"><span class="part">ซ</span><span class="arrow">+</span><span class="part">ือ</span><span class="arrow">+</span><span class="part">้</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ซื้อ <button class="tts" data-say="ซื้อ">🔊</button></span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="ซอ">ซ</span><span class="arrow">+</span><span class="part sound-part" data-say="อือ">ือ</span><span class="arrow">+</span><span class="part sound-part" data-say="ไม้โท">้</span><span class="arrow">→</span><button class="result tts" data-say="ซื้อ"><span class="thai-lg">ซื้อ</span><span class="rom">sʉ́ʉ</span><span class="eng">buy</span></button></div>
 <p><span class="thai">ซ</span> 低子音 + <span class="thai">้</span> → high tone。</p>
 </div>
 <div class="rule-card">
 <h3>รัก</h3>
-<div class="formula"><span class="part">ร</span><span class="arrow">+</span><span class="part">ั</span><span class="arrow">+</span><span class="part">ก</span><span class="arrow">→</span><span class="result"><span class="thai-lg">รัก <button class="tts" data-say="รัก">🔊</button></span><span class="rom">rák</span><span class="eng">love</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="รอ">ร</span><span class="arrow">+</span><span class="part sound-part" data-say="อะ">ั</span><span class="arrow">+</span><span class="part sound-part" data-say="กอ">ก</span><span class="arrow">→</span><button class="result tts" data-say="รัก"><span class="thai-lg">รัก</span><span class="rom">rák</span><span class="eng">love</span></button></div>
 <p><span class="thai">ร</span> 低子音 + short dead syllable → high tone。</p>
 </div>
 <div class="rule-card">
 <h3>มาก</h3>
-<div class="formula"><span class="part">ม</span><span class="arrow">+</span><span class="part">า</span><span class="arrow">+</span><span class="part">ก</span><span class="arrow">→</span><span class="result"><span class="thai-lg">มาก <button class="tts" data-say="มาก">🔊</button></span><span class="rom">mâak</span><span class="eng">very; much</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="มอ">ม</span><span class="arrow">+</span><span class="part sound-part" data-say="อา">า</span><span class="arrow">+</span><span class="part sound-part" data-say="กอ">ก</span><span class="arrow">→</span><button class="result tts" data-say="มาก"><span class="thai-lg">มาก</span><span class="rom">mâak</span><span class="eng">very; much</span></button></div>
 <p><span class="thai">ม</span> 低子音 + long dead syllable → falling tone。</p>
 </div>
 <div class="rule-card">
 <h3>ผิด</h3>
-<div class="formula"><span class="part">ผ</span><span class="arrow">+</span><span class="part">ิ</span><span class="arrow">+</span><span class="part">ด</span><span class="arrow">→</span><span class="result"><span class="thai-lg">ผิด <button class="tts" data-say="ผิด">🔊</button></span><span class="rom">phìt</span><span class="eng">wrong</span></span></div>
+<div class="formula"><span class="part sound-part" data-say="ผอ">ผ</span><span class="arrow">+</span><span class="part sound-part" data-say="อิ">ิ</span><span class="arrow">+</span><span class="part sound-part" data-say="ดอ">ด</span><span class="arrow">→</span><button class="result tts" data-say="ผิด"><span class="thai-lg">ผิด</span><span class="rom">phìt</span><span class="eng">wrong</span></button></div>
 <p><span class="thai">ผ</span> 高子音 + dead syllable → low tone。</p>
 </div>
 </div>
@@ -1356,6 +1373,13 @@ document.addEventListener("click", e=>{
   if(ttsBtn){
     e.preventDefault();
     speakThai(ttsBtn.dataset.say || ttsBtn.textContent.trim());
+    return;
+  }
+
+  const soundPart = e.target.closest(".sound-part");
+  if(soundPart){
+    e.preventDefault();
+    speakThai(soundPart.dataset.say || soundPart.textContent.trim());
     return;
   }
 
